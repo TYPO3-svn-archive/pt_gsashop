@@ -21,9 +21,17 @@ ToDo: As of 08.12.09
 CHANGELOG
 ********************************************************************************
 
+v1.0.1dev:
+=========
++ (rk) CHG: "initialized" development version 1.0.1dev (v1.0.0 has been tagged in SVN and uploaded to TER before)
+
+
+
+
+
+
 v1.0.0: (=0.14.2final) 
 ======
-
 + (rk) CHG: updated extension dependencies, changed extension state to 'stable'
 + (rk) CHG: updated the extension manual to the current state of things, 
 + (rk) RFT: cleaned up DevDoc.txt
