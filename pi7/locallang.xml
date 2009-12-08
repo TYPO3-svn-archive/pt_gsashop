@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Language labels for plugin tx_ptgsashop_pi7</description>
+        <type>database</type>
+        <csh_table></csh_table>
+        <labelContext type="array">
+        </labelContext>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="box_header">Shopping Cart</label>
+            <label index="box_header_imgsrc">EXT:pt_gsashop/res/img/btn_cartbox_default.png</label>
+            <label index="cartlink_title">Display Shopping Cart</label>
+            <label index="cart_contents">Contents</label>
+            <label index="cart_positions">Positions</label>
+            <label index="cart_sum_total">Sum total</label>
+            <label index="cart_clear_button">Clear cart</label>
+            <label index="cart_clear_warning">Do you really want to empty the WHOLE CART?</label>
+            <label index="exception_catched">An error has occurred!</label>
+        </languageKey>
+        <languageKey index="de" type="array">
+            <label index="box_header">Warenkorb</label>
+            <label index="box_header_imgsrc">EXT:pt_gsashop/res/img/btn_cartbox_de.png</label>
+            <label index="cartlink_title">Warenkorb anzeigen</label>
+            <label index="cart_contents">Inhalt</label>
+            <label index="cart_positions">Positionen</label>
+            <label index="cart_sum_total">Summe</label>
+            <label index="cart_clear_button">Warenkorb leeren</label>
+            <label index="cart_clear_warning">Möchten Sie wirklich den KOMPLETTEN WARENKORB löschen?</label>
+            <label index="exception_catched">Ein Fehler ist aufgetreten!</label>
+        </languageKey>
+    </data>
+</T3locallang>

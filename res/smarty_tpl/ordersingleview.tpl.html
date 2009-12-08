@@ -1,0 +1,295 @@
+{* Smarty *}
+{* Default template for pt_gsashop "Order Singleview"; Author: Rainer Kuhn <kuhn@punkt.de>, since 2006-04-10 *}
+
+{****** HEADER ******}
+<p class="tx-ptgsashop-pi4-boxheader">{$ll_singleview_order_details}</p>
+
+<div class="tx-ptgsashop-pi4-boxborder">
+  {if $cond_workflowDynamicOrder}
+    <p>
+	    <span class="tx-ptgsashop-pi4-txt1">{$ll_singleview_updated}</span><br />
+	    <span class="tx-ptgsashop-pi4-txt2">{$ll_singleview_updated_notice}</span>
+    </p>
+  {/if}
+	<br />
+
+
+{****** BILLING DATA ******}
+    <table class="tx-ptgsashop-pi4-tablefixed">
+        
+        <tr>
+            <td {if $cond_workflowMode}colspan="2"{/if} class="tx-ptgsashop-pi4-tabletopheader">
+                <span class="tx-ptgsashop-pi4-txt1">{$ll_singleview_billing_data}</span>
+            </td>
+        </tr>
+    
+    {****** WORKFLOW MODE: CURRENT ORDER SUMS ******} 
+      {if $cond_workflowMode} 
+        <tr>
+            <td {if $cond_workflowMode}colspan="2"{/if} class="tx-ptgsashop-pi4-tableheader">
+                <span class="tx-ptgsashop-pi4-txt1">{$ll_singleview_billing_sum_total}</span>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" class="tx-ptgsashop-pi4-tablecell">
+                <span class="tx-ptgsashop-pi4-txt2">{$ll_singleview_sum_articles} </span>
+                <span class="tx-ptgsashop-pi4-txt2">[{$currenyCode}]</span>
+            </td>
+            <td align="right" valign="top" class="tx-ptgsashop-pi4-tablecell">
+                <span class="tx-ptgsashop-pi4-txt2">{$orderArticleSum}</span>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" class="tx-ptgsashop-pi4-tablecell">
+                <span class="tx-ptgsashop-pi4-txt2">{$ll_singleview_sum_service_charge} </span>
+                <span class="tx-ptgsashop-pi4-txt2">[{$currenyCode}]</span>
+            </td>
+            <td align="right" valign="top" class="tx-ptgsashop-pi4-tablecell">
+                <span class="tx-ptgsashop-pi4-txt2">{$orderDispatchSum}</span>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" class="tx-ptgsashop-pi4-tablecell">
+                <span class="tx-ptgsashop-pi4-txt1">{$ll_singleview_sum_total} </span>
+                <span class="tx-ptgsashop-pi4-txt2">[{$currenyCode}]</span><br />
+                <span class="tx-ptgsashop-pi4-txt3">{$ll_singleview_price_notice}</span>
+            </td>
+            <td align="right" valign="top" class="tx-ptgsashop-pi4-tablecell">
+                <span class="tx-ptgsashop-pi4-txt1">{$orderSumTotal}</span>
+            </td>
+        </tr>
+    
+    {****** ARCHIVE MODE: ARCHIVED ORDER SUMS ******} 
+      {else}
+        <tr>
+            <td {if $cond_workflowMode}colspan="2"{/if} class="tx-ptgsashop-pi4-tablecell">
+                <span class="tx-ptgsashop-pi4-txt2">{$ll_relatedDocNo}: </span>
+                <span class="tx-ptgsashop-pi4-txt1">{$archOrder_relatedDocNo}</span>
+            </td>
+        </tr>
+        <tr>
+            <td {if $cond_workflowMode}colspan="2"{/if} class="tx-ptgsashop-pi4-tablecell">
+                <span class="tx-ptgsashop-pi4-txt2">{$ll_singleview_billing_sum_net}: </span>
+                <span class="tx-ptgsashop-pi4-txt1">{$archOrder_orderSumNet} {$currenyCode}</span>
+            </td>
+        </tr>
+        <tr>
+            <td {if $cond_workflowMode}colspan="2"{/if} class="tx-ptgsashop-pi4-tablecell">
+                <span class="tx-ptgsashop-pi4-txt2">{$ll_singleview_billing_sum_gross}: </span>
+                <span class="tx-ptgsashop-pi4-txt1">{$archOrder_orderSumGross} {$currenyCode}</span>
+            </td>
+        </tr>
+      {/if}
+    
+  {****** ARBITRARY ADDITIONAL BILLING DATA (marker data expected as valid table rows!) ******}
+    
+        {$additionalBillingData}
+    
+    {****** ORDER BILLING ADDRESS ******}
+        <tr>
+            <td {if $cond_workflowMode}colspan="2"{/if} class="tx-ptgsashop-pi4-tableheader">
+                <span class="tx-ptgsashop-pi4-txt1">{$ll_singleview_billing_addr}</span>
+            </td>
+        </tr>
+        <tr>
+            <td {if $cond_workflowMode}colspan="2"{/if} class="tx-ptgsashop-pi4-tablecell">
+                <p class="tx-ptgsashop-pi4-txt2">
+                    {$billingAddr}
+                </p>
+            </td>
+        </tr>                
+        <tr>
+            <td {if $cond_workflowMode}colspan="2"{/if} class="tx-ptgsashop-pi4-tablecellblind" height="40">&nbsp;</td>
+        </tr>
+        
+        
+{****** DELIVERIES ******}
+    
+    {section name=delivery loop=$delArr}
+      
+      
+    {****** DELIVERY: delivery data ******}
+        
+        <tr>
+            <td {if $cond_workflowMode}colspan="2"{/if} class="tx-ptgsashop-pi4-tabletopheader">
+                <span class="tx-ptgsashop-pi4-txt1">
+                    {$delArr[delivery].ll_singleview_delivery_title}
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td {if $cond_workflowMode}colspan="2"{/if} class="tx-ptgsashop-pi4-tableheader">
+                <span class="tx-ptgsashop-pi4-txt1">{$ll_singleview_delivery_articles}</span>
+            </td>
+        </tr>
+    
+    
+  {****** DELIVERY: article rows ******}    
+  
+      {section name=article loop=$delArr[delivery].artRowArr}
+        
+        <tr>
+            <td nowrap="nowrap" class="tx-ptgsashop-pi4-tablecell">
+            
+                <span class="tx-ptgsashop-pi4-txt2">{$delArr[delivery].artRowArr[article].artDescription} </span><br />
+                <span class="tx-ptgsashop-pi4-txt3">{$ll_singleview_quantity}: </span> 
+                <span class="tx-ptgsashop-pi4-txt1">{$delArr[delivery].artRowArr[article].artQuantity} </span> 
+              {if $cond_workflowMode}
+                <span class="tx-ptgsashop-pi4-txt3">- {$ll_singleview_price}: </span> 
+                <span class="tx-ptgsashop-pi4-txt1">{$delArr[delivery].artRowArr[article].artPrice}</span> 
+              {/if}
+                <span class="tx-ptgsashop-pi4-txt3">- {$ll_singleview_artno_abbrev}: {$delArr[delivery].artRowArr[article].artNumber}</span>
+              {if $delArr[delivery].artRowArr[article].cond_fixedCost}
+                <br />
+                <span class="tx-ptgsashop-pi4-txt1">{$delArr[delivery].artRowArr[article].artFixedCostTotal}</span>
+                <span class="tx-ptgsashop-pi4-txt3">{$delArr[delivery].artRowArr[article].ll_singleview_artfixedcost_info}</span>
+              {/if}
+        
+            </td>
+            
+          {if $cond_workflowMode}
+            <td align="right" valign="top" class="tx-ptgsashop-pi4-tablecell">
+                <span class="tx-ptgsashop-pi4-txt2">{$delArr[delivery].artRowArr[article].artSubtotal}</span>
+            </td>
+          {/if}
+          
+        </tr>
+        
+      {/section}
+      
+  
+  {***** DELIVERY: row for dispatch cost and delivery sum total (only workflow mode) *****}
+       
+      {if $cond_workflowMode}
+      
+        <tr>
+            <td align="left" class="tx-ptgsashop-pi4-tablecell">
+                <span class="tx-ptgsashop-pi4-txt2">{$ll_singleview_service_charge} </span>
+                <span class="tx-ptgsashop-pi4-txt2">[{$currenyCode}]</span><br />
+                <span class="tx-ptgsashop-pi4-txt3">{$delArr[delivery].delDispatchCostTypeName}</span>
+            </td>
+            <td align="right" valign="top" class="tx-ptgsashop-pi4-tablecell">
+                <span class="tx-ptgsashop-pi4-txt2">
+                    {$delArr[delivery].delDispatchCost}
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" class="tx-ptgsashop-pi4-tablecell">
+                <span class="tx-ptgsashop-pi4-txt1">{$ll_singleview_delivery_sum} </span>
+                <span class="tx-ptgsashop-pi4-txt2">[{$currenyCode}]</span><br />
+                <span class="tx-ptgsashop-pi4-txt3">{$ll_singleview_price_notice}</span>
+            </td>
+            <td align="right" valign="top" class="tx-ptgsashop-pi4-tablecell">
+                <span class="tx-ptgsashop-pi4-txt1">{$delArr[delivery].delTotalSum}</span>
+            </td>
+        </tr>
+        
+      {/if}
+    
+    
+  {****** ARBITRARY ADDITIONAL DELIVERY DATA (marker data expected as valid table rows!) ******}
+    
+        {$delArr[delivery].additionalDeliveryData}
+    
+    
+  {***** DELIVERY: shipping address *****}
+        <tr>
+            <td {if $cond_workflowMode}colspan="2"{/if} class="tx-ptgsashop-pi4-tableheader">
+                <span class="tx-ptgsashop-pi4-txt1">{$ll_singleview_shipping_addr}</span>
+            </td>
+        </tr>
+        <tr>
+            <td {if $cond_workflowMode}colspan="2"{/if} class="tx-ptgsashop-pi4-tablecell">
+                <p class="tx-ptgsashop-pi4-txt2">
+                    {$delArr[delivery].delAddress}
+                </p>
+            </td>
+        </tr>                
+        <tr>
+            <td {if $cond_workflowMode}colspan="2"{/if} class="tx-ptgsashop-pi4-tablecellblind" height="40">&nbsp;</td>
+        </tr>
+    
+    {/section}
+    
+{****** /DELIVERIES ******}
+
+    </table>
+      
+      
+      
+{***** PAYMENT *****}
+    
+{if $cond_displayPaymentEditBox}
+    
+    <table class="tx-ptgsashop-pi4-tablefixed">
+        <tr>
+            <td class="tx-ptgsashop-pi4-tabletopheader">
+                <span class="tx-ptgsashop-pi4-txt1">{$ll_singleview_payment}</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tx-ptgsashop-pi4-tableheader">
+                <span class="tx-ptgsashop-pi4-txt1">{$ll_singleview_paymentMethod}</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tx-ptgsashop-pi4-tablecell">
+                <p class="tx-ptgsashop-pi4-txt2">
+                 {if $cond_paymentDirectDebit}
+                  {if $cond_paymentDdInland}
+                    {$ll_singleview_payment_bankAccountNo}: {$bankAccountNo}<br />
+                    {$ll_singleview_payment_bankCode}: {$bankCode}<br />
+                  {else}
+                    {$ll_singleview_payment_bankBic}: {$bankBic}<br />
+                    {$ll_singleview_payment_bankIban}: {$bankIban}<br />
+                  {/if}
+                    {$ll_singleview_payment_bankName}: {$bankName}<br />
+                    {$ll_singleview_payment_bankAccountHolder}: {$bankAccountHolder}<br />
+                    <br />
+                 {/if}
+                    {$ll_singleview_paymentNotice}
+                </p>
+            </td>
+        </tr>
+    </table>
+    <br /><br />
+    
+{/if}
+    
+    
+{****** FOOTER / USER INTERACTION BUTTONS ******}    
+        
+    <form action="{$faction_singleview}" method="post" class="tx-ptgsashop-pi4-formdefault">
+        <input type="hidden" name="{$fname_hiddenOrderWrapperId}" value="{$orderWrapperId}" />
+        {$fhidden_reloadHandlerToken}
+        <input type="submit" name="{$fname_returnToListViewButton}" value="{$ll_singleview_button_listview}" class="tx-ptgsashop-pi4-button1" />
+        <br /><br />
+
+        <hr class="tx-ptgsashop-pi4-hr1" />
+        
+      {if $cond_workflowMode} 
+    
+        <p class="tx-ptgsashop-pi4-boxheader">[{$ll_workflow_statuscode}: {$wfsStatusCode}]</p>
+        <p class="tx-ptgsashop-pi4-txt1">{$wfsLabelChoice}</p>
+        <input type="submit" name="{$fname_approveButton}" value="{$fval_approveButton}" class="tx-ptgsashop-pi4-buttonspecial" />
+        <input type="submit" name="{$fname_denyButton}" value="{$fval_denyButton}" class="tx-ptgsashop-pi4-buttonspecial" />
+        
+      {else}
+        
+        {* MESSAGE BOX (conditional)*}
+          {if $cond_displayMsgBox}
+              {$msgBox}<br />             
+          {/if}
+          
+        <input type="submit" name="{$fname_reorderButton}" value="{$ll_singleview_button_reorder}" class="tx-ptgsashop-pi4-buttonspecial" 
+         {$onClickAttribute_reorder}> *
+         
+        <p class="tx-ptgsashop-pi4-txt3">* {$ll_singleview_reorder_notice}</p>
+    
+      {/if}
+
+    </form>
+    <br />
+
+</div>

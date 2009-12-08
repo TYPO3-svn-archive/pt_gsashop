@@ -1,0 +1,51 @@
+{* Smarty *}
+{* Default template for pt_gsashop_pi7 "Cart Box"; Author: Rainer Kuhn <kuhn@punkt.de>, since 2006-12-18 *}
+
+<form action="{$faction_cartbox}" method="post" class="tx-ptgsashop-pi7-formdefault">
+    
+    <table class="tx-ptgsashop-pi7-tabledefault">
+		
+    {if $cond_displayHeader}
+		<tr>
+            <td align="left" class="tx-ptgsashop-pi7-tableheader">
+              {if $cond_useImageHeader}
+                <a href="{$cartlinkTarget}" title="{$ll_cartlink_title}">
+                    <img src="{$ll_box_header_imgsrc}" class="tx-ptgsashop-pi7-imglinkheader" />
+                </a>
+              {else}
+                <a href="{$cartlinkTarget}" title="{$ll_cartlink_title}" class="tx-ptgsashop-pi7-textlinkheader">{$ll_box_header}</a>
+              {/if}
+            </td>
+		</tr>
+    {/if}
+    {if $cond_displayPositions}
+        <tr>
+            <td align="left" class="tx-ptgsashop-pi7-tablecell">
+                <span class="tx-ptgsashop-pi7-txt2">{$ll_cart_contents}</span>: 
+                <span class="tx-ptgsashop-pi7-txt1">{$qtyCartPos}</span>
+                <span class="tx-ptgsashop-pi7-txt2">{$ll_cart_positions}</span>
+            </td>
+		</tr>
+    {/if}
+    {if $cond_displayCartSum}
+        <tr>
+            <td align="left" class="tx-ptgsashop-pi7-tablecell">
+                <span class="tx-ptgsashop-pi7-txt2">{$ll_cart_sum_total}</span>:
+                <span class="tx-ptgsashop-pi7-txt1">{$itemsSumTotal}</span>
+                <span class="tx-ptgsashop-pi7-txt1">{$currencyCode}</span>
+            </td>
+		</tr>
+    {/if}
+    {if $cond_displayClearCartButton}
+        <tr>
+            <td align="left" class="tx-ptgsashop-pi7-tablecell">
+                <input type="submit" name="{$fname_clearButton}" value="{$ll_cart_clear_button}" class="tx-ptgsashop-pi7-button1"
+                 onclick="return confirm('{$ll_cart_clear_warning}')">
+            </td>
+		</tr>
+    {/if}
+        
+    </table>
+    <input type="hidden" name="no_cache" value="1" />
+    
+</form>

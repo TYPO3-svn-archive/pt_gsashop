@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Language labels for plugin tx_ptgsashop_pi1</description>
+        <type>database</type>
+        <csh_table></csh_table>
+        <labelContext type="array">
+        </labelContext>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="cart_header_quantity">Quantity</label>
+            <label index="cart_header_artdescr">Article description</label>
+            <label index="cart_header_artno">Art. No.</label>
+            <label index="cart_header_price">Price</label>
+            <label index="cart_header_fixedcost">Fixed cost</label>
+            <label index="cart_header_sum">Sum</label>
+            <label index="cart_header_net">excl. VAT</label>
+            <label index="cart_header_gross">incl. VAT</label>
+            <label index="cart_header_action"> </label>
+            <label index="cart_fixedcost_info">one-time fixed cost* independently of article quantity</label>
+            <label index="cart_article_link_title">View article</label>
+            <label index="cart_price_notice_net">All prices are net prices (excl. VAT)</label>
+            <label index="cart_price_notice_gross">All prices are gross prices (incl. VAT)</label>
+            <label index="cart_price_notice_currency">All prices are %s prices</label>
+            <label index="cart_sum_total">Sum total</label>
+            <label index="cart_empty">Your shopping cart is empty!</label>
+            <label index="cart_del_button">Delete</label>
+            <label index="cart_clear_button">Clear all</label>
+            <label index="cart_clear_warning">Do you really want to empty the WHOLE CART?</label>
+            <label index="cart_upd_button">Update</label>
+            <label index="cart_checkout_button">CHECK OUT</label>
+            <label index="cart_return_orderpage">Return to last order page</label>
+            <label index="cart_msgbox_max_amount_1">The quantity of the article &quot;%1$s&quot; is limited to %2$s per order!</label>
+            <label index="cart_msgbox_max_amount_2">The items's quantity in your cart has been adjusted.</label>
+            <label index="cart_msgbox_required_articles_AND_1">The following items in your cart depend on the item &quot;%s&quot;:</label>
+            <label index="cart_msgbox_required_articles_AND_2">Please first delete these items from your cart in oder to delete &quot;%s&quot;.</label>
+            <label index="cart_msgbox_required_articles_OR_1">The item &quot;%s&quot; contained in your cart requires one of he following items:</label>
+            <label index="cart_msgbox_required_articles_OR_2">You may delete the item &quot;%1$s&quot; from your cart in oder to to delete &quot;%2$s&quot;.</label>
+            <label index="login_header">Customer Login</label>
+            <label index="login_username">Username</label>
+            <label index="login_password">Password</label>
+            <label index="login_button">Login</label>
+            <label index="login_new_customer">New customer?</label>
+            <label index="login_goto_regpage">Please go to the registration page.</label>
+            <label index="login_forgot_pw">Forgot your password or username?</label>
+            <label index="login_goto_forgotPwPage">Request new login data</label>
+            <label index="login_not_gsa_enabled">Your login isn't yet activated for shop orders. Please go to the registration page to complete your data.</label>
+            <label index="login_not_gsa_approved">Your login isn't approved for shop orders currently. Please contact the shop operator.</label>
+            <label index="artrel_msgbox_added_to_cart">The article &quot;%s&quot; has been added to the shopping cart.</label>
+            <label index="artrel_msgbox_not_added_to_cart">The article &quot;%s&quot; has NOT been added to the shopping cart.</label>
+            <label index="artrel_msgbox_not_orderable">The article &quot;%s&quot; cannot be ordered yet.</label>
+            <label index="artrel_artno">Art. No.</label>
+            <label index="artrel_notice_max_amount">The requested article's amount is limited to %s per order!</label>
+            <label index="artrel_notice_exclusion_articles_1">The requested article must not be ordered in combination with the following articles:</label>
+            <label index="artrel_notice_exclusion_articles_2">Please delete the above mentioned article(s) from your cart to order the article &quot;%s&quot;, or delete &quot;%s&quot; from your cart.</label>
+            <label index="artrel_notice_required_articles_1_and">Ordering the requested article requires the following article(s) to be contained in your cart:</label>
+            <label index="artrel_notice_required_articles_1_or">Ordering the requested article requires the one of following articles to be contained in your cart:</label>
+            <label index="artrel_notice_required_articles_2">Please complete your cart accordingly to order the article &quot;%s&quot;, or delete &quot;%s&quot; from your cart.</label>
+            <label index="artrel_required_articles_add_to_cart">Add to shopping cart</label>
+            <label index="artrel_required_articles_view_article">View article</label>
+            <label index="artrel_required_articles_price">Price</label>
+            <label index="artrel_optional_support_notice"></label>
+            <label index="exception_catched">An error has occurred!</label>
+        </languageKey>
+        <languageKey index="de" type="array">
+            <label index="cart_header_quantity">Anzahl</label>
+            <label index="cart_header_artdescr">Artikel-Bezeichnung</label>
+            <label index="cart_header_artno">Art.-Nr.</label>
+            <label index="cart_header_price">Preis</label>
+            <label index="cart_header_fixedcost">Fixkosten</label>
+            <label index="cart_header_sum">Summe</label>
+            <label index="cart_header_action"> </label>
+            <label index="cart_header_net">exkl. MwSt.</label>
+            <label index="cart_header_gross">inkl. MwSt.</label>
+            <label index="cart_fixedcost_info">einmalige Fixkosten* unabhängig von der Artikelanzahl</label>
+            <label index="cart_article_link_title">Artikel anzeigen</label>
+            <label index="cart_price_notice_net">Alle Preise sind Netto-Preise (exkl. MwSt.)</label>
+            <label index="cart_price_notice_gross">Alle Preise sind Brutto-Preise (inkl. MwSt.)</label>
+            <label index="cart_price_notice_currency">Alle Preise sind %s Preise</label>
+            <label index="cart_sum_total">Gesamtsumme</label>
+            <label index="cart_empty">Ihr Warenkorb ist leer!</label>
+            <label index="cart_del_button">Löschen</label>
+            <label index="cart_clear_button">Warenkorb leeren</label>
+            <label index="cart_clear_warning">Möchten Sie wirklich den KOMPLETTEN WARENKORB löschen?</label>
+            <label index="cart_upd_button">Aktualisieren</label>
+            <label index="cart_checkout_button">ZUR KASSE</label>
+            <label index="cart_return_orderpage">Zurück zur letzten Bestell-Seite</label>
+            <label index="cart_msgbox_max_amount_1">Der Artikel &quot;%1$s&quot; kann pro Bestellung höchstens %2$s mal bestellt werden.</label>
+            <label index="cart_msgbox_max_amount_2">Die Anzahl im Warenkorb wurde entsprechend angepasst.</label>
+            <label index="cart_msgbox_required_articles_AND_1">Vom Artikel &quot;%s&quot; hängen folgende im Warenkorb befindliche Artikel ab:</label>
+            <label index="cart_msgbox_required_articles_AND_2">Bitte entfernen Sie zuerst die oben genannten Artikel aus Ihrem Warenkorb, um &quot;%s&quot; zu löschen.</label>
+            <label index="cart_msgbox_required_articles_OR_1">Für den in Ihrem Warenkorb befindlichen Artikel &quot;%s&quot; wird einer der folgenden Artikel benötigt:</label>
+            <label index="cart_msgbox_required_articles_OR_2">Bitte entfernen Sie gegebenfalls zuerst den Artikel &quot;%1$s&quot;, um den Artikel &quot;%2$s&quot; löschen zu können.</label>
+            <label index="login_header">Kunden-Login</label>
+            <label index="login_username">Benutzername</label>
+            <label index="login_password">Passwort</label>
+            <label index="login_button">Login</label>
+            <label index="login_new_customer">Neukunde?</label>
+            <label index="login_goto_regpage">Bitte gehen Sie zur Registrierungs-Seite</label>
+            <label index="login_forgot_pw">Kennwort oder Benutzername vergessen?</label>
+            <label index="login_goto_forgotPwPage">Neue Login-Daten anfordern</label>
+            <label index="login_not_gsa_enabled">Ihr Login wurde noch nicht für Shop-Bestellungen aktiviert. Bitte gehen Sie zur Registrierungs-Seite, um Ihre Daten zu vervollständigen.</label>
+            <label index="login_not_gsa_approved">Ihr Login ist derzeit nicht für Shop-Bestellungen freigeschaltet. Bitte kontaktieren Sie den Shop-Betreiber.</label>
+            <label index="artrel_msgbox_added_to_cart">Der Artikel &quot;%s&quot; wurde in den Warenkorb gelegt.</label>
+            <label index="artrel_msgbox_not_added_to_cart">Der Artikel &quot;%s&quot; wurde NICHT in den Warenkorb gelegt.</label>
+            <label index="artrel_msgbox_not_orderable">Der Artikel &quot;%s&quot; kann momentan nicht bestellt werden.</label>
+            <label index="artrel_artno">Art.-Nr.</label>
+            <label index="artrel_notice_max_amount">Der gewünschte Artikel kann pro Bestellung höchstens %s mal bestellt werden!</label>
+            <label index="artrel_notice_exclusion_articles_1">Der gewünschte Artikel kann nicht gleichzeitig bestellt werden mit:</label>
+            <label index="artrel_notice_exclusion_articles_2">Bitte entfernen Sie den/die oben genannten Artikel aus Ihrem Warenkorb, um den Artikel &quot;%s&quot; zu bestellen, oder löschen Sie &quot;%s&quot; aus dem Warenkorb.</label>
+            <label index="artrel_notice_required_articles_1_and">Der gewünschte Artikel kann nur bestellt werden, wenn folgende(r) Artikel im Warenkorb enthalten ist/sind:</label>
+            <label index="artrel_notice_required_articles_1_or">Der gewünschte Artikel kann nur bestellt werden, wenn einer der folgenden Artikel im Warenkorb enthalten ist:</label>
+            <label index="artrel_notice_required_articles_2">Bitte ergänzen Sie Ihrem Warenkorb entsprechend, um den Artikel &quot;%s&quot; zu bestellen, oder löschen Sie &quot;%s&quot; aus dem Warenkorb.</label>
+            <label index="artrel_required_articles_add_to_cart">In den Warenkorb legen</label>
+            <label index="artrel_required_articles_view_article">Artikel anzeigen</label>
+            <label index="artrel_required_articles_price">Preis</label>
+            <label index="artrel_optional_support_notice"></label>
+            <label index="exception_catched">Ein Fehler ist aufgetreten!</label>
+        </languageKey>
+    </data>
+</T3locallang>

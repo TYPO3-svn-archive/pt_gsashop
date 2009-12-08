@@ -1,0 +1,139 @@
+{* Smarty *}
+{* Default template for pt_gsashop "Article Infobox Form"; Author: Rainer Kuhn <kuhn@punkt.de>, since 2006-03-17 *}
+{* $Id: articlebox.tpl.html,v 1.16 2009/07/28 08:39:44 ry37 Exp $ *}
+
+
+
+<table class="tx-ptgsashop-pi2-boxtable{$class_tableWidth}">
+        
+        <tr>
+            <td valign="bottom" class="tx-ptgsashop-pi2-boxheader">
+                {if $cond_articleDisplayUrl && $singleViewUrl != ''}
+                    {if $cond_articleDisplayDescription}
+                        <a href="{$singleViewUrl}"><span class="tx-ptgsashop-pi2-txt1">{$articleDescription}</span></a>&nbsp;
+                    {/if}
+                {else}
+                    {if $cond_articleDisplayDescription}
+                        <span class="tx-ptgsashop-pi2-txt1">{$articleDescription}</span>&nbsp;
+                    {/if}
+                {/if}
+                {if $cond_articleDisplayArticleno}
+                    <span class="tx-ptgsashop-pi2-txt2">({$ll_artNo}: {$articleNo})</span>
+                {/if}
+            </td>
+            <td valign="bottom" align="right" class="tx-ptgsashop-pi2-boxheader">
+                <form action="{$faction_addToCart}" method="post" class="tx-ptgsashop-pi2-formdefault">
+                    {if $cond_articleDisplayPrice}
+                        <span class="tx-ptgsashop-pi2-txt2">{$ll_price}</span>
+                        <span class="tx-ptgsashop-pi2-txt1">{$articlePrice}</span>
+                    {/if}
+                    <input type="hidden" name="no_cache" value="1" />
+                    <input type="hidden" name="{$fname_articleId}" value="{$fval_articleId}" />
+                    {$fhidden_reloadHandlerToken}
+                        {if $cond_articleDisplayOrderbutton}
+                            <input type="image" src="{$imgsrc_cartButton}" name="{$fname_cartButton}" title="{$ll_titleCartButton}" />
+                        {/if}
+                    {if $cond_articleDisplayCartqty}
+                        <span class="tx-ptgsashop-pi2-txt2" title="{$ll_titleCartQty}">({$cartArticleQty})</span>
+                    {/if}
+                    {if $cond_articleDisplayRemovebutton}
+                        {if $cond_article_in_cart}
+                            <input type="image" src="{$imgsrc_removeButton}" name="{$fname_removeButton}" title="{$ll_titleRemoveButton}" />
+                        {else}
+                            <img src="typo3conf/ext/pt_gsashop/res/img/empty.gif" {$emptygif_attributes} />
+                        {/if}
+                    {/if}
+                </form>
+            </td>
+        </tr>
+        
+    {if $cond_fixedCost}
+        <tr>
+            <td colspan="2" class="tx-ptgsashop-pi2-boxcell">
+                <span class="tx-ptgsashop-pi2-txt1">{$artFixedCostTotal}</span>
+                <span class="tx-ptgsashop-pi2-txt2">{$ll_artfixedcost_info}</span>
+            </td>
+        </tr>
+    {/if}
+    
+    {if $cond_articleDisplayMatch1}
+        <tr>
+            <td colspan="2" class="tx-ptgsashop-pi2-boxcell">
+                <span class="tx-ptgsashop-pi2-txt2">{$articleMatch1}</span>
+            </td>
+        </tr>
+    {/if}
+    
+    {if $cond_articleDisplayMatch2}
+        <tr>
+            <td colspan="2" class="tx-ptgsashop-pi2-boxcell">
+                <span class="tx-ptgsashop-pi2-txt2">{$articleMatch2}</span>
+            </td>
+        </tr>
+    {/if}
+    
+    {if $cond_articleDisplayDeftext}
+        <tr>
+            <td colspan="2" class="tx-ptgsashop-pi2-boxcell">
+                <span class="tx-ptgsashop-pi2-txt2">{$articleDefText}</span>
+            </td>
+        </tr>
+    {/if}
+    
+    {if $cond_articleDisplayAlttext}
+        <tr>
+            <td colspan="2" class="tx-ptgsashop-pi2-boxcell">
+                <span class="tx-ptgsashop-pi2-txt2">{$articleAltText}</span>
+            </td>
+        </tr>
+    {/if}
+    
+    {if $cond_articleDisplayImg}
+        <!-- old images (from GSA) 
+        <tr>
+            <td colspan="2" class="tx-ptgsashop-pi2-boxcell">
+                <img src="{$imgsrc_articleImg}" width="{$width_articleImg}" height="{$height_articleImg}" />
+            </td>
+        </tr>
+        -->
+        <!-- new images (from TYPO3) -->
+        <tr>
+            <td colspan="2" class="tx-ptgsashop-pi2-boxcell">
+                {foreach from=$images item=image}
+                    {$image.img}
+                {/foreach}
+            </td>
+        </tr> 
+    {/if}
+    
+    {if $cond_articleDisplayPricescales}
+        <tr>
+            <td colspan="2" class="tx-ptgsashop-pi2-boxcell">
+                <table class="tx-ptgsashop-pi2-boxtable">
+                        <tr>
+                            <th valign="bottom" class="tx-ptgsashop-pi2-boxheader">{$ll_pricescales_qty}</th>
+                            <th valign="bottom" class="tx-ptgsashop-pi2-boxheader">{$ll_pricescales_price}</th>
+                        </tr>
+                    {foreach from=$articlePriceScales item=price key=quantity}
+                        <tr>
+                            <td class="tx-ptgsashop-pi2-boxcell">{$quantity}</td>
+                            <td class="tx-ptgsashop-pi2-boxcell">{$price}</td>
+                        </tr>
+                    {/foreach}
+                </table>    
+            </td>
+        </tr>    
+    {/if}
+    
+    {****** ARBITRARY ADDITIONAL ARTICLE DATA ******}
+    
+        {$additionalArticleData} {*** marker data expected as valid HTML table rows! ***}
+    
+</table>
+
+
+{if $cond_articleDisplayCartlink}
+    <a href="{$href_cartPage}" class="tx-ptgsashop-pi2-link">{$ll_cartLink}</a>
+{/if}
+
+

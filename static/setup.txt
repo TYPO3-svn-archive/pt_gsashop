@@ -1,0 +1,356 @@
+/**
+ * all settings assigned like {$plugin.tx_ptgsashop.*} originate from /static/constants.txt
+ * 
+ * $Id: setup.txt,v 1.104 2008/11/13 15:12:21 ry37 Exp $
+ */
+
+
+// config settings for the extension's resource classes (not FE plugin related)
+config.tx_ptgsashop {
+
+    cacheArticlesStoragePid = {$plugin.tx_ptgsashop.cacheArticlesStoragePid}
+    articleImageStoragePid = {$plugin.tx_ptgsashop.articleImageStoragePid}
+    orderStoragePid = {$plugin.tx_ptgsashop.orderStoragePid}
+    articleSingleViewPage = {$plugin.tx_ptgsashop.articleSingleViewPage}
+    orderPage = {$plugin.tx_ptgsashop.orderPage}
+    orderConfirmPage = {$plugin.tx_ptgsashop.orderConfirmPage}
+    paymentPage = {$plugin.tx_ptgsashop.paymentPage}
+    workflowPage = {$plugin.tx_ptgsashop.workflowPage}
+    
+    md5SecurityCheckSalt = {$plugin.tx_ptgsashop.md5SecurityCheckSalt}
+    shopName = {$plugin.tx_ptgsashop.shopName}
+    useSupplierControl = {$plugin.tx_ptgsashop.useSupplierControl}
+    displayPaymentSumByDefault = {$plugin.tx_ptgsashop.displayPaymentSumByDefault}
+    scalePriceQtyTolerance = {$plugin.tx_ptgsashop.scalePriceQtyTolerance}
+    custSpecPriceOverridesDefaultPrice = {$plugin.tx_ptgsashop.custSpecPriceOverridesDefaultPrice}
+    enableArticleRelations = {$plugin.tx_ptgsashop.enableArticleRelations}
+    currencyCode = {$plugin.tx_ptgsashop.currencyCode}
+    usePricesWithMoreThanTwoDecimals = {$plugin.tx_ptgsashop.usePricesWithMoreThanTwoDecimals}
+    
+    useAutomaticInvoiceBooking = {$plugin.tx_ptgsashop.useAutomaticInvoiceBooking}
+    enableExtendedPaymentChoice = {$plugin.tx_ptgsashop.enableExtendedPaymentChoice}
+    shopOperatorName = {$plugin.tx_ptgsashop.shopOperatorName}
+    shopOperatorStreetNo = {$plugin.tx_ptgsashop.shopOperatorStreetNo}
+    shopOperatorZip = {$plugin.tx_ptgsashop.shopOperatorZip}
+    shopOperatorCity = {$plugin.tx_ptgsashop.shopOperatorCity}
+    shopOperatorCountryCode = {$plugin.tx_ptgsashop.shopOperatorCountryCode}
+    shopOperatorEmail = {$plugin.tx_ptgsashop.shopOperatorEmail}
+	shopOperatorBankName = {$plugin.tx_ptgsashop.shopOperatorBankName}
+	shopOperatorBankCode = {$plugin.tx_ptgsashop.shopOperatorBankCode}
+	shopOperatorBankAccountNo = {$plugin.tx_ptgsashop.shopOperatorBankAccountNo}
+    shopOperatorBankBic = {$plugin.tx_ptgsashop.shopOperatorBankBic}
+    shopOperatorBankIban = {$plugin.tx_ptgsashop.shopOperatorBankIban}
+    
+    articleDescriptionSourceField = {$plugin.tx_ptgsashop.articleDescriptionSourceField}
+    dispatchTaxCode = {$plugin.tx_ptgsashop.dispatchTaxCode}
+    gsaVirtualTableOpNr = {$plugin.tx_ptgsashop.gsaVirtualTableOpNr}
+    gsaVirtualOpNrMin = {$plugin.tx_ptgsashop.gsaVirtualOpNrMin}
+    gsaCreateDeliveryReceipt = {$plugin.tx_ptgsashop.gsaCreateDeliveryReceipt}
+    gsaDispatchTypeCostFree = {$plugin.tx_ptgsashop.gsaDispatchTypeCostFree}
+    gsaDispatchTypeInlandNet = {$plugin.tx_ptgsashop.gsaDispatchTypeInlandNet}
+    gsaDispatchTypeInlandGross = {$plugin.tx_ptgsashop.gsaDispatchTypeInlandGross}
+    gsaDispatchTypeAbroadNet = {$plugin.tx_ptgsashop.gsaDispatchTypeAbroadNet}
+    gsaDispatchTypeAbroadGross = {$plugin.tx_ptgsashop.gsaDispatchTypeAbroadGross}
+    
+    templateFileFinalOrderMail = {$plugin.tx_ptgsashop.templateFileFinalOrderMail}
+    templateCharsetFinalOrderMail = {$plugin.tx_ptgsashop.templateCharsetFinalOrderMail}
+    orderEmailSender = {$plugin.tx_ptgsashop.orderEmailSender}
+    orderEmailRecipient = {$plugin.tx_ptgsashop.orderEmailRecipient}
+    orderConfirmationEmailBcc = {$plugin.tx_ptgsashop.orderConfirmationEmailBcc}
+    orderConfirmationEmailReplyTo = {$plugin.tx_ptgsashop.orderConfirmationEmailReplyTo}
+    sendFinalOrderEmailToCustomer = {$plugin.tx_ptgsashop.sendFinalOrderEmailToCustomer}
+    
+    enableOrderWorkflow = {$plugin.tx_ptgsashop.enableOrderWorkflow}
+    
+    # typolink object for article single view
+    articleSingleViewTypoLink {
+        parameter = {$plugin.tx_ptgsashop.articleSingleViewPage}
+    }
+}
+
+// settings for pi1 (shopping cart plugin)
+plugin.tx_ptgsashop_pi1 {
+    
+    feUsersSysfolderPid = {$plugin.tx_ptgsashop.feUsersSysfolderPid}
+    feUserRegPage = {$plugin.tx_ptgsashop.feUserRegPage}
+    orderPage = {$plugin.tx_ptgsashop.orderPage}
+    forgotPwPage = {$plugin.tx_ptgsashop.forgotPwPage}
+    
+    enableArticleRelations = {$plugin.tx_ptgsashop.enableArticleRelations}
+    currencyCode = {$plugin.tx_ptgsashop.currencyCode}
+
+    imgAddToCartButtonArtRelCheck = {$plugin.tx_ptgsashop.imgAddToCartButtonArtRelCheck}
+    displayClearCartButton = {$plugin.tx_ptgsashop.displayClearCartButton}
+    displayCartArticleLinks = {$plugin.tx_ptgsashop.displayCartArticleLinks}
+    addToCartAction = {$plugin.tx_ptgsashop.addToCartAction}
+    artrelReqUseLogicalOr = {$plugin.tx_ptgsashop.artrelReqUseLogicalOr}
+    
+    templateFileCart = {$plugin.tx_ptgsashop.templateFileCart}
+    templateFileCheckoutLogin = {$plugin.tx_ptgsashop.templateFileCheckoutLogin}
+    templateFileArticleConfirmation = {$plugin.tx_ptgsashop.templateFileArticleConfirmation}
+    
+}
+
+// settings for pi2 (article box plugin)
+plugin.tx_ptgsashop_pi2 {
+    
+    shoppingcartPage = {$plugin.tx_ptgsashop.shoppingcartPage}
+    
+    enableArticleRelations = {$plugin.tx_ptgsashop.enableArticleRelations}
+    currencyCode = {$plugin.tx_ptgsashop.currencyCode}
+    md5SecurityCheckSalt = {$plugin.tx_ptgsashop.md5SecurityCheckSalt}
+    
+    imgAddToCartButtonArticleBox = {$plugin.tx_ptgsashop.imgAddToCartButtonArticleBox}
+    imgRemoveFromCartButtonArticleBox = {$plugin.tx_ptgsashop.imgRemoveFromCartButtonArticleBox}
+    addToCartAction = {$plugin.tx_ptgsashop.addToCartAction}
+    enableXssSecurityForArticleText = {$plugin.tx_ptgsashop.enableXssSecurityForArticleText}
+    enableRteForArticleText = {$plugin.tx_ptgsashop.enableRteForArticleText}
+    
+    templateFileArticleBox = {$plugin.tx_ptgsashop.templateFileArticleBox}
+    templateFileArticleSingleView = {$plugin.tx_ptgsashop.templateFileArticleSingleView}
+    
+    articleDisplayDescription = {$plugin.tx_ptgsashop.articleDisplayDescription}
+    articleDisplayArticleno = {$plugin.tx_ptgsashop.articleDisplayArticleno}
+    articleDisplayPrice = {$plugin.tx_ptgsashop.articleDisplayPrice}
+    articleDisplayCartqty =  {$plugin.tx_ptgsashop.articleDisplayCartqty}
+    articleDisplayRemovebutton = {$plugin.tx_ptgsashop.articleDisplayRemovebutton}
+    articleDisplayMatch1 = {$plugin.tx_ptgsashop.articleDisplayMatch1}
+    articleDisplayMatch2 = {$plugin.tx_ptgsashop.articleDisplayMatch2}
+    articleDisplayDeftext = {$plugin.tx_ptgsashop.articleDisplayDeftext}
+    articleDisplayAlttext = {$plugin.tx_ptgsashop.articleDisplayAlttext}
+    articleDisplayImg = {$plugin.tx_ptgsashop.articleDisplayImg}
+    articleDisplayCartlink = {$plugin.tx_ptgsashop.articleDisplayCartlink}
+    articleDisplayBoxdefault = {$plugin.tx_ptgsashop.articleDisplayBoxdefault}
+    articleDisplayPricescales = {$plugin.tx_ptgsashop.articleDisplayPricescales}
+    articleDisplayUrl = {$plugin.tx_ptgsashop.articleDisplayUrl}
+    articleDisplayOrderbutton = {$plugin.tx_ptgsashop.articleDisplayOrderbutton}
+    
+    imageConf {
+		file {
+			width = 400m
+			height = 400m
+			format = jpg
+			# backColor = #FBE59C
+			quality = 95
+		}
+		imageLinkWrap = 1
+		imageLinkWrap {
+	        enable = 1
+	        JSwindow = 1
+	        bodyTag = <body bgColor="#cccccc" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+	        width = 600m
+	        height = 600m
+	        # title = pt_gsashop
+	        JSwindow.expand = 0,0
+	        wrap = <a href="javascript:close();"> | </a>
+	  	}
+	}
+    
+}
+
+// settings for pi3 (order plugin)
+plugin.tx_ptgsashop_pi3 {
+    
+    shoppingcartPage = {$plugin.tx_ptgsashop.shoppingcartPage}
+    userAccountPage = {$plugin.tx_ptgsashop.userAccountPage}
+    feUserRegPage = {$plugin.tx_ptgsashop.feUserRegPage}
+    termsCondPage = {$plugin.tx_ptgsashop.termsCondPage}
+    withdrawalPage = {$plugin.tx_ptgsashop.withdrawalPage}
+    
+    shopOperatorName = {$plugin.tx_ptgsashop.shopOperatorName}
+    orderEmailRecipient = {$plugin.tx_ptgsashop.orderEmailRecipient}
+    orderConfirmationEmailBcc = {$plugin.tx_ptgsashop.orderConfirmationEmailBcc}
+    orderConfirmationEmailReplyTo = {$plugin.tx_ptgsashop.orderConfirmationEmailReplyTo}
+    orderEmailSender = {$plugin.tx_ptgsashop.orderEmailSender}
+    sendFinalOrderEmailToCustomer = {$plugin.tx_ptgsashop.sendFinalOrderEmailToCustomer}
+    currencyCode = {$plugin.tx_ptgsashop.currencyCode}
+    md5SecurityCheckSalt = {$plugin.tx_ptgsashop.md5SecurityCheckSalt}
+    
+    enableExtendedPaymentChoice = {$plugin.tx_ptgsashop.enableExtendedPaymentChoice}
+    enableSimpleCcPaymentChoice = {$plugin.tx_ptgsashop.enableSimpleCcPaymentChoice}
+    displayPaymentSumByDefault = {$plugin.tx_ptgsashop.displayPaymentSumByDefault}
+    allowMultipleDeliveries = {$plugin.tx_ptgsashop.allowMultipleDeliveries}
+    allowBillingAddrChange = {$plugin.tx_ptgsashop.allowBillingAddrChange}
+    allowShippingAddrChange = {$plugin.tx_ptgsashop.allowShippingAddrChange}
+    enableArticleDeliveryDate = {$plugin.tx_ptgsashop.enableArticleDeliveryDate}
+
+    templateFileOrderOverview = {$plugin.tx_ptgsashop.templateFileOrderOverview}
+    templateFileArticleDistribution = {$plugin.tx_ptgsashop.templateFileArticleDistribution}
+    templateFileFinalOrderMail = {$plugin.tx_ptgsashop.templateFileFinalOrderMail}
+    templateCharsetFinalOrderMail = {$plugin.tx_ptgsashop.templateCharsetFinalOrderMail}
+    templateFileOrderError = {$plugin.tx_ptgsashop.templateFileOrderError}
+    
+    staticCountriesLang = {$plugin.tx_ptgsashop.staticCountriesLang}
+    
+    enableOrderWorkflow = {$plugin.tx_ptgsashop.enableOrderWorkflow}
+    workflowInitialStatusCode = {$plugin.tx_ptgsashop.workflowInitialStatusCode}
+    workflowFinishStatusCode = {$plugin.tx_ptgsashop.workflowFinishStatusCode}
+
+}
+
+// settings for pi4 (order archive plugin)
+plugin.tx_ptgsashop_pi4 {
+
+    shopOperatorGroupUid = {$plugin.tx_ptgsashop.shopOperatorGroupUid}
+    orderPage = {$plugin.tx_ptgsashop.orderPage}
+    currencyCode = {$plugin.tx_ptgsashop.currencyCode}
+    enableExtendedPaymentChoice = {$plugin.tx_ptgsashop.enableExtendedPaymentChoice}
+
+    templateFileOrdersList = {$plugin.tx_ptgsashop.templateFileOrdersList}
+    templateFileOrdersSingleView = {$plugin.tx_ptgsashop.templateFileOrdersSingleView}
+    templateFilePi4Notice = {$plugin.tx_ptgsashop.templateFilePi4Notice}
+    
+    enableOrderWorkflow = {$plugin.tx_ptgsashop.enableOrderWorkflow}
+    workflowExtensionKey = {$plugin.tx_ptgsashop.workflowExtensionKey}
+    workflowInitialStatusCode = {$plugin.tx_ptgsashop.workflowInitialStatusCode}
+    workflowFinishStatusCode = {$plugin.tx_ptgsashop.workflowFinishStatusCode}
+
+}
+
+// settings for pi6 (epayment return plugin)
+plugin.tx_ptgsashop_pi6 {
+    
+    epaymentResultRecipient = {$plugin.tx_ptgsashop.epaymentResultRecipient}
+    orderEmailSender = {$plugin.tx_ptgsashop.orderEmailSender}
+    md5SecurityCheckSalt = {$plugin.tx_ptgsashop.md5SecurityCheckSalt}
+    
+    templateFileEpaymentReturn = {$plugin.tx_ptgsashop.templateFileEpaymentReturn}
+
+}
+
+// settings for pi7 (cart box plugin)
+plugin.tx_ptgsashop_pi7 {
+    
+    shoppingcartPage = {$plugin.tx_ptgsashop.shoppingcartPage}
+    currencyCode = {$plugin.tx_ptgsashop.currencyCode}
+    
+    cartboxDisplayHeader = {$plugin.tx_ptgsashop.cartboxDisplayHeader}
+    cartboxDisplayPositions = {$plugin.tx_ptgsashop.cartboxDisplayPositions}
+    cartboxDisplayCartSum = {$plugin.tx_ptgsashop.cartboxDisplayCartSum}
+    cartboxDisplayClearCartButton = {$plugin.tx_ptgsashop.cartboxDisplayClearCartButton}
+    cartboxUseImageHeader = {$plugin.tx_ptgsashop.cartboxUseImageHeader}
+    
+    templateFileCartBox = {$plugin.tx_ptgsashop.templateFileCartBox}
+    
+}
+
+
+
+// default set CSS styles for tx_ptgsashop_pi1 (these go into the document header)
+plugin.tx_ptgsashop_pi1._CSS_DEFAULT_STYLE (
+    
+    .tx-ptgsashop-pi1-txt1 {font-size:11px; font-weight:bold; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi1-txt2 {font-size:11px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi1-txt3 {font-size:10px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi1-link {font-size:11px; color:#123161; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi1-tabledefault {border-collapse:collapse; margin-bottom:5px;}
+    .tx-ptgsashop-pi1-tablefixed {width:400px; border-collapse:collapse; margin-bottom:5px;}
+    .tx-ptgsashop-pi1-tableheader {border:1px solid #edefef; padding:4px; background-color:#edefef; white-space:nowrap;}
+    .tx-ptgsashop-pi1-tabletopheader {border:1px solid #edefef; padding:4px; background-color:#c8c8c8; white-space:nowrap;}
+    .tx-ptgsashop-pi1-tablecell {border:1px solid #edefef; padding:4px; vertical-align:top;}
+    .tx-ptgsashop-pi1-tablecellblind {border-left:0px; border-right:0px;}
+    .tx-ptgsashop-pi1-formdefault {margin-bottom:0px;}
+    .tx-ptgsashop-pi1-input {font-size:11px; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi1-button1 {border:1px solid #edefef; background-color:#cccccc; padding:0px; font-size:11px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi1-button2 {border:1px solid #ffffff; background-color:#cccccc; padding:0px; font-size:11px; font-weight:bold; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi1-button3 {border:1px solid #edefef; background-color:#cccccc; padding:0px; font-size:11px; font-weight:bold; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi1-button4 {border:1px solid #ffffff; background-color:#cccccc; padding:0px; font-size:11px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi1-buttonspecial {border:1px solid #cccccc; background-color:#245a80; color:#ffffff; padding:0px; font-size:11px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi1-buttonfake {border:0px solid #edefef; background-color:#edefef; padding:0px; font-size:11px; font-weight:bold; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    
+)
+
+// default set CSS styles for tx_ptgsashop_pi2 (these go into the document header)
+plugin.tx_ptgsashop_pi2._CSS_DEFAULT_STYLE (
+
+    .tx-ptgsashop-pi2-txt1 {font-size:11px; font-weight:bold; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi2-txt2 {font-size:11px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi2-link {font-size:10px; color:#123161; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi2-formdefault {margin-bottom:0px;}
+    .tx-ptgsashop-pi2-boxtable {border-collapse:collapse; margin-bottom:1px;}
+    .tx-ptgsashop-pi2-boxdefault {width:100%;}
+    .tx-ptgsashop-pi2-boxcell {border:1px solid #edefef; padding:3px;}
+    .tx-ptgsashop-pi2-boxheader {border:1px solid #edefef; padding:3px; background-color:#edefef; white-space:nowrap;}
+    
+)
+
+// default set CSS styles for tx_ptgsashop_pi3 (these go into the document header) 
+plugin.tx_ptgsashop_pi3._CSS_DEFAULT_STYLE (
+
+    .tx-ptgsashop-pi3-txt1 {font-size:11px; font-weight:bold; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi3-txt2 {font-size:11px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi3-txt3 {font-size:10px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi3-notice {font-size:11px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi3-error {color:red; font-size:11px; font-weight:bold; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi3-link {font-size:11px; color:#123161; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi3-tabledefault {border-collapse:collapse; margin-bottom:5px;}
+    .tx-ptgsashop-pi3-tablefixed {width:470px; border-collapse:collapse; margin-bottom:5px;}
+    .tx-ptgsashop-pi3-tableheader {border:1px solid #edefef; padding:4px; background-color:#edefef; white-space:nowrap;}
+    .tx-ptgsashop-pi3-tabletopheader {border-bottom:1px solid #ffffff; padding:4px; background-color:#c8c8c8; white-space:nowrap;}
+    .tx-ptgsashop-pi3-tablecell {border:1px solid #edefef; padding:4px;}
+    .tx-ptgsashop-pi3-tablecellblind {border-left:0px; border-right:0px;}
+    .tx-ptgsashop-pi3-formdefault {margin-bottom:0px;}
+    .tx-ptgsashop-pi3-input {font-size:11px; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi3-input-radio {font-size:11px;}
+    .tx-ptgsashop-pi3-input-checkbox {font-size:11px;}
+    .tx-ptgsashop-pi3-button1 {border:1px solid #edefef; background-color:#cccccc; padding:0px; font-size:11px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi3-button2 {border:1px solid #ffffff; background-color:#cccccc; padding:0px; font-size:11px; font-weight:bold; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi3-button3 {border:1px solid #edefef; background-color:#cccccc; padding:0px; font-size:11px; font-weight:bold; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi3-button4 {border:1px solid #ffffff; background-color:#cccccc; padding:0px; font-size:11px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi3-buttonspecial {border:1px solid #cccccc; background-color:#245a80; color:#ffffff; padding:0px; font-size:11px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi3-buttonfake {border:0px solid #edefef; background-color:#edefef; padding:0px; font-size:11px; font-weight:bold; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi3-boxborder {width:800px; padding:8px; border:1px solid #edefef;}
+    .tx-ptgsashop-pi3-boxheader {margin-bottom:0px; font-size:13px; font-weight:bold; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    
+)
+
+// default set CSS styles for tx_ptgsashop_pi4 (these go into the document header) 
+plugin.tx_ptgsashop_pi4._CSS_DEFAULT_STYLE (
+    
+    .tx-ptgsashop-pi4-txt1 {font-size:11px; font-weight:bold; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi4-txt2 {font-size:11px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi4-txt3 {font-size:10px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi4-notice {font-size:11px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi4-tabledefault {border-collapse:collapse; margin-bottom:5px;}
+    .tx-ptgsashop-pi4-tablefixed {width:400px; border-collapse:collapse; margin-bottom:5px;}
+    .tx-ptgsashop-pi4-tableheader {border:1px solid #edefef; padding:4px; background-color:#edefef; white-space:nowrap;}
+    .tx-ptgsashop-pi4-tabletopheader {border:1px solid #edefef; padding:4px; background-color:#c8c8c8; white-space:nowrap;}
+    .tx-ptgsashop-pi4-tablecell {border:1px solid #edefef; padding:4px;}
+    .tx-ptgsashop-pi4-tablelistheader {border:1px solid #edefef; padding:4px; background-color:#edefef; text-align:right; vertical-align:top;}
+    .tx-ptgsashop-pi4-tablelistcell {border:1px solid #edefef; padding:3px; font-size:11px; text-align:right; vertical-align:top;}
+    .tx-ptgsashop-pi4-tablebgselected {background-color:#f7f7f7}
+    .tx-ptgsashop-pi4-formdefault {margin-bottom:0px;}
+    .tx-ptgsashop-pi4-button1 {border:1px solid #edefef; background-color:#cccccc; padding:0px; font-size:11px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi4-buttonspecial {border:1px solid #cccccc; background-color:#245a80; color:#ffffff; padding:0px; font-size:11px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi4-boxborder {width:800px; padding:8px; border:1px solid #edefef;}
+    .tx-ptgsashop-pi4-boxheader {margin-bottom:0px; font-size:13px; font-weight:bold; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi4-hr1 {height:1px; border:1px solid #c8c8c8; margin-bottom:10px; }
+    
+)
+
+// default set CSS styles for tx_ptgsashop_pi6 (these go into the document header)
+plugin.tx_ptgsashop_pi6._CSS_DEFAULT_STYLE (
+
+    .tx-ptgsashop-pi6-txt1 {font-size:11px; font-weight:bold; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi6-txt2 {font-size:11px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi6-link {font-size:10px; color:#123161; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi6-formdefault {margin-bottom:0px;}
+    .tx-ptgsashop-pi6-boxheader {margin-bottom:0px; font-size:13px; font-weight:bold; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    
+)
+
+// default set CSS styles for tx_ptgsashop_pi7 (these go into the document header)
+plugin.tx_ptgsashop_pi7._CSS_DEFAULT_STYLE (
+    
+    .tx-ptgsashop-pi7-txt1 {font-size:11px; font-weight:bold; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi7-txt2 {font-size:11px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi7-textlinkheader {font-size:11px; color:#123161; font-weight:bold; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    .tx-ptgsashop-pi7-imglinkheader {border:0px}
+    .tx-ptgsashop-pi7-tabledefault {border-collapse:collapse; margin-bottom:0px;}
+    .tx-ptgsashop-pi7-tableheader {border:1px solid #edefef; padding:4px; background-color:#edefef; white-space:nowrap;}
+    .tx-ptgsashop-pi7-tablecell {border:1px solid #edefef; padding:1px;}
+    .tx-ptgsashop-pi7-formdefault {margin-bottom:0px;}
+    .tx-ptgsashop-pi7-button1 {border:1px solid #edefef; background-color:#cccccc; padding:0px; font-size:11px; font-weight:normal; font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;}
+    
+    
+)

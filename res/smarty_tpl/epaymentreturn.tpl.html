@@ -1,0 +1,29 @@
+{* Smarty *}
+{* Default template for pt_gsashop "ePayment Return"; Author: Rainer Kuhn <kuhn@punkt.de>, since 2006-09-04 *}
+
+	<p class="tx-ptgsashop-pi6-txt2">
+		{$ll_payment_sum}: {$payment_amount} {$payment_currency}<br />
+		{$ll_payment_description}: {$payment_description}<br />
+	</p>
+	
+{if $cond_success}
+    <p class="tx-ptgsashop-pi6-txt2">{$ll_payment_successful}</p>
+{else}
+    <p class="tx-ptgsashop-pi6-txt2">{$ll_payment_not_successful}</p>
+{/if}
+   
+{if $cond_debugOutput}
+   	<p class="tx-ptgsashop-pi6-txt1">Debugging output (displayed for dev environment only):</p>
+   	<p class="tx-ptgsashop-pi6-txt2">
+        Booking ID: {$bookingId}<br />
+        <br />
+        Status ID: {$status}<br />
+        Transaction ID: {$transactionId}<br />
+        Reference ID: {$referenceId}<br />
+        Short ID: {$shortId}<br />
+        Return Code: {$returnCode}<br />
+        Return Message: {$returnMsg}<br />
+   	</p>
+{/if}
+
+{*debug*}
