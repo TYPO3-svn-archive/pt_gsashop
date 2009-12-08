@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Language labels for plugin tx_ptgsashop_pi6</description>
+        <type>database</type>
+        <csh_table></csh_table>
+        <labelContext type="array">
+        </labelContext>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="payment_successful">Your payment by credit card has been processed successfully. Thank you for your order!</label>
+            <label index="payment_not_successful">ERROR! Your payment by credit card could not be processed. Please pay your order when recieving the invoice (data for payment by bank transfer are printed on the invoice).</label>
+            <label index="payment_booking_id">Booking ID</label>
+            <label index="payment_description">Description</label>
+            <label index="payment_sum">Payment sum</label>
+            <label index="email_subject_success">Online Payment: Success [%s]</label>
+            <label index="email_subject_failure">Online Payment: Failure [%s]</label>
+            <label index="exception_catched">An error has occurred!</label>
+        </languageKey>
+        <languageKey index="de" type="array">
+            <label index="payment_successful">Die Bezahlung per Kreditkarte wurde erfolgreich ausgeführt. Vielen Dank für Ihre Bestellung!</label>
+            <label index="payment_not_successful">FEHLER! Die Bezahlung per Kreditkarte konnte nicht ausgeführt werden. Bitte bezahlen Sie Ihre Bestellung nach Erhalt der Rechnung (Hinweise zur Bezahlung per Überweisung erhalten Sie auf der Rechnung).</label>
+            <label index="payment_booking_id">Vorgangsnummer</label>
+            <label index="payment_description">Beschreibung</label>
+            <label index="payment_sum">Zahlungssumme</label>
+            <label index="email_subject_success">Online Bezahlung: Erfolg [%s]</label>
+            <label index="email_subject_failure">Online Bezahlung: Fehler [%s]</label>
+            <label index="exception_catched">Ein Fehler ist aufgetreten!</label>
+        </languageKey>
+    </data>
+</T3locallang>

@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+<T3DataStructure>
+
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+
+	<sheets>
+
+		<sArticle>
+			<ROOT>
+				<TCEforms>
+	  				<sheetTitle>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.sArticle</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+                    
+                    <article_uid>
+                        <TCEforms>
+                            <label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.article_uid</label>
+                            <config>
+                                <type>group</type>
+                                <internal_type>db</internal_type>
+                                <allowed>tx_ptgsashop_cache_articles</allowed>
+                                <maxitems>1</maxitems>
+                                <size>2</size>
+                            </config>
+                        </TCEforms>
+                    </article_uid>
+
+				</el>
+			</ROOT>
+		</sArticle>
+
+    	<sDisplay>
+      		<ROOT>
+				<TCEforms>
+	  				<sheetTitle>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.sDisplay</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+
+                    <articleDisplayNotice>
+                        <TCEforms>
+                            <label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.articleDisplayNotice</label>
+							<config>
+								<type>none</type>
+								<size>4</size>
+	      					</config>
+                        </TCEforms>
+                    </articleDisplayNotice>
+
+	  				<articleDisplayPrice>
+	    				<TCEforms>
+	      					<label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.articleDisplayPrice</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.notset</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.yes</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.no</numIndex>
+										<numIndex index="1">0</numIndex>
+									</numIndex>
+								</items>	
+							</config>
+	    				</TCEforms>
+	  				</articleDisplayPrice>
+
+	  				<articleDisplayPricescales>
+	    				<TCEforms>
+	      					<label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.articleDisplayPricescales</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.notset</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.onlyIfAvailable</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.always</numIndex>
+										<numIndex index="1">2</numIndex>
+									</numIndex>
+                                    <numIndex index="3" type="array">
+                                        <numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.never</numIndex>
+                                        <numIndex index="1">3</numIndex>
+                                    </numIndex>
+								</items>	
+							</config>
+	    				</TCEforms>
+	  				</articleDisplayPricescales>
+
+					<articleDisplayDescription>
+	    				<TCEforms>
+	      					<label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.articleDisplayDescription</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.notset</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.yes</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.no</numIndex>
+										<numIndex index="1">0</numIndex>
+									</numIndex>
+								</items>	
+							</config>
+	    				</TCEforms>
+	  				</articleDisplayDescription>
+
+					<articleDisplayArticleno>
+	    				<TCEforms>
+	      					<label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.articleDisplayArticleno</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.notset</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.yes</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.no</numIndex>
+										<numIndex index="1">0</numIndex>
+									</numIndex>
+								</items>	
+							</config>
+	    				</TCEforms>
+	  				</articleDisplayArticleno>
+
+					<articleDisplayMatch1>
+	    				<TCEforms>
+	      					<label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.articleDisplayMatch1</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.notset</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.yes</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.no</numIndex>
+										<numIndex index="1">0</numIndex>
+									</numIndex>
+								</items>	
+							</config>
+	    				</TCEforms>
+	  				</articleDisplayMatch1>
+
+					<articleDisplayMatch2>
+	    				<TCEforms>
+	      					<label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.articleDisplayMatch2</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.notset</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.yes</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.no</numIndex>
+										<numIndex index="1">0</numIndex>
+									</numIndex>
+								</items>	
+							</config>
+	    				</TCEforms>
+	  				</articleDisplayMatch2>
+
+					<articleDisplayDeftext>
+	    				<TCEforms>
+	      					<label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.articleDisplayDeftext</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.notset</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.yes</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.no</numIndex>
+										<numIndex index="1">0</numIndex>
+									</numIndex>
+								</items>	
+							</config>
+	    				</TCEforms>
+	  				</articleDisplayDeftext>
+
+					<articleDisplayAlttext>
+	    				<TCEforms>
+	      					<label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.articleDisplayAlttext</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.notset</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.yes</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.no</numIndex>
+										<numIndex index="1">0</numIndex>
+									</numIndex>
+								</items>	
+							</config>
+	    				</TCEforms>
+	  				</articleDisplayAlttext>
+
+					<articleDisplayImg>
+	    				<TCEforms>
+	      					<label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.articleDisplayImg</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.notset</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.yes</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.no</numIndex>
+										<numIndex index="1">0</numIndex>
+									</numIndex>
+								</items>	
+							</config>
+	    				</TCEforms>
+	  				</articleDisplayImg>
+
+					<articleDisplayCartqty>
+	    				<TCEforms>
+	      					<label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.articleDisplayCartqty</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.notset</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.yes</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.no</numIndex>
+										<numIndex index="1">0</numIndex>
+									</numIndex>
+								</items>	
+							</config>
+	    				</TCEforms>
+	  				</articleDisplayCartqty>
+
+					<articleDisplayRemovebutton>
+	    				<TCEforms>
+	      					<label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.articleDisplayRemovebutton</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.notset</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.yes</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.no</numIndex>
+										<numIndex index="1">0</numIndex>
+									</numIndex>
+								</items>	
+							</config>
+	    				</TCEforms>
+	  				</articleDisplayRemovebutton>
+
+					<articleDisplayBoxdefault>
+	    				<TCEforms>
+	      					<label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.articleDisplayBoxdefault</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.notset</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.yes</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.no</numIndex>
+										<numIndex index="1">0</numIndex>
+									</numIndex>
+								</items>	
+							</config>
+	    				</TCEforms>
+	  				</articleDisplayBoxdefault>
+
+					<articleDisplayCartlink>
+	    				<TCEforms>
+	      					<label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.articleDisplayCartlink</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.notset</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.yes</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.no</numIndex>
+										<numIndex index="1">0</numIndex>
+									</numIndex>
+								</items>	
+							</config>
+	    				</TCEforms>
+	  				</articleDisplayCartlink>
+	  				
+                    <articleDisplayOrderbutton>
+                        <TCEforms>
+                            <label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.articleDisplayOrderbutton</label>
+                            <config>
+                                <type>select</type>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.notset</numIndex>
+                                        <numIndex index="1"></numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.yes</numIndex>
+                                        <numIndex index="1">1</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2" type="array">
+                                        <numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.no</numIndex>
+                                        <numIndex index="1">0</numIndex>
+                                    </numIndex>
+                                </items>    
+                            </config>
+                        </TCEforms>
+                    </articleDisplayOrderbutton>
+
+					<articleDisplayUrl>
+	    				<TCEforms>
+	      					<label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.articleDisplayUrl</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.notset</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.yes</numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.no</numIndex>
+										<numIndex index="1">0</numIndex>
+									</numIndex>
+								</items>	
+							</config>
+	    				</TCEforms>
+	  				</articleDisplayUrl>
+
+				</el>
+      		</ROOT>
+    	</sDisplay>
+
+		<sTemplate>
+			<ROOT>
+				<TCEforms>
+	  				<sheetTitle>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.sTemplate</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+
+					<imgAddToCartButtonArticleBox>
+	    				<TCEforms>
+	      					<label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.imgAddToCartButtonArticleBox</label>
+							<config>
+								<type>input</type>
+								<size>24</size>
+								<max>128</max>
+								<eval>trim</eval>
+	      					</config>
+	    				</TCEforms>
+	  				</imgAddToCartButtonArticleBox>
+
+					<imgRemoveFromCartButtonArticleBox>
+	    				<TCEforms>
+	      					<label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.imgRemoveFromCartButtonArticleBox</label>
+							<config>
+								<type>input</type>
+								<size>24</size>
+								<max>128</max>
+								<eval>trim</eval>
+	      					</config>
+	    				</TCEforms>
+	  				</imgRemoveFromCartButtonArticleBox>
+
+					<templateFileArticleBox>
+	    				<TCEforms>
+	      					<label>LLL:EXT:pt_gsashop/pi2/locallang_tca.xml:pi2_flexform.templateFileArticleBox</label>
+							<config>
+								<type>input</type>
+								<size>24</size>
+								<max>128</max>
+								<eval>trim</eval>
+	      					</config>
+	    				</TCEforms>
+	  				</templateFileArticleBox>
+
+				</el>
+			</ROOT>
+		</sTemplate>
+
+	</sheets>
+</T3DataStructure>
+  

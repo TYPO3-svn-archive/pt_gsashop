@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+<!-- Flexform datastructure for pt_gsashop_pi4 - @author: Rainer Kuhn - @since: 2007-06-26 -->
+<!-- $Id: flexform_ds.xml,v 1.5 2008/01/11 13:02:06 ry37 Exp $ -->
+
+<T3DataStructure>  
+       
+  <meta>
+     <langDisable>1</langDisable>
+  </meta>
+  
+  <sheets>
+  
+    <s_pluginType>
+      <ROOT>
+        <TCEforms>
+          <sheetTitle>LLL:EXT:pt_gsashop/pi4/locallang_tca.xml:pt_gsashop.pi4_flexform.s_pluginType</sheetTitle>
+        </TCEforms>
+        <type>array</type>
+        <el>
+          
+          <pluginType>
+            <TCEforms>
+              <label>LLL:EXT:pt_gsashop/pi4/locallang_tca.xml:pt_gsashop.pi4_flexform.pluginType</label>
+              <config>
+                <type>select</type>
+                <items>
+                  <numIndex index="0">
+                    <numIndex index="0">LLL:EXT:pt_gsashop/pi4/locallang_tca.xml:pt_gsashop.pi4_flexform.pluginType.workflow</numIndex>
+                    <numIndex index="1">workflow</numIndex>
+                  </numIndex>
+                  <numIndex index="1">
+                    <numIndex index="0">LLL:EXT:pt_gsashop/pi4/locallang_tca.xml:pt_gsashop.pi4_flexform.pluginType.archive</numIndex>
+                    <numIndex index="1">archive</numIndex>
+                  </numIndex>
+                </items>
+              </config>
+            </TCEforms>
+          </pluginType>
+          
+        </el>
+      </ROOT>
+    </s_pluginType>
+  
+    <s_workflowConfig>
+      <ROOT>
+        <TCEforms>
+          <sheetTitle>LLL:EXT:pt_gsashop/pi4/locallang_tca.xml:pt_gsashop.pi4_flexform.s_workflowConfig</sheetTitle>
+        </TCEforms>
+        <type>array</type>
+        <el>
+          
+          <limitToCustomer>
+            <TCEforms>
+              <label>LLL:EXT:pt_gsashop/pi4/locallang_tca.xml:pt_gsashop.pi4_flexform.limitToCustomer</label>
+              <config>
+                <type>select</type>
+                <items>
+                  <numIndex index="0">
+                    <numIndex index="0">LLL:EXT:pt_gsashop/pi4/locallang_tca.xml:pt_gsashop.pi4_flexform.limitToCustomer.limit</numIndex>
+                    <numIndex index="1">1</numIndex>
+                  </numIndex>
+                  <numIndex index="1">
+                    <numIndex index="0">LLL:EXT:pt_gsashop/pi4/locallang_tca.xml:pt_gsashop.pi4_flexform.limitToCustomer.all</numIndex>
+                    <numIndex index="1">0</numIndex>
+                  </numIndex>
+                </items>
+              </config>
+            </TCEforms>
+          </limitToCustomer>
+          
+          <limitStatus>
+            <TCEforms>
+              <label>LLL:EXT:pt_gsashop/pi4/locallang_tca.xml:pt_gsashop.pi4_flexform.limitStatus</label>   
+              <config>
+                <type>select</type>
+                <items>
+                  <numIndex index="-1">
+                    <numIndex index="0">all</numIndex>
+                    <numIndex index="1">-1</numIndex>
+                  </numIndex>
+                </items>
+                <itemsProcFunc>tx_ptgsashop_flexformItemFunctions->getWorkflowStatusCodesAsSelectorboxItems</itemsProcFunc>
+              </config>
+            </TCEforms>
+          </limitStatus>
+          
+        </el>
+      </ROOT>
+    </s_workflowConfig>
+    
+  </sheets>
+</T3DataStructure>
+

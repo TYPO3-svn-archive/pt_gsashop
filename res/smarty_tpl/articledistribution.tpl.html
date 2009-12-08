@@ -1,0 +1,136 @@
+{* Smarty *}
+{* Default template for pt_gsashop "Article Distribution"; Author: Rainer Kuhn <kuhn@punkt.de>, since 2006-07-11 *}
+
+{****** HEADER ******}
+<p class="tx-ptgsashop-pi3-boxheader">{$ll_artdistr_header}</p>
+
+<div class="tx-ptgsashop-pi3-boxborder">
+
+
+  {****** MESSAGE BOX (conditional) ******}
+  {if $cond_displayMsgBox}
+      {$msgBox}
+      <br />
+  {/if}
+
+
+{****** ARTICLE'S DELIVERIES AREA ******}
+<p class="tx-ptgsashop-pi3-txt1">{$ll_artdistr_article_prefix}</p>
+<form action="{$faction_artDistr}" method="post" class="tx-ptgsashop-pi3-formdefault">
+<table class="tx-ptgsashop-pi3-tabledefault">
+	
+    <tr>
+        <td  class="tx-ptgsashop-pi3-tableheader">
+            <span class="tx-ptgsashop-pi3-txt2">{$ll_artdistr_article}: </span>
+            <span class="tx-ptgsashop-pi3-txt1">{$artDescription}</span>
+            <span class="tx-ptgsashop-pi3-txt2"> - {$ll_artdistr_in_cart}: </span>
+            <span class="tx-ptgsashop-pi3-txt1">{$articleQty}</span>
+        </td>
+    </tr>
+    
+  {****** DELIVERIES (loop) ******}
+  {section name=delivery loop=$delArr} 
+    <tr>
+        <td  class="tx-ptgsashop-pi3-tablecell" nowrap="nowrap">
+            <span class="tx-ptgsashop-pi3-txt2">
+                <input type="text" value="{$delArr[delivery].fval_delQty}" name="{$delArr[delivery].fname_delQty}" class="tx-ptgsashop-pi3-input" size="2" maxlength="5" />
+                {$ll_artdistr_deliver_to} 
+                <select name="{$delArr[delivery].fname_delTo}" size="1" class="tx-ptgsashop-pi3-input"> 
+                    {$delArr[delivery].foptions_delTo}
+                </select>
+            </span>
+        </td>
+    </tr>  
+  {/section}
+
+  {****** CHANGE QUANTITY OPTION (conditional) ******}
+
+  {if $cond_displayCartChangeCheckbox}
+    <tr>
+        <td valign="top" class="tx-ptgsashop-pi3-tablecell">
+            <input type="checkbox" name="{$fname_artdistribChangeQtyCheckbox}" value="1" />
+            <span class="tx-ptgsashop-pi3-txt1"> {$ll_artdistrib_change_qty_confirm_1}.</span><br/>
+            <span class="tx-ptgsashop-pi3-txt2"> {$ll_artdistrib_change_qty_confirm_2}.</span><br/>
+            <span class="tx-ptgsashop-pi3-txt2"> {$ll_artdistrib_change_qty_confirm_3}.</span>
+        </td>
+    </tr>
+  {/if}
+
+  {****** QUANTITY UPDATE BUTTON(S) ******}
+    <tr>
+        <td  class="tx-ptgsashop-pi3-tableheader">
+            <input type="hidden" name="{$fname_hiddenArticleId}" value="{$fval_hiddenArticleId}" />
+            <input type="submit" name="{$fname_artdistribUpdButton}" value="{$ll_artdistr_upd_distribution_button}" class="tx-ptgsashop-pi3-buttonspecial" />
+  		  {if $cond_displayCartChangeCheckbox}
+            <input type="submit" name="{$fname_artdistribKeepButton}" value="{$ll_artdistr_keep_distribution_button}" class="tx-ptgsashop-pi3-button4" />
+          {/if}
+        </td>
+    </tr>
+    
+</table>
+<br />
+</form>
+
+
+{****** ADDRESS MANAGEMENT AREA ******}
+<table class="tx-ptgsashop-pi3-tabledefault"> 
+
+  {if $cond_displayNewDelSelectorbox}
+    <tr>
+        <td>
+            <p class="tx-ptgsashop-pi3-txt1">{$ll_artdistr_new_delivery_prefix}</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="tx-ptgsashop-pi3-tableheader">
+            <form action="{$faction_newDelAddress}" method="post" class="tx-ptgsashop-pi3-formdefault">
+                <span class="tx-ptgsashop-pi3-txt2">{$ll_artdistr_new_delivery} </span>
+                <select name="{$fname_newDelAddress}" size="1" class="tx-ptgsashop-pi3-input" /> 
+		      	    {html_options options=$foptions_newDelAddress}
+                </select>
+                {$fhidden_reloadHandlerToken}
+                <input type="hidden" name="{$fname_hiddenArticleId}" value="{$fval_hiddenArticleId}" />
+                <input type="submit" name="{$fname_newDeliveryButton}" value="{$ll_artdistr_new_delivery_button}" class="tx-ptgsashop-pi3-button4" />
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td class="tx-ptgsashop-pi3-tablecell">
+            <span class="tx-ptgsashop-pi3-notice">{$ll_artdistr_add_new_address_question}</span>
+        </td>
+    </tr>
+  {/if}
+  
+    <tr>
+        <td align="left" class="tx-ptgsashop-pi3-tableheader">
+            <form action="{$faction_addNewAddress}" method="post" class="tx-ptgsashop-pi3-formdefault">
+            	<span class="tx-ptgsashop-pi3-txt2">{$ll_artdistr_add_new_address_button_prefix} </span>
+                <input type="submit" name="{$fname_newAddressButton}" value="{$ll_artdistr_add_new_address_button}" class="tx-ptgsashop-pi3-button1" />
+                <input type="hidden" name="{$fname_hiddenNewDelAddrBackurl}" value="{$fval_hiddenNewDelAddrBackurl}" />
+                <input type="hidden" name="{$fname_hiddenNewDelAddrAction}" value="{$fval_hiddenNewDelAddrAction}" />
+                <input type="hidden" name="{$fname_hiddenNewDelAddrReturnVar}" value="{$fval_hiddenNewDelAddrReturnVar}" />
+            </form>
+        </td>
+    </tr>
+    
+</table> 
+<br />
+
+{****** FOOTER ******}
+<form action="{$faction_return}" method="post" class="tx-ptgsashop-pi3-formdefault">
+    <p class="tx-ptgsashop-pi3-txt1">{$ll_artdistr_return_prefix}</p>
+    <input type="submit" name="{$fname_returnButton}" value="{$ll_artdistr_return_button}" class="tx-ptgsashop-pi3-button3" />
+</form>
+<br />
+
+
+<p class="tx-ptgsashop-pi3-notice">{$ll_artdistr_tips_header}</p>
+<ul>
+    <li class="tx-ptgsashop-pi3-notice">{$ll_artdistr_tips_1}</li>
+    <li class="tx-ptgsashop-pi3-notice">{$ll_artdistr_tips_2}</li>
+    <li class="tx-ptgsashop-pi3-notice">{$ll_artdistr_tips_3}</li>
+</ul>
+
+</div>
+                
+{* debug *}

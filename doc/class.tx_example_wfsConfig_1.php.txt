@@ -1,0 +1,218 @@
+<?php
+/***************************************************************
+*  Copyright notice
+*  
+*  (c) 2007-2008 Rainer Kuhn (kuhn@punkt.de)
+*  All rights reserved
+*
+*  This script is part of the Typo3 project. The Typo3 project is 
+*  free software; you can redistribute it and/or modify
+*  it under the terms of the GNU General Public License as published by
+*  the Free Software Foundation; either version 2 of the License, or
+*  (at your option) any later version.
+* 
+*  The GNU General Public License can be found at
+*  http://www.gnu.org/copyleft/gpl.html.
+* 
+*  This script is distributed in the hope that it will be useful,
+*  but WITHOUT ANY WARRANTY; without even the implied warranty of
+*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*  GNU General Public License for more details.
+*
+*  This copyright notice MUST APPEAR in all copies of the script!
+***************************************************************/
+/** 
+ * Example configuration class for a workflow status.
+ * This classed is used by the workflow engine of the 'pt_gsashop' extension
+ *
+ * $Id: class.tx_example_wfsConfig_1.php.txt,v 1.11 2008/11/13 16:01:24 ry37 Exp $
+ *
+ * @author      Rainer Kuhn <kuhn@punkt.de>
+ * @since       2007-05-31
+ */
+/**
+ * [CLASS/FUNCTION INDEX of SCRIPT]
+ */
+
+
+
+/**
+ * Inclusion of extension specific resources
+ */
+
+/**
+ * Inclusion of external resources
+ */
+require_once t3lib_extMgm::extPath('pt_gsashop').'res/class.tx_ptgsashop_iWfsConfigurator.php';// GSA shop workflow status configuration interface
+
+
+
+/**
+ * Provides the static configuration methods for workflow status 1 used by the workflow engine of the 'pt_gsashop' extension.
+ *
+ * @author      Rainer Kuhn <kuhn@punkt.de>
+ * @since       2007-05-31
+ * @package     TYPO3
+ * @subpackage  tx_example
+ */
+class tx_example_wfsConfig_1 implements tx_ptgsashop_iWfsConfigurator {
+     
+    /**
+     * Executes an individual condition check (condition if the workflow status is applicable) for workflow status 1 and returns it's result  
+     *
+     * @param   object      order object (object of type tx_ptgsashop_order or an abitrary, project specific order object)
+     * @return  boolean     TRUE if the condition is fulfilled, FALSE otherwise
+     * @author  Rainer Kuhn <kuhn@punkt.de>
+     * @since   2007-05-31
+     */ 
+    public static function returnConditionCheck($orderObj) {
+        
+        $checkResult = true;
+        return $checkResult;
+        
+    }
+     
+    /**
+     * Executes an individual permission check for the logged-in user/workflow status 1 combination and returns it's result
+     *
+     * @param   object      order object (object of type tx_ptgsashop_order or an abitrary, project specific order object)
+     * @return  boolean     TRUE if the permission is granted, FALSE otherwise
+     * @author  Rainer Kuhn <kuhn@punkt.de>
+     * @since   2007-05-31
+     */ 
+    public static function returnPermissionCheck($orderObj) {
+        
+        $checkResult = true;
+        return $checkResult;
+        
+    }
+    
+    /**
+     * Executes individual action on approval of workflow status 1 and returns the result
+     *
+     * @param   object      order object (object of type tx_ptgsashop_order or an abitrary, project specific order object)
+     * @global  object      $GLOBALS['TSFE']: tslib_fe Object
+     * @return  boolean     TRUE if the intended action has been executed properly, FALSE otherwise
+     * @author  Rainer Kuhn <kuhn@punkt.de>
+     * @since   2007-05-31
+     */ 
+    public static function execApprovalAction($orderObj) {
+        
+        $actionResult = true;
+        
+        
+        /**** EXAMPLE: some "fix final order" action as processed in non-workflow-mode by tx_ptgsashop_orderProcessor::processSubmission()   *****/
+        
+        // (needed classes => put requires to file header...)
+        require_once t3lib_extMgm::extPath('pt_tools').'res/staticlib/class.tx_pttools_div.php'; // general static library class
+        require_once t3lib_extMgm::extPath('pt_gsauserreg').'res/class.tx_ptgsauserreg_feCustomer.php';  // GSA/TYPO3 frontend customer class
+        require_once t3lib_extMgm::extPath('pt_gsashop').'res/class.tx_ptgsashop_order.php';  // GSA Shop order class
+        require_once t3lib_extMgm::extPath('pt_gsashop').'res/class.tx_ptgsashop_orderWrapper.php';// GSA Shop order wrapper class
+        require_once t3lib_extMgm::extPath('pt_gsashop').'res/class.tx_ptgsashop_lib.php';  // GSA shop library class with static methods
+        
+        // get shop config
+        $gsaShopConfig = tx_ptgsashop_lib::getGsaShopConfig();
+        
+        // get FE customer - WARNING: you may want to check here if the requested user still exists (and offer an alternative user if not)
+        $feCustomerObj = new tx_ptgsauserreg_feCustomer($orderObj->get_feCrUserId()); 
+        
+        // create order wrapper from current order data
+        $orderWrapperObj = new tx_ptgsashop_orderWrapper(0, $orderObj->get_orderArchiveId());
+        $orderWrapperObj->setNewFeCustomerObj($feCustomerObj);
+        
+        // pass wrapped order to order submission processor
+        $orderProcessorObj = new tx_ptgsashop_orderProcessor($orderWrapperObj);
+        $orderProcessorObj->set_useCcPayment($orderObj->get_paymentMethodObj()->get_method() == 'cc' ? true : false);
+        
+        // example - perform the "fix final order" steps you need, see tx_ptgsashop_orderProcessor for available methods and tx_ptgsashop_orderProcessor::processSubmission() for default handling
+        $relatedDocNo = $orderProcessorObj->saveToGsaDatabase();
+        if (empty($relatedDocNo)) {
+            return false; // return action result "false" if saveToGsaDatabase() failed
+        }
+        if ($gsaShopConfig['useAutomaticInvoiceBooking'] == true) {
+            $orderProcessorObj->bookOrderConfirmationToInvoice($relatedDocNo);
+        }
+        $orderProcessorObj->processFixFinalOrderHooks();
+        if ($gsaShopConfig['sendFinalOrderEmailToCustomer'] == true) {
+            try {
+                $orderProcessorObj->sendOrderConfirmationEmail();
+            } catch (tx_pttools_exception $exceptionObj) {
+                 // do anything you want here, e.g. inform site admin about the mailing error
+                $exceptionObj->handle();
+                return false; // return action result "false" if sendOrderConfirmationEmail() failed
+            }
+        }
+        if ($orderProcessorObj->get_useCcPayment()== true) {
+            $orderProcessorObj->redirectToCcPayment();
+        } 
+        $orderProcessorObj->redirectToConfirmationPage();
+        
+        // fallback if the above redirects of $orderProcessorObj fail - we should not end here...
+        $actionResult = false;
+        
+        /**** EXAMPLE end: default "fix final order" action  *****/
+        
+         
+        return $actionResult;
+        
+    }
+    
+    /**
+     * Executes individual action on denial of workflow status 1 and returns the result
+     *
+     * @param   object      order object (object of type tx_ptgsashop_order or an abitrary, project specific order object)
+     * @global  void
+     * @return  boolean     TRUE if the intended action has been executed properly, FALSE otherwise
+     * @author  Rainer Kuhn <kuhn@punkt.de>
+     * @since   2007-05-31
+     */ 
+    public static function execDenialAction($orderObj) {
+        
+        $actionResult = true;
+        return $actionResult;
+        
+    }
+    
+    /**
+     * Executes individual action on automatic advance of the workflow status 1 and returns the result
+     *
+     * @param   object      order object to handle in workflow (object of type tx_ptgsashop_order or an abitrary, project specific order object)
+     * @return  boolean     TRUE if the intended action has been executed properly, FALSE otherwise
+     * @author  Rainer Kuhn <kuhn@punkt.de>
+     * @since   2007-06-28
+     */ 
+    public static function execAdvanceAction($orderObj) {
+        
+        $actionResult = true;
+        return $actionResult;
+        
+    }
+    
+    /**
+     * Executes individual action on halt of the automatic workflow advance at the current status 1 and returns the result
+     *
+     * @param   object      order object to handle in workflow (object of type tx_ptgsashop_order or an abitrary, project specific order object)
+     * @return  boolean     TRUE if the intended action has been executed properly, FALSE otherwise
+     * @author  Rainer Kuhn <kuhn@punkt.de>
+     * @since   2007-06-28
+     */ 
+    public static function execHaltAction($orderObj) {
+        
+        $actionResult = true;
+        return $actionResult;
+        
+    }
+    
+    
+    
+} // end class
+
+
+
+/*******************************************************************************
+ *   TYPO3 XCLASS INCLUSION (for class extension/overriding)
+ ******************************************************************************/
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/pt_gsashop/doc/class.tx_example_wfsConfig_1.php']) {
+    include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/pt_gsashop/doc/class.tx_example_wfsConfig_1.php']);
+}
+?>

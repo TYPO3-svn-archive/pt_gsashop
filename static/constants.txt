@@ -1,0 +1,411 @@
+/*
+$Id: constants.txt,v 1.123 2008/12/18 13:13:52 ry37 Exp $
+ 
+possible subcategories: 
+----------------------
+enable      Used for options that enable or disable primary functions of a template
+dims        Dimensions of all kinds; pixels, widths, heights of images, frames, cells and so on.
+file        Files like background images, fonts and so on. Other options related to the file may also enter
+typo        Typography and related constants
+color       Color setup. Many colors will be found with related options in other categories though.
+links       Links: Targets typically
+language    Language specific options.
+Subcategories based on the default content elements:
+cheader,cheader_g,ctext,ctextpic,cimage,cbullets,ctable,cuploads,cmultimedia,cmailform,csearch,clogin,csplash,cmenu,cshortcut,clist,cscript,chtml
+These are all categories reserved for options that relate to content rendering for each type of tt_content element. See static_template "content (default)" and "styles.content (default)" for examples.
+
+possible data types (type=):
+---------------------------
+int [low-high]              integer, opt. in range "low" to "high"
+int+                        positive integer
+offset [L1,L2,...L6]        comma-separated integers. Default is "x,y", but as comma separated parameters in brackets you can specify up to 6 labels being comma separated! If you wish to omit one of the last 4 fields, just don't enter a label for that element.
+color                       HTML color
+wrap                        HTML-code that is wrapped around some content.
+options [item1,item2,...]   Selectbox with values/labels item1, item2 etc. Commaseparated. Split by "=" also and in that case, first part is label, second is value
+boolean [truevalue]         Boolean, opt. you can define the value of "true", def.=1
+comment                     Boolean, checked= "", not-checked = "#".
+file [ext-list/IMAGE_EXT]   Selectorbox with resources. Opt. list allowed extensions (no space in list!), eg. "[ttf]" or "[txt,html,htm]". You can also enter "[IMAGE_EXT]" in which case the default image-extensions are listed. (used for datatype "imgResouce")
+string (the default)        Just a string value
+*/ 
+
+
+// Configuration for GSA Shop Extension, accessible through BE constant editor
+plugin.tx_ptgsashop {
+    
+    
+  // ***** PAGES SETTINGS *****
+    
+    // Enable Features
+    
+    # cat=pt_gsashop::pages/enable/010; type=string; label=FE Users storage PID: Identifier (PID or alias) of the TYPO3 sysfolder where you've integrated the TYPO3 system plugin "Website users" (e.g. FE Users Sysfolder).
+    feUsersSysfolderPid = fe_users
+    
+    # cat=pt_gsashop::pages/enable/012; type=string; label=Article cache storage PID: Identifier (PID or alias) of the TYPO3 page/sysfolder where to store cached articles.
+    cacheArticlesStoragePid = articlecache
+    
+    # cat=pt_gsashop::pages/enable/014; type=string; label=Article image storage PID: Identifier (PID or alias) of the TYPO3 page/sysfolder where to store article images.
+    articleImageStoragePid = articleimages
+    
+    # cat=pt_gsashop::pages/enable/016; type=string; label=Order storage PID: Identifier (PID or alias) of the TYPO3 page/sysfolder where to store submitted orders.
+    orderStoragePid = order
+    
+    # cat=pt_gsashop::pages/enable/020; type=string; label=Shopping cart page: Identifier (PID or alias) of the TYPO3 page where you've integrated the "GSA Shop: Shopping cart" plugin (pi1 of this extension).
+    shoppingcartPage = cart
+    
+    # cat=pt_gsashop::pages/enable/030; type=string; label=Article single view page: Identifier (PID or alias) of the TYPO3 page where you've integrated the your "Article single view" (special use of pi2 of this extension).
+    articleSingleViewPage = articleview
+    
+    # cat=pt_gsashop::pages/enable/040; type=string; label=Order overview page: Identifier (PID or alias) of the TYPO3 page where you've integrated the "GSA Shop: Order" plugin (pi3 of this extension).
+    orderPage = order
+    
+    # cat=pt_gsashop::pages/enable/050; type=string; label=Order confirmation page: Identifier (PID or alias) of the TYPO3 page where you've integrated the confirmation page to be used after an user's final order.
+    orderConfirmPage = orderconfirm
+    
+    # cat=pt_gsashop::pages/enable/060; type=string; label=FE customer registration page: Identifier (PID or alias) of the TYPO3 page where you've integrated the FE Customer Registration (e.g. plugin pi1 of pt_gsauserreg extension).
+    feUserRegPage = custdata
+    
+    # cat=pt_gsashop::pages/enable/070; type=string; label=User account page: Identifier (PID or alias) of the TYPO3 page where you've integrated the plugin for managing a frontend user's address handling (plugin pi4 of pt_gsauserreg extension).
+    userAccountPage = useraddr
+    
+    # cat=pt_gsashop::pages/enable/080; type=string; label="Terms and conditions" page: Identifier (PID or alias) of the TYPO3 page where you've integrated the "terms and conditions" page.
+    termsCondPage = termscond
+    
+    # cat=pt_gsashop::pages/enable/090; type=string; label="Right of withdrawal" page: Identifier (PID or alias) of the TYPO3 page where you've integrated the "right of withdrawal" page.
+    withdrawalPage = withdrawal
+    
+    # cat=pt_gsashop::pages/enable/110; type=string; label="Forgot password" page (optional): Identifier (PID or alias) of the TYPO3 page where you've integrated your "Forgot Password" handling (e.g. the pt_forgotpw plugin). If set, a "Forgot Password?" question with link to the appropriate page will be displayed at the shop internal login (pi1) between cart checkout and order overview. If set to empty string (default), nothing will be displayed.
+    forgotPwPage =
+    
+    
+    
+  // ***** GENERAL EXTENSION SETTINGS *****
+    
+    // Enable Features
+    
+    # cat=pt_gsashop::general/enable/100; type=int+; label=Shop operator FE group ID: ID of the frontend usergroup with shop operator rights (DB table fe_groups, Field uid). If you don't have an appropriate group, please create one with the name 'Shop operator' and set its uid here. 
+    shopOperatorGroupUid =
+    
+    # cat=pt_gsashop::general/enable/200; type=string; label=MD5 security check "salt": "Salt" string to use for building an md5 hash used for security checks within this extension (e.g. for checking successful payment returns from the ePayment extension). IMPORTANT: Change the default setting for security reasons!
+    md5SecurityCheckSalt = ThisIsTheDefaultSalt
+    
+    # cat=pt_gsashop::general/enable/300; type=string; label=Shop name: Name of the shop, to be used e.g. as sender name for all emails sent by the GSA Shop.
+    shopName = 
+    
+    # cat=pt_gsashop::general/enable/310; type=string; label=General email sender address: Email address to be used as sender address for _all_ auto-generated emails of GSA Shop (e.g. the order confirmation and payment result emails of the the shop core, but intended for emails from GSA extensions as well!). NOTE: Please ignore the historically grown (and for backwards compatibility reasons unchanged) option name "orderEmailSender", it's value will be used as general email sender and not for order emails only!
+    orderEmailSender = 
+    
+    # cat=pt_gsashop::general/enable/320; type=string; label=Order confirmation email CC: Email recipient address (comma-separated list for multiple recipients) for copies (CC:) of the auto-generated order confirmation emails of the shop extension, e.g. email address of the sales department of your company. Leave this field empty if you don't want to receive a CC: copy of the customers order confirmation emails.
+    orderEmailRecipient = 
+    
+    # cat=pt_gsashop::general/enable/323; type=string; label=Order confirmation email BCC: Email address (comma-separated list for multiple recipients) for blind carbon copies (BCC:) of order confirmation emails of the shop extension. Leave this field empty if you don't want to receive a BCC: copy of the customers order confirmation emails.
+    orderConfirmationEmailBcc = 
+    
+    # cat=pt_gsashop::general/enable/326; type=string; label=Order confirmation email Reply-To: Email address for the Reply-To header of auto-generated order confirmation emails of the shop extension, e.g. email address of the support department of your company. Leave this field empty if you don't want to set a different reply-to address for the customers order confirmation emails (replies will be sent to the email sender address).
+    orderConfirmationEmailReplyTo = 
+    
+    # cat=pt_gsashop::general/enable/330; type=boolean; label=Send order conf. email to customer: Uncheck if you do not want the final order to be sent as an auto-generated confirmation email. This setting affects the CC: and BCC: settings above as well (no order confirmation email is sent at all if this one is disabled).
+    sendFinalOrderEmailToCustomer = 1
+    
+    # cat=pt_gsashop::general/enable/350; type=string; label=Currency code: The ISO three letter currency code specifying the used currency (e.g. EUR for Euro, USD for US Dollar). The code is used for ordering, accounting and invoices. If you're not sure about the correct code use phpMyAdmin and have a look to the 'static_currencies' database table (part of the 'static_info_tables' extension). Make sure to use the same currency code in your ePayment extension if you use this one, too.
+    currencyCode = EUR
+    
+    # cat=pt_gsashop::general/enable/360; type=boolean; label= Use precision prices: Flag whether the shop should use prices with more than two decimals (=number of digits after the decimal point). The GSA database supports up to 4 decimals, but this is not supported in the ERP GUI.
+    usePricesWithMoreThanTwoDecimals = 0
+    
+    # cat=pt_gsashop::general/enable/370; type=boolean; label=Use supplier control: Check if you want all article purchases to be logged to a database table to control your suppliers' invoices. IMPORTANT: This requires the pt_gsashop_supplierControl database table to be existent in your GSA database (GSMANDn or GSAMINIDB). To insert the table structure, you can use the SQL file located at pt_gsashop/res/sql/pt_gsashop_supplierControl.sql.
+    useSupplierControl = 0
+    
+    # cat=pt_gsashop::general/enable/400; type=boolean; label=Enable XSS security f. article text: Flag whether the shop should enable the XSS security conversion for HTML output article texts in the article display plugin pi2 (relates to GSA DB fields ARTIKEL.ZUSTEXT1 ("Artikeltext") and ARTIKEL.ZUSTEXT2 ("Alternativtext")). If unchecked, any HTML (and JavaScript!) stored in the mentioned database fields will be "executed" at the web pages where articles are displayed. WARNING: Uncheck this checkbox only if you're absolutely sure that no unwanted "evil" content is saved in the mentioned database fields, e.g. in only trusted persons are allowed to enter/change article data.
+    enableXssSecurityForArticleText = 1
+    
+    # cat=pt_gsashop::general/enable/410; type=boolean; label=Enable RTE rendering f.article text: Flag whether the shop should enable RTE rendering for HTML output article texts in the article display plugin pi2 (relates to GSA DB fields ARTIKEL.ZUSTEXT1 ("Artikeltext") and ARTIKEL.ZUSTEXT2 ("Alternativtext")). If enabled, you also should uncheck the "enableXssSecurityForArticleText" option above (unless you don't want to see HTML code displayed :) - but be aware this could open XSS security holes in certain circumstances (see warnings at "enableXssSecurityForArticleText")!
+    enableRteForArticleText = 0
+    
+    
+    // Dimension settings
+    
+    
+    // File settings
+    
+    # cat=pt_gsashop::general/file/010; type=string; label="Add to cart" button image file 1: Path to the image file to be used for the "Add to cart" button in the article box of pi2 (e.g. 'fileadmin/img/my_button.gif').
+    imgAddToCartButtonArticleBox = EXT:pt_gsashop/res/img/btn_cart.gif
+    
+    # cat=pt_gsashop::general/file/020; type=string; label="Add to cart" button image file 2: Path to the image file to be used for the "Add to cart" button in the article relation check of pi1  (e.g. 'fileadmin/img/my_button.gif').
+    imgAddToCartButtonArtRelCheck = EXT:pt_gsashop/res/img/btn_cart.gif
+    
+    # cat=pt_gsashop::general/file/040; type=string; label="Remove from cart" button img file: Path to the image file to be used for the "Remove from cart" button in the article box of pi2 (e.g. 'fileadmin/img/my_button.gif').
+    imgRemoveFromCartButtonArticleBox = EXT:pt_gsashop/res/img/btn_remove.gif
+    
+    
+    // Other settings
+    
+    # cat=pt_gsashop::general/other/005; type=boolean; label= Use automatic invoice booking: Flag whether the shop should book invoices for all shops orders automatically: this results in an invoice record per order in the GSA DB (additionally to the always generated order confirmation record), including all GSA booking information for accounting. If unchecked, per order only an order confirmation record without any any booking information will be stored in the GSA DB.
+    useAutomaticInvoiceBooking = 1
+    
+    # cat=pt_gsashop::general/other/020; type=options [(1) Display shopping cart=1,(2) Stay on order page=2]; label="Add to Cart" Action: Action to be executed after an article has been successfully added to the shopping cart [(1) Display shopping cart=1,(2) Stay on order page=2].
+    addToCartAction = 1
+    
+    # cat=pt_gsashop::general/other/030; type=boolean; label=Display "Clear all" button for cart: Uncheck if you do not want the "Clear all" button to be displayed at the shopping cart page (if displayed, the user is enabled to clear the complete cart with this button).
+    displayClearCartButton = 1
+    
+    # cat=pt_gsashop::general/other/040; type=boolean;label=Enable cart article linking: Flag whether articles in the shopping cart (pi1) should be linked to article detail pages (URLs depending on configuration in article input field "Webadresse" in GSA-Admin or ERP-GUI / GSA-DB: ARTIKEL.WEBADRESSE). This setting is used for article display in article relation check messages (pi1), too.
+    displayCartArticleLinks = 1
+    
+    # cat=pt_gsashop::general/other/050; type=boolean;label=Display payment sum by default: Flag whether the payment sum for an order should be displayed by default (in order overview and order confirmation email), even if it is identical with the total sum gross. Please note: the payment sum will always be displayed (independently of this setting), if it is different from the total sum gross (e.g. if payment modifiers like vouchers or credit balances are used).
+    displayPaymentSumByDefault = 0
+    
+    # cat=pt_gsashop::general/other/110; type=boolean; label=Allow multiple deliveries per order: Uncheck if you do not want to allow multiple deliveries per order. By unchecking this option, the "Distribute to multiple deliveries" button will not be displayed at the order overview page.
+    allowMultipleDeliveries = 1
+    
+    # cat=pt_gsashop::general/other/120; type=boolean; label=Allow billing address change: Check if you do want to allow the user to change the orders billing address within the ordering process. WARNING: CHECKING THIS OPTIONS IS NOT SUPPORTED BY/WILL NOT WORK WITH THE ERP SYSTEM! Leaving this option unchecking (default), the billing address will always be built from the users master address record and the "Edit billing address" button will not be displayed at the order overview page.
+    allowBillingAddrChange = 0
+    
+    # cat=pt_gsashop::general/other/130; type=boolean; label=Allow shipping address change: Uncheck if you do not want to allow the user to change the shipping addresses of the order's deliveries within the ordering process. By unchecking this option, the shipping address for a delivery will always be built from the users data record and the "Edit shipping address" button(s) will not be displayed at the order overview page.
+    allowShippingAddrChange = 1
+    
+    # cat=pt_gsashop::general/other/140; type=int+; label=Scale price quantity tolerance (%): Tolerance in percent (integer) for scale prices to be added to the processed article quantity for scale price calculation (the resulting floating point number will be rounded to an integer). Example: There are the following scale prices set for an article: 1+ pieces => price A, from 10+ pieces => price B,  100+ pieces => price C: the tolerance setting of this option set to 5 (percent) results in 1-9 pieces => price A, 10-94 pieces => price B, 95+ pieces => price C.
+    scalePriceQtyTolerance = 0
+    
+    # cat=pt_gsashop::general/other/150; type=boolean; label=Always use customer specific price: Flag whether a possibly existing customer specific price of an article always overrides the price calculated by default for this article, even if the default price is lower than the customer specific price (this may be required for mixed calculation/combined costing). If not set (default), the lowest price of the two prices (default price and customer specific price) will be used for the article.
+    custSpecPriceOverridesDefaultPrice = 0
+    
+    # cat=pt_gsashop::general/other/210; type=boolean; label=Enable article relations: Flag whether the shop should use article relations (e.g. required/exclusion/amount-limited articles). If checked, the cart will check article relations on cart edit actions. If unchecked (default), the article will be added to the cart immediately and cart edit actions will not be checked for article relations. 
+    enableArticleRelations = 0
+    
+    # cat=pt_gsashop::general/other/220; type=boolean; label=Logical "OR" for required articles: (for article relations only:) Flag whether the shop should use the logical "OR" for required articles. If checked (default), the list of required articles set for one article will be used as alternative conditions. If unchecked, the list of required articles set for one article will be used as combined condition (logical "AND" is used). This setting has no effect if "enableArticleRelations" (see above) is unchecked (set to 0).
+    artrelReqUseLogicalOr = 1
+    
+    # cat=pt_gsashop::general/other/240; type=boolean; label=Enable article delivery date: Flag whether the shop should use delivery dates for articles (displayed and editable in pi3). WARNING: THIS IS NOT FINALLY IMPLEMENTED YET!
+    enableArticleDeliveryDate = 0
+    
+    
+    // Language settings
+    
+    # cat=pt_gsashop::general/language/010; type=string; label=[CURRENTLY OBSOLETE]: [CURRENTLY OBSOLETE!] Language code for country names: The ISO two letter country code specifying the language for all country names used by features based on the 'static_info_tables' extension (currently available: "en" for English, "de" for German and "dk" for Danish). The chosen language is used for the display of country names, e.g. for address display or for country pulldown menues in forms (the names are taken from the approriate database field 'static_countries.cn_short_*' from 'static_info_tables' extension).
+    ###staticCountriesLang = en
+    
+    
+    
+  // ***** GSA RELATED SETTINGS *****
+    
+    // Enable Features
+    
+    # cat=pt_gsashop::GSA settings/enable/010; type=options ["Suchbegriff" (ARTIKEL.MATCH)=MATCH,"Beschreibung" (ARTIKEL.MATCH2)=MATCH2,"Artikelnummer" (ARTIKEL.ARTNR)=ARTNR]; label=GSA article description source: Source field from GSA database table "ARTIKEL" to use for the article's description display in the shop [Selectorbox entries used here follow the display scheme: "GUI field title" (DB-TABLE.DB-FIELD)]. Since the DB field ARTIKEL.MATCH is re-written to the GSA database when saving an order as document, it is recommended to use this field for article description display, too (default).
+    articleDescriptionSourceField = MATCH
+    
+    # cat=pt_gsashop::GSA settings/enable/100; type=string; label=GSA tax code for dispatch cost: Code of the GSA-DB record to use for the chosen dispatch type's cost (tax for shipping cost) [see GSA database table "STEUER", field "CODE"]
+    dispatchTaxCode = 01
+    
+    # cat=pt_gsashop::GSA settings/enable/300; type=string; label=Virtual table for OpNr: Name of the virtual table to use in GSA database table SYNEWNUMBER for outstanding items numbers of invoices etc. (ERP: "Offene Posten", used in GSA database FSCHRIFT.OPNUMMER). This is used for automatically generated shop invoice records instead of the file OPNR.INI used by the ERP GUI.
+    gsaVirtualTableOpNr = vtOPNUMMER
+    
+    # cat=pt_gsashop::GSA settings/enable/310; type=int[20000000-]; label=Starting value of the virtual OpNr: Minimum value to start with in virtual table for OpNr (see option 'gsaVirtualTableOpNr' above). This is used for automatically generated shop invoice records instead of the ERP GUI created file OPNR.INI, which starts at 10000000
+    gsaVirtualOpNrMin = 50000000
+    
+    # cat=pt_gsashop::GSA settings/enable/320; type=boolean; label=Create delivery receipts: Flag whether the shop should create GSA delivery receipt (German: "Lieferschein") document records for deliveries of an order in combination with the GSA order confirmation document record (the order confirmation document records are created by default).
+    gsaCreateDeliveryReceipt = 1
+    
+    # cat=pt_gsashop::GSA settings/enable/500; type=string; label=GSA dispatch - cost free: Name of the GSA dispatch type (German: "Versandart") to use for dispatch free orders (amongst others for deliveries with non-physical products only, e.g. webhosting products). IMPORTANT: This string has to be entered *exactly* and case-sensitive [see ERP GUI or GSA database table "VERSART", field "VERSART"].
+    gsaDispatchTypeCostFree = frei
+    
+    # cat=pt_gsashop::GSA settings/enable/510; type=string; label=GSA dispatch - inland net: Name of the GSA dispatch type (German: "Versandart") to use for net inland online orders. IMPORTANT: This string has to be entered *exactly* and case-sensitive [see ERP GUI or GSA database table "VERSART", field "VERSART"].
+    gsaDispatchTypeInlandNet = Shop Inland (netto)
+    
+    # cat=pt_gsashop::GSA settings/enable/520; type=string; label=GSA dispatch - inland gross: Name of the GSA dispatch type (German: "Versandart") to use for gross inland online orders. IMPORTANT: This string has to be entered *exactly* and case-sensitive [see ERP GUI or GSA database table "VERSART", field "VERSART"].
+    gsaDispatchTypeInlandGross = Shop Inland (brutto)
+    
+    # cat=pt_gsashop::GSA settings/enable/530; type=string; label=GSA dispatch - abroad net: Name of the GSA dispatch type (German: "Versandart") to use for net abroad online orders. IMPORTANT: This string has to be entered *exactly* and case-sensitive [see ERP GUI or GSA database table "VERSART", field "VERSART"].
+    gsaDispatchTypeAbroadNet = Shop Ausland (netto)
+    
+    # cat=pt_gsashop::GSA settings/enable/540; type=string; label=GSA dispatch - abroad gross: Name of the GSA dispatch type (German: "Versandart") to use for gross abroad online orders. IMPORTANT: This string has to be entered *exactly* and case-sensitive [see ERP GUI or GSA database table "VERSART", field "VERSART"].
+    gsaDispatchTypeAbroadGross = Shop Ausland (brutto)
+    
+    
+    
+  // ***** PAYMENT RELATED SETTINGS *****
+    
+    # cat=pt_gsashop::payment/enable/010; type=string; label=CC payment page: Identifier (PID or alias) of the TYPO3 page where you've integrated the Heidelpay ePayment (pt_heidelpay) plugin. This setting is not needed if the "enableExtendedPaymentChoice" and "enableSimpleCcPaymentChoice" options (see below) both are set to 0 (=are unchecked).
+    paymentPage = payment
+    
+    # cat=pt_gsashop::payment/enable/020; type=boolean; label= Enable extended payment choice: Flag whether the shop should offer the extended payment choice of the pt_gsauserreg extension (payment choice of a user is based on configured/available pt_gsauserreg payment options and depend on his pt_gsauserreg customer data). Note: If you want to offer the credit card payment choice for customers in pt_gsauserreg (Constant Editor option "Enable CreditCard payments [config.pt_gsauserreg.ccAllow]" enabled), this requires the pt_heidelpay extension to be installed and all "shopOperator*" config options below to be set.
+    enableExtendedPaymentChoice = 1
+    
+    # cat=pt_gsashop::payment/enable/030; type=boolean; label= Enable simple CC payment choice: This setting has no effect if the "enableExtendedPaymentChoice" option (see above) is enabled (set to 1): Flag whether the shop should offer credit card payment using the pt_heidelpay extension (this requires all "shopOperator*" config options above to be set). If checked, the "Order overview" page will display the simple payment options with radio buttons "credit card" and "bank transfer". If unchecked (default), "bank transfer" will be used by default.
+    enableSimpleCcPaymentChoice = 0
+    
+    # cat=pt_gsashop::payment/enable/040; type=string; label=ePayment result email recipient: Email recipient address (comma-separated list for multiple recipients) for auto-generated ePayment transaction result emails of the shop extension, e.g. the email address of the shop operator (leave this field empty if you don't want to receive ePayment transaction result emails). This setting is not needed if the "enableExtendedPaymentChoice" and "enableSimpleCcPaymentChoice" options (see above) both are set to 0 (=are unchecked).
+    epaymentResultRecipient = 
+    
+    # cat=pt_gsashop::payment/others/100; type=string; label=Shop operator -- name: Name of the shop operator (e.g. company name). This is required for the usage of Heidelpay credit card ePayment (see config options "enableExtendedPaymentChoice" and "enableExtendedPaymentChoice" above).
+    shopOperatorName = 
+    
+    # cat=pt_gsashop::payment/others/110; type=string; label=Shop operator -- email: Email address of the shop operator. This is required for the usage of Heidelpay credit card ePayment (see config options "enableExtendedPaymentChoice" and "enableExtendedPaymentChoice" above).
+    shopOperatorEmail = 
+    
+    # cat=pt_gsashop::payment/others/120; type=string; label=Shop operator -- street and no.: Street and house number of the shop operator's address. This is required for the usage of Heidelpay credit card ePayment (see config options "enableExtendedPaymentChoice" and "enableExtendedPaymentChoice" above).
+    shopOperatorStreetNo = 
+    
+    # cat=pt_gsashop::payment/others/130; type=string; label=Shop operator -- zip: Zip code of the shop operator's address. This is required for the usage of Heidelpay credit card ePayment (see config options "enableExtendedPaymentChoice" and "enableExtendedPaymentChoice" above).
+    shopOperatorZip = 
+    
+    # cat=pt_gsashop::payment/others/140; type=string; label=Shop operator -- city: City of the shop operator's address. This is required for the usage of Heidelpay credit card ePayment (see config options "enableExtendedPaymentChoice" and "enableExtendedPaymentChoice" above).
+    shopOperatorCity = 
+    
+    # cat=pt_gsashop::payment/others/150; type=string; label=Shop operator -- country code: ISO2 country code (ISO-3166) of the shop operator's address. This is required for the usage of Heidelpay credit card ePayment (see config options "enableExtendedPaymentChoice" and "enableExtendedPaymentChoice" above).
+    shopOperatorCountryCode = DE
+    
+    # cat=pt_gsashop::payment/others/210; type=string; label=Shop operator bank -- bank name: Bank name of the shop operator's bank. 
+	shopOperatorBankName =
+	
+	# cat=pt_gsashop::payment/others/220; type=string; label=Shop operator bank -- bank code: Bank code of the shop operator's bank. 
+    shopOperatorBankCode = 
+    
+    # cat=pt_gsashop::payment/others/230; type=string; label=Shop operator bank -- account number: Account number of the shop operator's bank account.
+    shopOperatorBankAccountNo =
+    
+    # cat=pt_gsashop::payment/others/240; type=string; label=Shop operator bank -- bic: Bic code of the shop operator's bank.
+    shopOperatorBankBic =
+    
+    # cat=pt_gsashop::payment/others/250; type=string; label=Shop operator bank -- iban: Iban code of the shop operator's bank.
+    shopOperatorBankIban =
+  
+  
+    
+  // ***** SMARTY TEMPLATE SETTINGS *****
+    
+    // File settings
+    
+    # cat=pt_gsashop::smarty templates/file/010; type=file[html,htm,tmpl,tpl,txt]; label=Shopping cart display template: The template file to be used for the shopping cart display of pi1 (template for the Smarty templating engine).
+    templateFileCart = EXT:pt_gsashop/res/smarty_tpl/cart.tpl.html
+    
+    # cat=pt_gsashop::smarty templates/file/020; type=file[html,htm,tmpl,tpl,txt]; label=Cart checkout login template: The template file to be used for the login for non-logged-in users after a cart checkout of pi1 (template for the Smarty templating engine).
+    templateFileCheckoutLogin = EXT:pt_gsashop/res/smarty_tpl/checkoutlogin.tpl.html
+    
+    # cat=pt_gsashop::smarty templates/file/030; type=file[html,htm,tmpl,tpl,txt]; label=Article confirmation template: The template file to be used for the article relations confirmation text display of pi1 (template for the Smarty templating engine).
+    templateFileArticleConfirmation = EXT:pt_gsashop/res/smarty_tpl/articleconfirmation.tpl.html
+    
+    # cat=pt_gsashop::smarty templates/file/040; type=file[html,htm,tmpl,tpl,txt]; label=Article box template: The template file to be used for the article box display of pi2 (template for the Smarty templating engine).
+    templateFileArticleBox = EXT:pt_gsashop/res/smarty_tpl/articlebox.tpl.html
+    
+    # cat=pt_gsashop::smarty templates/file/050; type=file[html,htm,tmpl,tpl,txt]; label=Order overview template: The template file to be used for the single order overview display of pi3/pi4 (template for the Smarty templating engine).
+    templateFileOrderOverview = EXT:pt_gsashop/res/smarty_tpl/orderoverview.tpl.html
+    
+    # cat=pt_gsashop::smarty templates/file/055; type=file[html,htm,tmpl,tpl,txt]; label=Article distribution template: The template file to be used for the article distribution GUI of pi3 (template for the Smarty templating engine).
+    templateFileArticleDistribution = EXT:pt_gsashop/res/smarty_tpl/articledistribution.tpl.html
+    
+    # cat=pt_gsashop::smarty templates/file/060; type=file[html,htm,tmpl,tpl,txt]; label=Final order mail template: The template file to be used for the mailing of an final order of pi3 (template for the Smarty templating engine). NOTE: This template's contents will be sent by email with the charset encoding 'iso-8859-15'. If you're using an individual template please make sure to set the correct charset used by your template at the 'templateCharsetFinalOrderMail' option below, too!
+    templateFileFinalOrderMail = EXT:pt_gsashop/res/smarty_tpl/finalorder_utf8.tpl.txt
+    
+    # cat=pt_gsashop::smarty templates/file/065; type=string; label=Final order mail template charset: The character set (e.g. 'utf-8', 'iso-8859-15', 'iso-8859-1') used for final order mail template (see config 'templateFileFinalOrderMail' above). The default template delivered by pt_gsashop is encoded in 'utf-8'.
+    templateCharsetFinalOrderMail = utf-8
+    
+    # cat=pt_gsashop::smarty templates/file/070; type=file[html,htm,tmpl,tpl,txt]; label=Template for order errors: The template file to be used for errors in the ordering process of pi3 (template for the Smarty templating engine).
+    templateFileOrderError = EXT:pt_gsashop/res/smarty_tpl/ordererror.tpl.html
+
+    # cat=pt_gsashop::smarty templates/file/080; type=file[html,htm,tmpl,tpl,txt]; label=Template for order list: The template file to be used for the order list (order archive/workflow) of pi4 (template for the Smarty templating engine).
+    templateFileOrdersList = EXT:pt_gsashop/res/smarty_tpl/orderslist.tpl.html
+
+    # cat=pt_gsashop::smarty templates/file/090; type=file[html,htm,tmpl,tpl,txt]; label=Template for order single view: The template file to be used for the view of a single order (order archive/workflow) of pi4 (template for the Smarty templating engine).
+    templateFileOrdersSingleView = EXT:pt_gsashop/res/smarty_tpl/ordersingleview.tpl.html
+
+    # cat=pt_gsashop::smarty templates/file/100; type=file[html,htm,tmpl,tpl,txt]; label=Template for a pi4 notice: The template file to be used for a notice page of the order archive-/workflow-plugin pi4 (template for the Smarty templating engine).
+    templateFilePi4Notice = EXT:pt_gsashop/res/smarty_tpl/pi4notice.tpl.html
+    
+    # cat=pt_gsashop::smarty templates/file/110; type=file[html,htm,tmpl,tpl,txt]; label=Article single view template: The template file to be used for the article single view display of pi2 (template for the Smarty templating engine).
+    templateFileArticleSingleView = EXT:pt_gsashop/res/smarty_tpl/articlebox.tpl.html
+    
+    # cat=pt_gsashop::smarty templates/file/120; type=file[html,htm,tmpl,tpl,txt]; label=ePayment Return template: The template file to be used for the epayment returns of pi6 (template for the Smarty templating engine).
+    templateFileEpaymentReturn = EXT:pt_gsashop/res/smarty_tpl/epaymentreturn.tpl.html
+    
+    # cat=pt_gsashop::smarty templates/file/130; type=file[html,htm,tmpl,tpl,txt]; label=Cart box template: The template file to be used for the mini display of the shopping cart in pi7 (template for the Smarty templating engine).
+    templateFileCartBox = EXT:pt_gsashop/res/smarty_tpl/cartbox.tpl.html
+    
+    
+    
+  // ***** ARTICLE DISPLAY (pi2) SETTINGS *****
+  
+  	# cat=pt_gsashop::article display/others/010; type=boolean; label=Name/Description: Default display of article name/description at article display (description source is configurable in GSA settings: articleDescriptionSourceField)
+    articleDisplayDescription = 1
+    
+    # cat=pt_gsashop::article display/others/020; type=boolean; label=Article Number: Default display of GSA article number at article display
+    articleDisplayArticleno = 1
+    
+    # cat=pt_gsashop::article display/others/030; type=boolean; label=Price: Default display of article price at article display
+    articleDisplayPrice = 1
+    
+    # cat=pt_gsashop::article display/others/040; type=boolean; label=Quantity: Default display of article quantity in shopping cart at article display 
+    articleDisplayCartqty =  1
+    
+    # cat=pt_gsashop::article display/others/050; type=boolean; label=Remove button: Default display of button to remove article from shopping cart at article display 
+    articleDisplayRemovebutton = 1 
+    
+    # cat=pt_gsashop::article display/others/060; type=boolean; label=Match: Default display of GSA match (ARTIKEL.MATCH) at article display 
+    articleDisplayMatch1 = 0
+    
+    # cat=pt_gsashop::article display/others/070; type=boolean; label=GSA Description: Default display of GSA description (ARTIKEL.MATCH2) at article display 
+    articleDisplayMatch2 = 1
+    
+    # cat=pt_gsashop::article display/others/080; type=boolean; label=GSA default article text: Default display of GSA default article text (ARTIKEL.ZUSTEXT1) at article display
+    articleDisplayDeftext = 1 
+    
+    # cat=pt_gsashop::article display/others/090; type=boolean; label=GSA alternative article text: Default display of GSA alternative article text (ARTIKEL.ZUSTEXT2) at article display
+    articleDisplayAlttext = 0
+    
+    # cat=pt_gsashop::article display/others/100; type=boolean; label=Article images: Default display of article images at article display
+    articleDisplayImg = 1
+    
+    # cat=pt_gsashop::article display/others/110; type=boolean; label=Cart link: Default display of cart link at article display
+    articleDisplayCartlink = 1
+    
+    # cat=pt_gsashop::article display/others/120; type=boolean; label=Article box width: Default display of article box with default width at article display
+    articleDisplayBoxdefault = 1
+    
+    # cat=pt_gsashop::article display/others/130; type=options [(0) Never=0, (1) Only if available=1, (2) Always=2]; label=Price scales: Default display of price scales at article display
+    articleDisplayPricescales = 0
+    
+    # cat=pt_gsashop::article display/others/140; type=boolean; label=Link to article single view: Link article to article detail page (URL depending on configuration in article input field "Webadresse" in GSA-Admin or ERP-GUI (GSA-DB: ARTIKEL.WEBADRESSE)) at article display 
+    articleDisplayUrl = 1
+    
+    # cat=pt_gsashop::article display/others/150; type=boolean; label=Order button: Default display of order button at article display
+    articleDisplayOrderbutton = 1
+    
+    
+  // ***** CARTBOX (pi7) SETTINGS *****
+    
+    # cat=pt_gsashop::cartbox/others/010; type=boolean; label=CartBox header display : Flag whether the cart box plugin (pi7) should display a linked-to-cart box header.
+    cartboxDisplayHeader = 1
+    
+    # cat=pt_gsashop::cartbox/others/020; type=boolean; label=CartBox use image header: Flag whether the cart box plugin (pi7) should use an image header or a text link header (default).
+    cartboxUseImageHeader = 0
+    
+    # cat=pt_gsashop::cartbox/others/030; type=boolean; label=CartBox positions display: Flag whether the cart box plugin (pi7) should display a positions line.
+    cartboxDisplayPositions = 1
+    
+    # cat=pt_gsashop::cartbox/others/040; type=boolean; label=CartBox sum display: Flag whether the cart box plugin (pi7) should display a sum total line.
+    cartboxDisplayCartSum = 1
+    
+    # cat=pt_gsashop::cartbox/others/050; type=boolean; label=CartBox clear cart display: Flag whether the cart box plugin (pi7) should display a clear cart button.
+    cartboxDisplayClearCartButton = 1
+  
+  
+    
+  // ***** WORKFLOW SETTINGS *****
+    
+    // Enable Features
+    
+    # cat=pt_gsashop::workflow/enable/010; type=boolean; label=Enable order workflow: Enables the default order workflow of this extension after sending an order. If not checked, an order will be saved directly to the GSA database after a user has pressed the "Order now" button. CAUTION: Be sure to know what you do (and run tests in non-production environments)! Enabling this value without setting a correct workflowExtensionKey (and having the appropriate extension installed) will result in frontend errors and termination of the script processing!
+    enableOrderWorkflow = 0
+    
+    # cat=pt_gsashop::workflow/enable/020; type=string; label=Initial workflow page: Identifier (PID or alias) of the TYPO3 page where you've integrated the "GSA Shop: Workflow" plugin (pi4 of this extension, plugin type "workflow") that should be used initially after submitting an order.
+    workflowPage = workflow
+    
+    # cat=pt_gsashop::workflow/enable/030; type=string; label=Workflow extension key: Name of the extension key that contains the workflow status configuration classes in its directory "res/pt_gsashop_workflow/" (requires enableOrderWorkflow to be set to 1). CAUTION: Be sure to know what you do (and run tests in non-production environments)! Changing or disabling to this value without disabling the complete workflow (setting enableOrderWorkflow to 0) may result in frontend errors and termination of the script processing!
+    workflowExtensionKey =
+    
+    # cat=pt_gsashop::workflow/enable/040; type=int [0-90]; label=Workflow initial status code: Status code of the first available workflow status - this status code will be set for all new orders (requires enableOrderWorkflow to be set to 1). CAUTION: Be sure to know what you do (and run tests in non-production environments)! Changing or disabling to this value without disabling the complete workflow (setting enableOrderWorkflow to 0) may result in frontend errors and termination of the script processing!
+    workflowInitialStatusCode = 1
+
+    # cat=pt_gsashop::workflow/enable/050; type=int [0-99]; label=Workflow finished status code: Status code to set after an orders workflow has been finished - this status code should not have a real representation in the database table tx_ptgsashop_workflow (requires enableOrderWorkflow to be set to 1). CAUTION: Be sure to know what you do (and run tests in non-production environments)! Changing or disabling to this value without disabling the complete workflow (setting enableOrderWorkflow to 0) may result in frontend errors and termination of the script processing!
+    workflowFinishStatusCode = 99
+    
+}

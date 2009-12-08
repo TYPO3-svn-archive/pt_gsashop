@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <type>module</type>
+        <description>Language labels for module &quot;tools_txptgsashopM1&quot;</description>
+    </meta>
+    <data type="array">
+    
+        <languageKey index="default" type="array">
+            <label index="title">GSA Cache</label>
+            <label index="confirmation_cache_refreshed">&lt;b&gt;The GSA Cache has been refreshed!&lt;b&gt;</label>
+            <label index="notice_cache_no_articles">&lt;b&gt;No articles found in GSA database to import into the GSA cache!&lt;b&gt;</label>
+            <label index="exception_catched">An error has occurred!</label>
+        </languageKey>
+        
+        <languageKey index="de" type="array">
+            <label index="title">GSA Cache</label>
+            <label index="confirmation_cache_refreshed">&lt;b&gt;Der GSA Cache wurde aktualisiert!&lt;b&gt;</label>
+            <label index="notice_cache_no_articles">&lt;b&gt;Keine Artikel in der GSA Datenbank zum Import in den GSA Cache gefunden!&lt;b&gt;</label>
+            <label index="exception_catched">Ein Fehler ist aufgetreten!</label>
+        </languageKey>
+        
+    </data>
+</T3locallang>
+

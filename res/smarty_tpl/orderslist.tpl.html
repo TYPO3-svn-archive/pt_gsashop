@@ -1,0 +1,70 @@
+{* Smarty *}
+{* Default template for pt_gsashop "Orders List"; Author: Rainer Kuhn <kuhn@punkt.de>, since 2006-03-31 *}
+
+{****** PREVIOUS ORDERS FOUND: order table ******}
+{if $cond_previousOrdersFound}
+
+<table class="tx-ptgsashop-pi4-tabledefault">{$ll_}
+    
+  {****** LIST HEADER ******}
+    <tr>
+        <th class="tx-ptgsashop-pi4-tablelistheader">{$ll_listview_action}</th>
+        <th class="tx-ptgsashop-pi4-tablelistheader">{$ll_listview_time}</th>
+      {if !$cond_isWorkflow}
+        <th class="tx-ptgsashop-pi4-tablelistheader">{$ll_relatedDocNo}</th>
+      {/if}
+        <th class="tx-ptgsashop-pi4-tablelistheader">{$ll_order_total}<br />{$ll_net}</th>
+        <th class="tx-ptgsashop-pi4-tablelistheader">{$ll_order_total}<br />{$ll_gross}</th>
+      {if $cond_isWorkflow}
+        <th class="tx-ptgsashop-pi4-tablelistheader">{$ll_listview_creator}</th>
+        <th class="tx-ptgsashop-pi4-tablelistheader">{$ll_listview_status}</th>
+        <th class="tx-ptgsashop-pi4-tablelistheader">{$ll_listview_lastUpdate}</th>
+        <th class="tx-ptgsashop-pi4-tablelistheader">{$ll_listview_lastUser}</th>
+      {/if}
+        <th class="tx-ptgsashop-pi4-tablelistheader">{$ll_listview_action}</th>
+    </tr>
+    
+  {****** ORDER ROWS ******} 
+  {section name=order loop=$ordersArr}
+  
+    <tr>
+        <td class="tx-ptgsashop-pi4-tablelistcell{$ordersArr[order].class_selected}">
+          {if $ordersArr[order].cond_viewButton}
+            <form action="{$faction_listButtons}" method="post" class="tx-ptgsashop-pi4-formdefault">
+                <input type="hidden" name="{$fname_orderIdHidden}" value="{$ordersArr[order].orderId}" />
+                <input type="submit" name="{$fname_viewButton}" value="{$ll_listview_button_view}" class="tx-ptgsashop-pi4-button1" />
+            </form>
+          {/if}
+        </td>
+        <td class="tx-ptgsashop-pi4-tablelistcell{$ordersArr[order].class_selected}">{$ordersArr[order].orderDate}</td>
+      {if !$cond_isWorkflow}
+        <td class="tx-ptgsashop-pi4-tablelistcell{$ordersArr[order].class_selected}">{$ordersArr[order].orderRelDocNo}{$ordersArr[order].orderRelDocNoAdditionalData}</td>
+      {/if}
+        <td class="tx-ptgsashop-pi4-tablelistcell{$ordersArr[order].class_selected}">{$ordersArr[order].orderSumNet}</td>
+        <td class="tx-ptgsashop-pi4-tablelistcell{$ordersArr[order].class_selected}">{$ordersArr[order].orderSumGross}</td>
+      {if $cond_isWorkflow}
+        <td class="tx-ptgsashop-pi4-tablelistcell{$ordersArr[order].class_selected}">{$ordersArr[order].orderCreator}</td>
+        <td class="tx-ptgsashop-pi4-tablelistcell{$ordersArr[order].class_selected}">{$ordersArr[order].orderStatusCode}</td>
+        <td class="tx-ptgsashop-pi4-tablelistcell{$ordersArr[order].class_selected}">{$ordersArr[order].orderLastUpdate}</td>
+        <td class="tx-ptgsashop-pi4-tablelistcell{$ordersArr[order].class_selected}">{$ordersArr[order].orderLastUser}</td>
+      {/if}
+        <td class="tx-ptgsashop-pi4-tablelistcell{$ordersArr[order].class_selected}">
+          {if $ordersArr[order].cond_viewButton}
+            <form action="{$faction_listButtons}" method="post" class="tx-ptgsashop-pi4-formdefault">
+                <input type="hidden" name="{$fname_orderIdHidden}" value="{$ordersArr[order].orderId}" />
+                <input type="submit" name="{$fname_viewButton}" value="{$ll_listview_button_view}" class="tx-ptgsashop-pi4-button1" />
+            </form>
+          {/if}
+        </td>
+    </tr>
+    
+  {/section}    
+       
+</table>
+
+{****** NO PREVIOUS ORDERS FOUND: appropriate message ******}
+{else}
+
+<p class="tx-ptgsashop-pi4-txt2">{$ll_listview_no_orders}</p>
+        
+{/if}
