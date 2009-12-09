@@ -23,6 +23,7 @@ CHANGELOG
 
 v1.0.1dev:
 =========
++ (rk) ADD: added some more reference websites to manual's introduction
 + (rk) FIX: fixed some documenation errors (concerning GSA extension list) in extension manual
 + (rk) CHG: "initialized" development version 1.0.1dev (v1.0.0 has been tagged in SVN and uploaded to TER before)
 
