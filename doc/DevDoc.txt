@@ -13,24 +13,21 @@ TODO: todo
 ********************************************************************************
 
 
-ToDo: As of 09.12.09
+ToDo: As of 11.12.09
 ====================
+
 
 
 ********************************************************************************
 CHANGELOG
 ********************************************************************************
 
-v1.0.1dev:
-=========
+v1.0.1:
+======
++ (rk) CHG: updated chapter "GSA extension overview" of the manual, fixed some documentation errors
 + (rk) ADD: added some more reference websites to manual's introduction
 + (rk) FIX: fixed some documenation errors (concerning GSA extension list) in extension manual
 + (rk) CHG: "initialized" development version 1.0.1dev (v1.0.0 has been tagged in SVN and uploaded to TER before)
-
-
-
-
-
 
 v1.0.0: (=0.14.2final) 
 ======
@@ -39,9 +36,9 @@ v1.0.0: (=0.14.2final)
 + (rk) RFT: cleaned up DevDoc.txt
 + (rk) ADD: tx_ptgsashop_pi2::main(): added new "mainControllerHook" 
 + (jm) ADD: added new getter methods to tx_ptgsashop_pi2:
-              + get_articleObj()
-              + get_cartObj()
-              + get_customerObj()
+            + get_articleObj()
+            + get_cartObj()
+            + get_customerObj()
 
 
 
