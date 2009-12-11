@@ -22,12 +22,18 @@ ToDo: As of 11.12.09
 CHANGELOG
 ********************************************************************************
 
+v1.0.1dev:
+=========
++ (rk) CHG: "initialized" development version 1.0.2dev (v1.0.1 has been tagged in SVN and uploaded to TER before)
+
+
+
+
 v1.0.1:
 ======
 + (rk) CHG: updated chapter "GSA extension overview" of the manual, fixed some documentation errors
 + (rk) ADD: added some more reference websites to manual's introduction
 + (rk) FIX: fixed some documenation errors (concerning GSA extension list) in extension manual
-+ (rk) CHG: "initialized" development version 1.0.1dev (v1.0.0 has been tagged in SVN and uploaded to TER before)
 
 v1.0.0: (=0.14.2final) 
 ======
