@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Language labels for plugin tx_ptgsashop_pi4</description>
+        <type>database</type>
+        <csh_table></csh_table>
+        <labelContext type="array">
+        </labelContext>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="order_total">Sum total</label>
+            <label index="net">net</label>
+            <label index="gross">gross</label>
+            <label index="relatedDocNo">Related Doc. No.</label>
+            <label index="listview_time">Order date</label>
+            <label index="listview_creator">Creator</label>
+            <label index="listview_status">Status</label>
+            <label index="listview_lastUpdate">Last update</label>
+            <label index="listview_lastUser">Last user</label>
+            <label index="listview_action"></label>
+            <label index="listview_button_view">View</label>
+            <label index="listview_no_orders_archive">No previous orders found for logged-in user!</label>
+            <label index="listview_no_orders_workflow">No elements found in workflow of logged-in user!</label>
+            <label index="singleview_order_details">Details of selected order from %s h</label>
+            <label index="singleview_updated">Updated at %s h</label>
+            <label index="singleview_updated_notice">Notice: Any changes of prices and taxes since the intial order are subject of the updated view!</label>
+            <label index="singleview_quantity">Quantity</label>
+            <label index="singleview_price">Price</label>
+            <label index="singleview_price_notice_net">All prices are net prices (excl. VAT)</label>
+            <label index="singleview_price_notice_gross">All prices are gross prices (incl. VAT)</label>
+            <label index="singleview_sum_total">Sum total</label>
+            <label index="singleview_service_charge">Service charge</label>
+            <label index="singleview_delivery_title">Delivery Article %1$s-%2$s of %3$s</label>
+            <label index="singleview_delivery_articles">Articles</label>
+            <label index="singleview_artno_abbrev">Art.No.</label>
+            <label index="singleview_artfixedcost_info">one-time fixed cost independently of article quantity</label>
+            <label index="singleview_delivery_sum">Sum delivery</label>
+            <label index="singleview_shipping_addr">Shipping address</label>
+            <label index="singleview_billing_data">Billing data</label>
+            <label index="singleview_billing_sum_net">Order sum net</label>
+            <label index="singleview_billing_sum_gross">Order sum gross</label>
+            <label index="singleview_billing_sum_total">Billing sum total</label>
+            <label index="singleview_billing_addr">Billing address</label>
+            <label index="singleview_sum_articles">Sum articles</label>
+            <label index="singleview_sum_service_charge">Sum service charge</label>
+            <label index="singleview_payment">Payment</label>
+            <label index="singleview_paymentMethod_bt">On Account (bank transfer)</label>
+            <label index="singleview_paymentMethod_cc">Credit Card</label>
+            <label index="singleview_paymentMethod_dd">Direct Debit</label>
+            <label index="singleview_paymentNotice_bt">You'll get all needed bank account information for your bank transfer on the invoice after the final approval of the order.</label>
+            <label index="singleview_paymentNotice_cc">The credit card payment will be processed after the final approval of the order.</label>
+            <label index="singleview_paymentNotice_dd">The order total will be debited from this account after the final approval of the order.</label>
+            <label index="singleview_payment_bankAccountNo">Account no.</label>
+            <label index="singleview_payment_bankCode">Bank code</label>
+            <label index="singleview_payment_bankBic">BIC</label>
+            <label index="singleview_payment_bankIban">IBAN</label>
+            <label index="singleview_payment_bankName">Bank name</label>
+            <label index="singleview_payment_bankAccountHolder">Account holder</label>
+            <label index="singleview_button_listview">Back to order list</label>
+            <label index="singleview_button_reorder">Open this order as new order</label>
+            <label index="singleview_reorder_notice">Prices, dispatch costs and taxes could have changed meanwhile - this may result in changed order totals. You can check all updated prices on the following page before submitting the order.</label>
+            <label index="singleview_reorder_warning">WARNING:\n There is unsent shopping cart oder order data in your browser session!\n This data will be overwritten by using this button.\n Do you want to proceed anyway?</label>
+            <label index="workflow_statuscode">Workflow Status Code</label>
+            <label index="archived_address_changed">At least one of the  archived addresses  displayed above has changed.&lt;br /&gt;Instead of the archived address the current address will be used for the new order.&lt;br /&gt;You can check and edit all addresses on the following page before submitting the order.</label>
+            <label index="archived_address_changed_header">Adress will be changed</label>
+            <label index="exception_catched">An error has occurred!</label>
+        </languageKey>
+        <languageKey index="de" type="array">
+            <label index="order_total">Summe</label>
+            <label index="net">netto</label>
+            <label index="gross">brutto</label>
+            <label index="relatedDocNo">Vorgangs-Nr.</label>
+            <label index="listview_time">Bestelldatum</label>
+            <label index="listview_creator">Ersteller</label>
+            <label index="listview_status">Status</label>
+            <label index="listview_lastUpdate">Letzte Änderung</label>
+            <label index="listview_lastUser">Letzter Benutzer</label>
+            <label index="listview_action"></label>
+            <label index="listview_button_view">Anzeigen</label>
+            <label index="listview_no_orders_archive">Es wurden keine vorherigen Bestellungen des eingeloggten Benutzers gefunden!</label>
+            <label index="listview_no_orders_workflow">Es wurden keine Elemente im Workflow des eingeloggten Benutzers gefunden!</label>
+            <label index="singleview_order_details">Details der ausgewählten Bestellung von %s h</label>
+            <label index="singleview_updated">Aktualisierter Stand vom %s h</label>
+            <label index="singleview_updated_notice">Hinweis: Etwaige Änderungen von Preisen und Steuern seit der Initial-Bestellung sind in der Aktualisierung berücksichtigt!</label>
+            <label index="singleview_quantity">Anzahl</label>
+            <label index="singleview_price">Preis</label>
+            <label index="singleview_price_notice_net">Alle Preise sind Netto-Preise (exkl. MwSt.)</label>
+            <label index="singleview_price_notice_gross">Alle Preise sind Brutto-Preise (inkl. MwSt.)</label>
+            <label index="singleview_sum_total">Gesamtsumme</label>
+            <label index="singleview_service_charge">Bearbeitungsgebühr</label>
+            <label index="singleview_delivery_title">Lieferung Artikel %1$s-%2$s von %3$s</label>
+            <label index="singleview_delivery_articles">Artikel</label>
+            <label index="singleview_artno_abbrev">Art.Nr.</label>
+            <label index="singleview_artfixedcost_info">einmalige Fixkosten unabhängig von der Artikelanzahl</label>
+            <label index="singleview_delivery_sum">Summe Lieferung</label>
+            <label index="singleview_shipping_addr">Lieferadresse</label>
+            <label index="singleview_billing_data">Rechnungsdaten</label>
+            <label index="singleview_billing_sum_net">Bestellsumme netto</label>
+            <label index="singleview_billing_sum_gross">Bestellsumme brutto</label>
+            <label index="singleview_billing_sum_total">Rechnungs-Gesamtsumme</label>
+            <label index="singleview_billing_addr">Rechnungsadresse</label>
+            <label index="singleview_sum_articles">Summe Artikel</label>
+            <label index="singleview_sum_service_charge">Summe Bearbeitungsgebühr</label>
+            <label index="singleview_payment">Zahlungsweise</label>
+            <label index="singleview_paymentMethod_bt">auf Rechnung (Banküberweisung)</label>
+            <label index="singleview_paymentMethod_cc">Kreditkarte</label>
+            <label index="singleview_paymentMethod_dd">Abbuchung vom Bankkonto</label>
+            <label index="singleview_paymentNotice_bt">Die Kontodaten für die Überweisung erhalten Sie nach endgültiger Freigabe der Bestellung auf der Rechnung.</label>
+            <label index="singleview_paymentNotice_cc">Die Kreditkartenzahlung erfolgt nach endgültiger Freigabe der Bestellung.</label>
+            <label index="singleview_paymentNotice_dd">Die Rechnungsssumme wird nach endgültiger Freigabe der Bestellung von oben genanntem Konto abgebucht.</label>
+            <label index="singleview_payment_bankAccountNo">Kontonummer</label>
+            <label index="singleview_payment_bankCode">Bankleitzahl</label>
+            <label index="singleview_payment_bankBic">BIC</label>
+            <label index="singleview_payment_bankIban">IBAN</label>
+            <label index="singleview_payment_bankName">Kreditinstitut</label>
+            <label index="singleview_payment_bankAccountHolder">Kontoinhaber</label>
+            <label index="singleview_button_listview">Zurück zur Bestellungs-Liste</label>
+            <label index="singleview_button_reorder">Diese Bestellung als neue Bestellung öffnen</label>
+            <label index="singleview_reorder_notice">Preise, Versandpauschalen und Steuern können sich zwischenzeitlich geändert haben und damit zu veränderten Bestellsummen führen. Sie können die aktualisierten Preise auf der Folgeseite überprüfen, bevor Sie die Bestellung absenden.</label>
+            <label index="singleview_reorder_warning">ACHTUNG:\n In ihrer Browser-Session gibt es noch nicht abgeschickte Warenkorb- oder Bestelldaten!\n Diese Daten werden durch Benutzung dieses Buttons überschrieben.\n Möchten Sie trotzdem fortfahren?</label>
+            <label index="workflow_statuscode">Workflow Status Code</label>
+            <label index="archived_address_changed">Mindestens eine der oben angezeigten archivierten Adressen hat sich inzwischen geändert.&lt;br /&gt;Anstelle der archivierten Adresse wird in der neuen Bestellung die aktuelle Adresse verwendet.&lt;br /&gt;Sie können die Adressen auf der Folgeseite überprüfen und ändern, bevor Sie die Bestellung absenden.</label>
+            <label index="archived_address_changed_header">Adresse geändert</label>
+            <label index="exception_catched">Ein Fehler ist aufgetreten!</label>
+        </languageKey>
+    </data>
+</T3locallang>

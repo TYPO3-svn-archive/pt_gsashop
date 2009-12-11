@@ -1,0 +1,97 @@
+﻿{* Smarty *}{strip}
+{* Default UTF-8 encoded template for pt_gsashop "Final order confirmation mail"; Author: Rainer Kuhn <kuhn@punkt.de>, since 2006-03-22 *}
+{***** IMPORTANT: Template changes must maintain the line length of 72 chars and the delivery table structure for correct display! *****}
+{***** IMPORTANT: Since this is a plain text template every blank and linebreak used for template placeholders will be displayed! *****}
+{/strip}{if $cond_displayIntroText}
+Vielen Dank für Ihre Online-Bestellung, die bei uns eingegangen ist.
+Folgende Bestellung werden wir für Sie ausführen: 
+
+{/if}
+Online-Bestellung [{$orderHost}]
+vom {$orderDate}, {$orderTime} h
+{if $cond_erpDocNo}Vorgangs-Nummer: {$orderErpDocNo}{/if} 
+------------------------------------------------------------------------
+{if $cond_isNet}
+                        Summe Artikel netto (exkl. MwSt.): EUR {$orderSumArticlesNet}
+                  Summe Versandkosten netto (exkl. MwSt.): EUR {$orderSumDispatchNet}
+------------------------------------------------------------------------
+                          Gesamtsumme netto (exkl. MwSt.): EUR {$orderSumTotalNet}
+========================================================================
+{section name=taxline loop=$orderTaxArr}
+                                              MwSt. {$orderTaxArr[taxline].taxRate}%: EUR {$orderTaxArr[taxline].taxSubTotal}
+{/section}
+------------------------------------------------------------------------
+                         Gesamtsumme brutto (inkl. MwSt.): EUR {$orderSumTotalGross}
+========================================================================
+{else}
+                       Summe Artikel brutto (inkl. MwSt.): EUR {$orderSumArticlesGross}
+                 Summe Versandkosten brutto (inkl. MwSt.): EUR {$orderSumDispatchGross}
+========================================================================
+                         Gesamtsumme brutto (inkl. MwSt.): EUR {$orderSumTotalGross}
+========================================================================
+{section name=taxline loop=$orderTaxArr}
+enthaltene MwSt. {$orderTaxArr[taxline].taxRate}%: EUR {$orderTaxArr[taxline].taxSubTotal}
+{/section}
+Gesamtsumme netto (exkl. MwSt.): EUR {$orderSumTotalNet}
+{/if}{$additionalPaymentModifierData}
+{if $cond_displayPaymentSumTotal}
+                                           Zahlungsbetrag: EUR {$orderPaymentSumTotal}
+========================================================================
+{/if}{$additionalBillingData}
+
+Rechnungsadresse:
+----------------
+{$billingAddress}
+
+{if $cond_displayPayment}
+Zahlungsweise:
+-------------
+{$ll_paymentMethod}
+{/if}
+
+
+{section name=delivery loop=$delArr}
+************************************************************************
+
+LIEFERUNG ARTIKEL {$delArr[delivery].delArtStart}-{$delArr[delivery].delArtEnd} VON {$delArr[delivery].delArtTotal}
+----+------------------------------------------+-----+---------+--------
+Anz.  Artikelbezeichnung                        MwSt.    Preis  Zw.Summe
+      (Art.-Nr.)                                 [%]     [EUR]     [EUR]
+----+------------------------------------------+-----+---------+--------
+{section name=articleline loop=$delArr[delivery].delArtLineArr}{$delArr[delivery].delArtLineArr[articleline]}{/section}
+----+------------------------------------------+-----+---------+--------
+{if $cond_isNet}
+     Zwischensumme netto (exkl. MwSt.)                         {$delArr[delivery].delSumArticles}
+{else}
+     Zwischensumme brutto (inkl. MwSt.)                        {$delArr[delivery].delSumArticles}
+{/if}
+----+------------------------------------------+-----+---------+--------
+     Versandkosten-Pauschale:
+{$delArr[delivery].dispatchCostLine}
+{if $cond_isNet}
+------------------------------------------------------------------------
+                      Summe Lieferung netto (exkl. MwSt.): EUR {$delArr[delivery].delSumTotalNet}
+========================================================================
+{section name=deltaxline loop=$delArr[delivery].delTaxArr}
+                                              MwSt. {$delArr[delivery].delTaxArr[deltaxline].taxRate}%: EUR {$delArr[delivery].delTaxArr[deltaxline].taxSubTotal}
+{/section}
+------------------------------------------------------------------------
+                     Summe Lieferung brutto (inkl. MwSt.): EUR {$delArr[delivery].delSumTotalGross}
+========================================================================
+{else}
+========================================================================
+                     Summe Lieferung brutto (inkl. MwSt.): EUR {$delArr[delivery].delSumTotalGross}
+========================================================================
+{section name=deltaxline loop=$delArr[delivery].delTaxArr}
+enthaltene MwSt. {$delArr[delivery].delTaxArr[deltaxline].taxRate}%: EUR {$delArr[delivery].delTaxArr[deltaxline].taxSubTotal}
+{/section}
+Summe Lieferung netto (exkl. MwSt.): EUR {$delArr[delivery].delSumTotalNet}
+{/if}{$delArr[delivery].additionalDeliveryData}
+{if $delArr[delivery].cond_displayShippingAddr}
+
+Lieferadresse:
+-------------
+{$delArr[delivery].delAddress}
+{/if}
+
+{/section}

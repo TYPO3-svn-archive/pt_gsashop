@@ -1,0 +1,102 @@
+/**
+ * Basic mail configuration for GSA Shop in combination with the pt_mail extension
+ * 
+ * @author  Rainer Kuhn <kuhn@punkt.de>, Fabrizio Branca <branca@punkt.de>
+ * @since   2008-11-11
+ * 
+ * All settings assigned like {$plugin.tx_ptgsashop.*} originate from /static/constants.txt
+ * 
+ * $Id: setup.txt,v 1.2 2008/11/27 14:08:42 ry44 Exp $
+ */
+
+/**
+ * Basic email configuration for GSA Shop
+ */
+config.pt_mail {
+
+    # "from": single email address
+    from {
+        email = {$plugin.tx_ptgsashop.orderEmailSender}
+        title = {$plugin.tx_ptgsashop.shopName}
+    }
+    
+/*
+    # "to": emailAddressCollection (10, 20,...)
+    to {
+        10 {
+            email =
+            title =
+        }
+    }
+    
+    # "cc": emailAddressCollection (10, 20,...)
+    cc {
+        10 {
+            email = 
+            title =
+        }
+    }
+    
+    # "bcc": emailAddressCollection (10, 20,...)
+    bcc {  
+        10 {
+            email =
+            title =
+        }
+    }
+    
+    # "reply-to": single email address
+    reply {
+        email = 
+        title =
+    }
+*/
+
+} 
+
+
+/**
+ * Individual config for orderConfirmation emails
+ */
+config.pt_mail.mailId.orderConfirmation {
+    
+    # "cc": emailAddressCollection (10, 20,...)
+    cc {
+        10 {
+            email = {$plugin.tx_ptgsashop.orderEmailRecipient}
+            # title =
+        }
+    }
+    
+    # "bcc": emailAddressCollection (10, 20,...)
+    bcc {  
+        10 {
+            email = {$plugin.tx_ptgsashop.orderConfirmationEmailBcc}
+            # title =
+        }
+    }
+    
+    # "reply-to": single email address
+    reply {
+        email = {$plugin.tx_ptgsashop.orderConfirmationEmailReplyTo}
+        # title =
+    }
+    
+}
+
+
+
+/**
+ * Individual config for epaymentResult emails
+ */
+config.pt_mail.mailId.epaymentResult {
+
+    # "to": emailAddressCollection (10, 20,...)
+    to {
+        10 {
+            email = {$plugin.tx_ptgsashop.epaymentResultRecipient}
+            # title = 
+        }
+    }
+    
+}

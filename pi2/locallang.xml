@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Language labels for plugin tx_ptgsashop_pi2</description>
+        <type>database</type>
+        <csh_table></csh_table>
+        <labelContext type="array">
+        </labelContext>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="artNo">Art. No.</label>
+            <label index="price">Price</label>
+            <label index="add_to_cart">Add to shopping cart</label>
+            <label index="remove_from_cart">Remove article from shopping cart</label>
+            <label index="view_cart">View cart</label>
+            <label index="qty_cart">Current quantity of this article in your shopping cart</label>
+            <label index="artfixedcost_info">one-time fixed cost independently of the article quantity.</label>
+            <label index="pricescales_qty">From quantity</label>
+            <label index="pricescales_price">Unit price</label>
+            <label index="exception_catched">An error has occurred!</label>
+        </languageKey>
+        <languageKey index="de" type="array">
+            <label index="artNo">Art.-Nr.</label>
+            <label index="price">Preis</label>
+            <label index="add_to_cart">In den Warenkorb legen</label>
+            <label index="remove_from_cart">Artikel aus dem Warenkorb löschen</label>
+            <label index="view_cart">Warenkorb anzeigen</label>
+            <label index="qty_cart">derzeitige Anzahl dieses Artikels in Ihrem Warenkorb</label>
+            <label index="artfixedcost_info">einmalige Fixkosten unabhängig von der bestellten Artikelanzahl</label>
+            <label index="pricescales_qty">Ab Menge</label>
+            <label index="pricescales_price">Einzelpreis</label>
+            <label index="exception_catched">Ein Fehler ist aufgetreten!</label>
+        </languageKey>
+    </data>
+</T3locallang>

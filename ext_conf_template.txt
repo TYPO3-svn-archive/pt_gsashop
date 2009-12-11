@@ -1,0 +1,32 @@
+/* 
+possible subcategories: 
+----------------------
+basic        Extension configuration in Extension Manager
+
+possible data types (type=):
+---------------------------
+int [low-high]              integer, opt. in range "low" to "high"
+int+                        positive integer
+offset [L1,L2,...L6]        comma-separated integers. Default is "x,y", but as comma separated parameters in brackets you can specify up to 6 labels being comma separated! If you wish to omit one of the last 4 fields, just don't enter a label for that element.
+color                       HTML color
+wrap                        HTML-code that is wrapped around some content.
+options [item1,item2,...]   Selectbox with values/labels item1, item2 etc. Commaseparated. Split by "=" also and in that case, first part is label, second is value
+boolean [truevalue]         Boolean, opt. you can define the value of "true", def.=1
+comment                     Boolean, checked= "", not-checked = "#".
+file [ext-list/IMAGE_EXT]   Selectorbox with resources. Opt. list allowed extensions (no space in list!), eg. "[ttf]" or "[txt,html,htm]". You can also enter "[IMAGE_EXT]" in which case the default image-extensions are listed. (used for datatype "imgResouce")
+string (the default)        Just a string value
+*/
+
+
+
+# cat=basic; type=comment; label=***** IMPORTANT WHEN UPDATING!*****: PLEASE READ THE MANUAL'S CHANGELOG INSTRUCTIONS CAREFULLY WHEN UPDATING AN EXISTING INSTALLATION OF THIS EXTENSION! GSA Shop is under continous development and improvement. Depending on a version's changes it may be possible that you have to do some manual interaction to adapt your existing environment to the new software version...
+updateWarning = FOLLOW THE MANUAL'S CHANGELOG INSTRUCTIONS WHEN UPDATING A PREVIOUS VERSION
+
+# cat=basic; type=string; label=TS configuration PID: PID of the page where to find the main typoscript configuration of GSA Shop (the page where you've integrated the static template of GSA Shop). Note: if your Typoscript template is stored in a sysfolder, you don't have to set the PID of the sysfolder here, but the PID of the page where the template is included/used!
+tsConfigurationPid = 1
+
+# cat=basic; type=string; label=Timezone (PHP): The timezone identifier (see http://php.net/manual/en/timezones.php) to use as parameter for the date_default_timezone_set() function since it is not safe to rely on the system's timezone settings. 
+timezone = Europe/Berlin
+
+# cat=basic; type=boolean; label=Production Environment: Check this box if the extension is used in production environment, uncheck it for development environment (default). CAUTION: This setting may have consequences for email delivery to real addresses and more features...
+prodEnv = 0

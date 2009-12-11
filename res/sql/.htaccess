@@ -1,0 +1,12 @@
+# this prevents file display in this directory
+# requires "AllowOverride Limit" (cf. AllowOverride AuthConfig) in httpd.conf 
+<Files *>
+    order allow,deny
+    deny from all
+</Files>
+
+
+# disable realurl redirection for current dir
+# RewriteEngine Off
+
+

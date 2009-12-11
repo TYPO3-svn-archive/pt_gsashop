@@ -1,0 +1,44 @@
+********************************************************************************
+DevDoc.txt: Development notes for EXT pt_gsashop
+Author: Rainer Kuhn et. al.
+--------------------------------------------------------------------------------
+
+Legend:
+FIX: fixed a bug
+CHG: changed items/features
+ADD: added feature
+RMV: removed item
+RFT: refactoring / code cleanup
+TODO: todo
+********************************************************************************
+
+
+ToDo: As of 11.12.09
+====================
+
+
+
+********************************************************************************
+CHANGELOG
+********************************************************************************
+
+v1.0.1:
+======
++ (rk) CHG: updated chapter "GSA extension overview" of the manual, fixed some documentation errors
++ (rk) ADD: added some more reference websites to manual's introduction
++ (rk) FIX: fixed some documenation errors (concerning GSA extension list) in extension manual
++ (rk) CHG: "initialized" development version 1.0.1dev (v1.0.0 has been tagged in SVN and uploaded to TER before)
+
+v1.0.0: (=0.14.2final) 
+======
++ (rk) CHG: updated extension dependencies, changed extension state to 'stable'
++ (rk) CHG: updated the extension manual to the current state of things, 
++ (rk) RFT: cleaned up DevDoc.txt
++ (rk) ADD: tx_ptgsashop_pi2::main(): added new "mainControllerHook" 
++ (jm) ADD: added new getter methods to tx_ptgsashop_pi2:
+            + get_articleObj()
+            + get_cartObj()
+            + get_customerObj()
+
+
+

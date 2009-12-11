@@ -1,0 +1,52 @@
+{* Smarty *}
+{* Default template for pt_gsashop "Article Confirmation"; Author: Rainer Kuhn <kuhn@punkt.de>, since 2006-08-21 *}
+
+{$msgBox}
+
+{if $cond_artrel_notice_max_amount}
+    <p class="tx-ptgsashop-pi1-txt2">{$ll_artrel_notice_max_amount}</p>
+{/if}
+
+{if $cond_artrel_notice_exclusion_articles}
+    <p class="tx-ptgsashop-pi1-txt2">{$ll_artrel_notice_exclusion_articles_1}</p>
+        <ul>
+      {section name=article loop=$exclArtArr}
+	    <li class="tx-ptgsashop-pi1-txt2">{$exclArtArr[article].artDescription} [{$ll_artrel_artno}: {$exclArtArr[article].artNumber}]</li>
+      {/section}
+        </ul>
+    <p class="tx-ptgsashop-pi1-txt2">{$ll_artrel_notice_exclusion_articles_2}</p>
+{/if}
+
+{if $cond_artrel_notice_required_articles}
+    <p class="tx-ptgsashop-pi1-txt2">{$ll_artrel_notice_required_articles_1}</p>
+        <ul>
+      {section name=article loop=$reqArtArr}
+        <li class="tx-ptgsashop-pi1-txt2">
+        	<form action="{$faction_addToCart}" method="post" class="tx-ptgsashop-pi2-formdefault">
+              {if $reqArtArr[article].cond_linkArticle}
+        		<a target="_self" href="{$reqArtArr[article].artSingleViewLinkTarget}" title="{$ll_titleViewArticle}">
+              {/if}
+        		    {$reqArtArr[article].artDescription} [{$ll_artrel_artno}: {$reqArtArr[article].artNumber}]
+              {if $reqArtArr[article].cond_linkArticle}
+        		</a>
+              {/if}
+        		<br /><br />
+        		{$ll_artrel_required_articles_price}: {$reqArtArr[article].artPrice} {$currencyCode}
+        		&nbsp;
+                <input type="hidden" name="{$fname_articleId}" value="{$reqArtArr[article].fval_articleId}" />
+                <input type="hidden" name="{$fname_isArtrelAddition}" value="1" />
+            	{$reqArtArr[article].fhidden_reloadHandlerToken}
+                <input type="image" src="{$imgsrc_cartButton}" name="{$fname_cartButton}" title="{$ll_titleCartButton}" />
+                <br /><br />
+            </form>
+        </li>
+      {/section}
+        </ul>
+    <p class="tx-ptgsashop-pi1-txt2">{$ll_artrel_notice_required_articles_2}</p>
+{/if}
+
+{if $cond_artrel_optional_support_notice}
+    <p class="tx-ptgsashop-pi1-txt1">{$ll_artrel_optional_support_notice}</p>
+{/if}
+
+{*debug*}

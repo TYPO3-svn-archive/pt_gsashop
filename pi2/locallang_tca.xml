@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Language labels for tx_ptgsashop_pi2 tca</description>
+        <type>database</type>
+        <csh_table></csh_table>
+        <labelContext type="array">
+        </labelContext>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="pi2_flexform.notset"></label>
+            <label index="pi2_flexform.yes">Yes</label>
+            <label index="pi2_flexform.no">No</label>
+            <label index="pi2_flexform.onlyIfAvailable">Only if available</label>
+            <label index="pi2_flexform.always">Always</label>
+            <label index="pi2_flexform.never">Never</label>
+            <label index="pi2_flexform.sArticle">Article</label>
+            <label index="pi2_flexform.sDisplay">Display</label>
+            <label index="pi2_flexform.article_uid">Choose GSA article</label>
+            <label index="pi2_flexform.articleDisplayNotice">[NOTE: empty selectorbox = use TS configuration]</label>
+            <label index="pi2_flexform.articleDisplayPrice">Display article price</label>
+            <label index="pi2_flexform.articleDisplayPricescales">Display price scales</label>
+            <label index="pi2_flexform.articleDisplayDescription">Display article name/description (source is configurable in Constant Editor)</label>
+            <label index="pi2_flexform.articleDisplayArticleno">Display GSA article number</label>
+            <label index="pi2_flexform.articleDisplayMatch1">Display GSA match (ARTIKEL.MATCH)</label>
+            <label index="pi2_flexform.articleDisplayMatch2">Display GSA description (ARTIKEL.MATCH2)</label>
+            <label index="pi2_flexform.articleDisplayDeftext">Display GSA default article text (ARTIKEL.ZUSTEXT1)</label>
+            <label index="pi2_flexform.articleDisplayAlttext">Display GSA alternative article text (ARTIKEL.ZUSTEXT2)</label>
+            <label index="pi2_flexform.articleDisplayImg">Display article images</label>
+            <label index="pi2_flexform.articleDisplayCartqty">Display article quantity in shopping cart</label>
+            <label index="pi2_flexform.articleDisplayRemovebutton">Display button to remove article from shopping cart</label>
+            <label index="pi2_flexform.articleDisplayBoxdefault">Display article box with default width</label>
+            <label index="pi2_flexform.articleDisplayCartlink">Display cart link</label>
+            <label index="pi2_flexform.articleDisplayOrderbutton">Display order button</label>
+            <label index="pi2_flexform.articleDisplayUrl">Link article description to article single view page</label>
+            <label index="pi2_flexform.sTemplate">Template</label>
+            <label index="pi2_flexform.addToCartAction">Add to cart action</label>
+            <label index="pi2_flexform.imgAddToCartButtonArticleBox">&quot;Add to cart&quot; button image file path</label>
+            <label index="pi2_flexform.imgRemoveFromCartButtonArticleBox">&quot;Remove from cart&quot; button image file path</label>
+            <label index="pi2_flexform.templateFileArticleBox">Template path (plugin.tx_ptgsashop.templateFileArticleBox only!)</label>
+        </languageKey>
+        <languageKey index="de" type="array">
+            <label index="pi2_flexform.notset"></label>
+            <label index="pi2_flexform.yes">Ja</label>
+            <label index="pi2_flexform.no">Nein</label>
+            <label index="pi2_flexform.onlyIfAvailable">Nur wenn verfügbar</label>
+            <label index="pi2_flexform.always">Immer</label>
+            <label index="pi2_flexform.never">Nie</label>
+            <label index="pi2_flexform.sArticle">Artikel</label>
+            <label index="pi2_flexform.sDisplay">Anzeige</label>
+            <label index="pi2_flexform.article_uid">GSA Artikel auswählen</label>
+            <label index="pi2_flexform.articleDisplayNotice">[HINWEIS: leere Auswahl = TypoScript-Konfiguration verwenden]</label>
+            <label index="pi2_flexform.articleDisplayPrice">Zeige Artikelpreis an</label>
+            <label index="pi2_flexform.articleDisplayPricescales">Zeige Staffelpreise an</label>
+            <label index="pi2_flexform.articleDisplayDescription">Zeige Artikel-Bezeichnung an (Quelle konfigurierbar im Constant Editor)</label>
+            <label index="pi2_flexform.articleDisplayArticleno">Zeige GSA Artikelnummer an</label>
+            <label index="pi2_flexform.articleDisplayMatch1">Zeige GSA Suchbegriff an (ARTIKEL.MATCH)</label>
+            <label index="pi2_flexform.articleDisplayMatch2">Zeige GSA Beschreibung an (ARTIKEL.MATCH2)</label>
+            <label index="pi2_flexform.articleDisplayDeftext">Zeige GSA Standard-Artikeltext an (ARTIKEL.ZUSTEXT1)</label>
+            <label index="pi2_flexform.articleDisplayAlttext">Zeige GSA Alternativ-Artikeltext an (ARTIKEL.ZUSTEXT2)</label>
+            <label index="pi2_flexform.articleDisplayImg">Zeige Artikelbilder an</label>
+            <label index="pi2_flexform.articleDisplayCartqty">Zeige Anzahl des Artikels im Warenkorb an</label>
+            <label index="pi2_flexform.articleDisplayRemovebutton">Zeige Knopf zum Entfernen des Artikels aus dem Warenkorb an</label>
+            <label index="pi2_flexform.articleDisplayBoxdefault">Zeige Artikel-Box in der Standard-Breite an</label>
+            <label index="pi2_flexform.articleDisplayCartlink">Zeige Warenkorb-Link an</label>
+            <label index="pi2_flexform.articleDisplayOrderbutton">Zeige Bestellknopf an</label>
+            <label index="pi2_flexform.articleDisplayUrl">Artikel-Bezeichnung zu Artikel-Einzelansichtsseite verlinken</label>
+            <label index="pi2_flexform.sTemplate">Template</label>
+            <label index="pi2_flexform.imgAddToCartButtonArticleBox">Pfad zur &quot;Dem Warenkorb hinzufügen&quot; Icon-Datei</label>
+            <label index="pi2_flexform.imgRemoveFromCartButtonArticleBox">Pfad zur &quot;Aus dem Warenkorb entfernen&quot; Icon-Datei</label>
+            <label index="pi2_flexform.templateFileArticleBox">Template-Pfad (nur plugin.tx_ptgsashop.templateFileArticleBox!)</label>
+        </languageKey>
+    </data>
+</T3locallang>

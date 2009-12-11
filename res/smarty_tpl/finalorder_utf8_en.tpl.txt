@@ -1,0 +1,97 @@
+﻿{* Smarty *}{strip}
+{* Default template for pt_gsashop "Final order confirmation mail"; Author: Dorit Rottner <rottner@punkt.de>, since 2008-10-28 *}
+{***** IMPORTANT: Template changes must maintain the line length of 72 chars and the delivery table structure for correct display! *****}
+{***** IMPORTANT: Since this is a plain text template every blank and linebreak used for template placeholders will be displayed! *****}
+{/strip}{if $cond_displayIntroText}
+Thank you for the online order we've received from you.
+We will process the following order for you:
+
+{/if}
+Online order [{$orderHost}]
+from {$orderDate}, {$orderTime} h
+{if $cond_erpDocNo}Document number: {$orderErpDocNo}{/if} 
+------------------------------------------------------------------------
+{if $cond_isNet}
+                              Sum article net (excl. VAT): EUR {$orderSumArticlesNet}
+                       Sum service charge net (excl. VAT): EUR {$orderSumDispatchNet}
+------------------------------------------------------------------------
+                                Sum total net (excl. VAT): EUR {$orderSumTotalNet}
+========================================================================
+{section name=taxline loop=$orderTaxArr}
+                                                VAT {$orderTaxArr[taxline].taxRate}%: EUR {$orderTaxArr[taxline].taxSubTotal}
+{/section}
+------------------------------------------------------------------------
+                              Sum total gross (incl. VAT): EUR {$orderSumTotalGross}
+========================================================================
+{else}
+                            Sum article gross (incl. VAT): EUR {$orderSumArticlesGross}
+                     Sum service charge gross (incl. VAT): EUR {$orderSumDispatchGross}
+========================================================================
+                              Sum total gross (incl. VAT): EUR {$orderSumTotalGross}
+========================================================================
+{section name=taxline loop=$orderTaxArr}
+included VAT {$orderTaxArr[taxline].taxRate}%: EUR {$orderTaxArr[taxline].taxSubTotal}
+{/section}
+Sum total net (excl. VAT): EUR {$orderSumTotalNet}
+{/if}{$additionalPaymentModifierData}
+{if $cond_displayPaymentSumTotal}
+                                           Payment amount: EUR {$orderPaymentSumTotal}
+========================================================================
+{/if}{$additionalBillingData}
+
+Billing address:
+----------------
+{$billingAddress}
+
+{if $cond_displayPayment}
+Payment method:
+---------------
+{$ll_paymentMethod}
+{/if}
+
+
+{section name=delivery loop=$delArr}
+************************************************************************
+
+DELIVERY ARTICLE {$delArr[delivery].delArtStart}-{$delArr[delivery].delArtEnd} FROM {$delArr[delivery].delArtTotal}
+----+------------------------------------------+-----+---------+--------
+Qty.  Article description                        VAT     Price  Subtotal
+      (Art.-No.)                                 [%]     [EUR]     [EUR]
+----+------------------------------------------+-----+---------+--------
+{section name=articleline loop=$delArr[delivery].delArtLineArr}{$delArr[delivery].delArtLineArr[articleline]}{/section}
+----+------------------------------------------+-----+---------+--------
+{if $cond_isNet}
+     Subtotal net (excl. VAT)                                  {$delArr[delivery].delSumArticles}
+{else}
+     Subtotal gross (incl. VAT)                                {$delArr[delivery].delSumArticles}
+{/if}
+----+------------------------------------------+-----+---------+--------
+     Service charge:
+{$delArr[delivery].dispatchCostLine}
+{if $cond_isNet}
+------------------------------------------------------------------------
+                           Total delivery net (excl. VAT): EUR {$delArr[delivery].delSumTotalNet}
+========================================================================
+{section name=deltaxline loop=$delArr[delivery].delTaxArr}
+                                                VAT {$delArr[delivery].delTaxArr[deltaxline].taxRate}%: EUR {$delArr[delivery].delTaxArr[deltaxline].taxSubTotal}
+{/section}
+------------------------------------------------------------------------
+                         Total delivery gross (incl. VAT): EUR {$delArr[delivery].delSumTotalGross}
+========================================================================
+{else}
+========================================================================
+                         Total delivery gross (incl. VAT): EUR {$delArr[delivery].delSumTotalGross}
+========================================================================
+{section name=deltaxline loop=$delArr[delivery].delTaxArr}
+included VAT {$delArr[delivery].delTaxArr[deltaxline].taxRate}%: EUR {$delArr[delivery].delTaxArr[deltaxline].taxSubTotal}
+{/section}
+Total delivery net (excl. VAT): EUR {$delArr[delivery].delSumTotalNet}
+{/if}{$delArr[delivery].additionalDeliveryData}
+{if $delArr[delivery].cond_displayShippingAddr}
+
+Shipping address:
+-----------------
+{$delArr[delivery].delAddress}
+{/if}
+
+{/section}

@@ -1,0 +1,48 @@
+{* Smarty *}
+{* Default template for pt_gsashop "User login form after cart checkout"; Author: Rainer Kuhn <kuhn@punkt.de>, since 2006-03-30 *}
+
+<form action="{$faction_login}" method="post" class="tx-ptgsashop-pi1-formdefault">
+    <table class="tx-ptgsashop-pi1-tabledefault">
+        <tr>
+            <td colspan="2" class="tx-ptgsashop-pi1-tableheader">
+                <span class="tx-ptgsashop-pi1-txt1">{$ll_login_header}</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tx-ptgsashop-pi1-tablecell">
+                <span class="tx-ptgsashop-pi1-txt2">{$ll_login_username}:</span>
+            </td>
+            <td class="tx-ptgsashop-pi1-tablecell">
+                <input class="tx-ptgsashop-pi1-input" name="user" value="" type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td class="tx-ptgsashop-pi1-tablecell">
+                <span class="tx-ptgsashop-pi1-txt2">{$ll_login_password}:</span>
+            </td>
+            <td class="tx-ptgsashop-pi1-tablecell">
+                <input class="tx-ptgsashop-pi1-input" name="pass" value="" type="password" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right" class="tx-ptgsashop-pi1-tableheader">
+                <input name="submit" value="{$ll_login_button}" type="submit" class="tx-ptgsashop-pi1-button2" />
+                <input name="logintype" value="login" type="hidden" />
+                <input name="pid" value="{$feUsersSysfolderPid}" type="hidden" />
+                <input name="no_redirect" value="1" type="hidden" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+<p>
+    <span class="tx-ptgsashop-pi1-txt1">{$ll_login_new_customer}</span>
+    <a class="tx-ptgsashop-pi1-link" href="{$link_gotoRegistrationPage}">{$ll_login_goto_regpage}</a>
+</p>
+
+{if $cond_forgot_pw}
+<p>
+    <span class="tx-ptgsashop-pi1-txt1">{$ll_forgot_pw}</span>
+    <a class="tx-ptgsashop-pi1-link" href="{$link_gotoForgotPwPage}">{$ll_login_goto_forgotPwPage}</a>
+</p>
+{/if}

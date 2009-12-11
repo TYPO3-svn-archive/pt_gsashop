@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Language labels for extension pt_gsashop</description>
+        <type>database</type>
+        <csh_table></csh_table>
+        <labelContext type="array">
+        </labelContext>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="pi1_title">GSA Shop: Shopping cart</label>
+            <label index="pi2_title">GSA Shop: Article display</label>
+            <label index="pi2_plus_wiz_description">Adds a new article display element of the GSA Shop extension to the page.</label>
+            <label index="pi3_title">GSA Shop: Order</label>
+            <label index="pi4_title">GSA Shop: Workflow / Order archive</label>
+            <label index="pi6_title">GSA Shop: ePayment return</label>
+            <label index="pi7_title">GSA Shop: Cart Box</label>
+            <label index="pi7_plus_wiz_description">Adds the cart box plugin of the GSA Shop extension to the page (not recommended for regular pages, this plugin should be integrated into all relevant pages using TypoScript or a design template).</label>
+        </languageKey>
+        <languageKey index="de" type="array">
+            <label index="pi1_title">GSA Shop: Warenkorb</label>
+            <label index="pi2_title">GSA Shop: Artikel-Anzeige</label>
+            <label index="pi2_plus_wiz_description">Fügt ein neues Artikel-Anzeigeelement der GSA Shop Extension in die Seite ein.</label>
+            <label index="pi3_title">GSA Shop: Bestellung</label>
+            <label index="pi4_title">GSA Shop: Workflow / Bestellungsarchiv</label>
+            <label index="pi6_title">GSA Shop: ePayment Verarbeitung</label>
+            <label index="pi7_title">GSA Shop: Warenkorb Mini-Anzeige</label>
+            <label index="pi7_plus_wiz_description">Fügt das Warenkorb Mini-Anzeige Plugin der GSA Shop Extension in die Seite ein (nicht für Standard-Seiten empfohlen, Plugin sollte über TypoScript oder Designvorlage in alle relevanten Seiten eingebunden werden).</label>
+        </languageKey>
+    </data>
+</T3locallang>

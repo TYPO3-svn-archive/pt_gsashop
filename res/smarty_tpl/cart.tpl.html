@@ -1,0 +1,125 @@
+{* Smarty *}
+{* Default template for pt_gsashop "Shopping Cart Form"; Author: Rainer Kuhn <kuhn@punkt.de>, since 2006-03-30 *}
+
+
+{****** DISPLAY NON-EMPTY CART ******}
+{if $cond_articlesInCart}
+  
+  <form action="{$faction_cart}" method="post" class="tx-ptgsashop-pi1-formdefault">
+	
+    <br />
+	{* MESSAGE-BOX (conditional) *}
+	{if $cond_displayMsgBox}
+	    {$msgBox}
+	    <br /><br />
+	{/if}
+    
+    <table class="tx-ptgsashop-pi1-tabledefault">
+
+    {****** CART HEADER ******}
+        <tr>
+            <td class="tx-ptgsashop-pi1-tableheader">
+                {***** 'fake button' to submit update if the enter key is hit with cursor in a text input *****}
+                <input type="submit" name="{$fname_updButton}" value="{$ll_cart_header_quantity}" class="tx-ptgsashop-pi1-buttonfake" />
+            </td>
+            <td valign="middle" class="tx-ptgsashop-pi1-tableheader">
+                <span class="tx-ptgsashop-pi1-txt1">{$ll_cart_header_artdescr}</span>
+            </td>
+            <td valign="middle" class="tx-ptgsashop-pi1-tableheader">
+                <span class="tx-ptgsashop-pi1-txt2">{$ll_cart_header_action}</span>
+            </td>
+            <td valign="middle" class="tx-ptgsashop-pi1-tableheader">
+                <span class="tx-ptgsashop-pi1-txt1">{$ll_cart_header_artno}</span>
+            </td>
+            <td valign="middle" align="right" class="tx-ptgsashop-pi1-tableheader">
+                <span class="tx-ptgsashop-pi1-txt1">{$ll_cart_header_price}*</span> 
+                <span class="tx-ptgsashop-pi1-txt2">[{$currencyCode}]</span>
+            </td>
+            <td valign="middle" align="right" class="tx-ptgsashop-pi1-tableheader">
+                <span class="tx-ptgsashop-pi1-txt1">{$ll_cart_header_sum}*</span> 
+                <span class="tx-ptgsashop-pi1-txt2">[{$currencyCode}]</span>
+            </td>
+        </tr>
+
+    {****** ARTICLE ROWS ******}    
+    
+      {section name=article loop=$artArr}
+        <tr>
+            <td class="tx-ptgsashop-pi1-tablecell">
+                <input type="text" size="2" maxlength="5" name="{$artArr[article].fname_quantityInput}" value="{$artArr[article].artQuantity}" class="tx-ptgsashop-pi1-input" />
+            </td>
+            <td class="tx-ptgsashop-pi1-tablecell">
+              {if $artArr[article].cond_linkArticle}<a target="_self" href="{$artArr[article].artSingleViewLinkTarget}" title="{$ll_cart_article_link_title}">{/if}
+              <span class="tx-ptgsashop-pi1-txt2">{$artArr[article].artDescription}</span>{if $artArr[article].cond_linkArticle}<a/>{/if}
+              {if $artArr[article].cond_fixedCost}
+                <br />
+                <span class="tx-ptgsashop-pi1-txt3">{$artArr[article].artFixedCostTotal} {$currencyCode}</span>
+                <span class="tx-ptgsashop-pi1-txt3">{$artArr[article].ll_cart_fixedcost_info}</span>
+              {/if}
+              {if $artArr[article].cond_additionalText}
+                <br />
+                <span class="tx-ptgsashop-pi1-txt3">{$artArr[article].additionalText}</span>
+              {/if}
+            </td>
+            <td class="tx-ptgsashop-pi1-tablecell">
+                <input type="submit" name="{$artArr[article].fname_delButton}" value="{$artArr[article].ll_cart_del_button}" class="tx-ptgsashop-pi1-button1" />
+            </td>
+            <td class="tx-ptgsashop-pi1-tablecell">
+                <span class="tx-ptgsashop-pi1-txt2">{$artArr[article].artNo}</span>
+            </td>
+            <td align="right" class="tx-ptgsashop-pi1-tablecell">
+                <span class="tx-ptgsashop-pi1-txt2">{$artArr[article].artPrice}</span>
+            </td>
+            <td align="right" class="tx-ptgsashop-pi1-tablecell">
+                <span class="tx-ptgsashop-pi1-txt2">{$artArr[article].artSubtotal}</span>
+            </td>
+        </tr>
+      {/section}
+    
+        <tr>
+            <td align="left" class="tx-ptgsashop-pi1-tablecell">
+                <input type="hidden" name="{$fname_updSubmittedButton}" value="true" />{***** workaround for MSIE: catching form submissions by pressing enter in form element *****}
+                <input type="submit" name="{$fname_updButton}" value="{$ll_cart_upd_button}" class="tx-ptgsashop-pi1-buttonspecial" />
+            </td>
+            <td colspan="2" align="right" class="tx-ptgsashop-pi1-tablecell">
+                &nbsp;
+            {if $cond_displayClearCartButton}
+                <input type="submit" name="{$fname_clearButton}" value="{$ll_cart_clear_button}" class="tx-ptgsashop-pi1-button1"
+                 onclick="return confirm('{$ll_cart_clear_warning}')">
+            {/if}
+            </td>
+            <td colspan="2" align="left" class="tx-ptgsashop-pi1-tablecell">
+                <span class="tx-ptgsashop-pi1-txt1">{$ll_cart_sum_total} </span>
+                <span class="tx-ptgsashop-pi1-txt2">[{$currencyCode}]</span>
+            </td>
+            <td align="right" class="tx-ptgsashop-pi1-tablecell">
+                <span class="tx-ptgsashop-pi1-txt1">{$itemsTotal}</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="tx-ptgsashop-pi1-tableheader" align="left">
+                <span class="tx-ptgsashop-pi1-txt2">* {$ll_price_notice}</span>
+            </td>
+            <td colspan="2" class="tx-ptgsashop-pi1-tableheader" align="right">
+                <input type="submit" name="{$fname_checkoutButton}" value="{$ll_cart_checkout_button}" class="tx-ptgsashop-pi1-button2" />
+            </td>
+        </tr>
+    
+    {****** FOOTER ******}      
+    </table>
+    <input type="hidden" name="no_cache" value="1" />
+    
+  </form>
+ 
+{else}
+
+        
+{****** EMPTY CART ******} 
+  <p class="tx-ptgsashop-pi1-txt1"><br />{$ll_cart_empty}<br /><br /></p>  
+   
+{/if}
+
+
+{if $cond_displayLastOrderPageLink}
+<p><a href="{$href_lastOrderPage}" class="tx-ptgsashop-pi1-link">{$ll_cart_return_orderpage}</a></p>
+{/if}

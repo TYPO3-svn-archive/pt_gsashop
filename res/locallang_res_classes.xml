@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Language labels for resource classes of extension pt_gsashop</description>
+        <type>database</type>
+        <csh_table></csh_table>
+        <labelContext type="array">
+        </labelContext>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="tx_ptgsashop_dispatchCost.gsaDispatchTypeCostFree">free</label>
+            <label index="tx_ptgsashop_dispatchCost.gsaDispatchTypeInlandNet">Shop inland (net)</label>
+            <label index="tx_ptgsashop_dispatchCost.gsaDispatchTypeInlandGross">Shop inland (gross)</label>
+            <label index="tx_ptgsashop_dispatchCost.gsaDispatchTypeAbroadNet">Shop abroad (net)</label>
+            <label index="tx_ptgsashop_dispatchCost.gsaDispatchTypeAbroadGross">Shop abroad (gross)</label>
+            <label index="tx_ptgsashop_orderPresentator.fixedCost">one-time fixed cost</label>
+            <label index="tx_ptgsashop_orderPresentator.paymentMethod_bt">On Account (bank transfer)</label>
+            <label index="tx_ptgsashop_orderPresentator.paymentMethod_cc">Credit Card</label>
+            <label index="tx_ptgsashop_orderPresentator.paymentMethod_dd">Direct Debit</label>
+            <label index="tx_ptgsashop_workflow.defaultApprovalButton">Approve</label>
+            <label index="tx_ptgsashop_workflow.defaultDenialButton">Deny</label>
+            <label index="tx_ptgsashop_workflow.defaultChoiceQuestion">Do you want to approve this order?</label>
+            <label index="tx_ptgsashop_workflow.logentryWorkflowApproval">Workflow status has been approved.</label>
+            <label index="tx_ptgsashop_workflow.logentryWorkflowDenial">Workflow status has been denied.</label>
+            <label index="tx_ptgsashop_workflow.logentryWorkflowAdvance">Automatic advance of the workflow status.</label>
+            <label index="tx_ptgsashop_orderProcessor.logentryWorkflowInitial">A new order workflow has been initiated.</label>
+            <label index="tx_ptgsashop_orderProcessor.logentryFinalOrder">A new (final) order has been placed.</label>
+            <label index="tx_ptgsashop_orderProcessor.orderEmailSubject">Online order [%s]</label>
+        </languageKey>
+        <languageKey index="de" type="array">
+            <label index="tx_ptgsashop_dispatchCost.gsaDispatchTypeCostFree">frei</label>
+            <label index="tx_ptgsashop_dispatchCost.gsaDispatchTypeInlandNet">Shop Inland (netto)</label>
+            <label index="tx_ptgsashop_dispatchCost.gsaDispatchTypeInlandGross">Shop Inland (brutto)</label>
+            <label index="tx_ptgsashop_dispatchCost.gsaDispatchTypeAbroadNet">Shop Ausland (netto)</label>
+            <label index="tx_ptgsashop_dispatchCost.gsaDispatchTypeAbroadGross">Shop Ausland (brutto)</label>
+            <label index="tx_ptgsashop_orderPresentator.fixedCost">einmalige Fixkosten</label>
+            <label index="tx_ptgsashop_orderPresentator.paymentMethod_bt">auf Rechnung (Banküberweisung)</label>
+            <label index="tx_ptgsashop_orderPresentator.paymentMethod_cc">Kreditkarte</label>
+            <label index="tx_ptgsashop_orderPresentator.paymentMethod_dd">Abbuchung vom Bankkonto</label>
+            <label index="tx_ptgsashop_workflow.defaultApprovalButton">Freigeben</label>
+            <label index="tx_ptgsashop_workflow.defaultDenialButton">Ablehnen</label>
+            <label index="tx_ptgsashop_workflow.defaultChoiceQuestion">Möchten Sie die Bestellung freigeben?</label>
+            <label index="tx_ptgsashop_workflow.logentryWorkflowApproval">Workflow Status wurde freigegeben.</label>
+            <label index="tx_ptgsashop_workflow.logentryWorkflowDenial">Workflow Status wurde abgelehnt.</label>
+            <label index="tx_ptgsashop_workflow.logentryWorkflowAdvance">Automatische Weiterfuehrung des Workflow Status.</label>
+            <label index="tx_ptgsashop_orderProcessor.logentryWorkflowInitial">Ein neuer Bestellungs-Workflow wurde initiiert.</label>
+            <label index="tx_ptgsashop_orderProcessor.logentryFinalOrder">Eine neue (finale) Bestellung wurde aufgegeben.</label>
+            <label index="tx_ptgsashop_orderProcessor.orderEmailSubject">Online-Bestellung [%s]</label>
+        </languageKey>
+    </data>
+</T3locallang>
