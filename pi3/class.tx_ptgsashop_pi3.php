@@ -582,7 +582,7 @@ class tx_ptgsashop_pi3 extends tslib_pibase {
         $msgBox = '';
         $ccPayment = 0;  // (boolean) flag wether Credit Card Online Payment is requested
         trace('[CMD] '.__METHOD__);
-                
+
         $msgBox = $this->checkOrderForm(); // check submitted form data
         if (!empty($msgBox)) {
             // on check failure: display form with message box
@@ -1229,7 +1229,7 @@ class tx_ptgsashop_pi3 extends tslib_pibase {
             // delivery sums
             $delArr[$i]['delDispatchCostTypeName'] = $delObj->get_dispatchObj()->get_displayName();
             $delArr[$i]['delDispatchCost'] = 
-                    tx_ptgsashop_lib::getDisplayPriceString($delObj->get_dispatchObj()->getDispatchCostForGivenSum($delObj->get_articleCollObj()->getItemsTotal($this->orderObj->get_isNet())));
+                    tx_ptgsashop_lib::getDisplayPriceString($delObj->getDeliveryDispatchCost($this->orderObj->get_isNet()));
             $delArr[$i]['delTotalSum_net'] = tx_ptgsashop_lib::getDisplayPriceString($delObj->getDeliveryTotal(1));
             $delArr[$i]['delTotalSum_gross'] = tx_ptgsashop_lib::getDisplayPriceString($delObj->getDeliveryTotal(0));
             $delArr[$i]['delTaxArr'] = array();
