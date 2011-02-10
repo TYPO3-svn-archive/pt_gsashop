@@ -499,18 +499,24 @@ class tx_ptgsashop_orderProcessor {
             $epaymentDescription = $hookObj->getEpaymentDescrHook($this);
         } 
         
-        // TODO: adapt this "old" code for pt_heidelpay, use new class tx_pttools_paymentRequestInformation (see example VR-ePay impementation below)
-        // TODO: use address object filled with shopOperator Data, see tx_ptgsashop_epaymentRequest::__construct()
-        // build epayment request object and store it into session
-        $epaymentRequest = new tx_ptgsashop_epaymentRequest(
-            $this->orderWrapperObj->get_orderObj()->getPaymentSumTotal(), 
-            $this->gsaShopConfig['currencyCode'], 
-            $this->orderWrapperObj->get_relatedDocNo(), 
-            $epaymentDescription, 
-            $this->gsaShopConfig['md5SecurityCheckSalt'], 
-            $this->orderWrapperObj->get_feCustomerObj()->getDefaultBillingAddress()  
-        );
-        $epaymentRequest->storeToSession();
+        if (($hookObj = tx_pttools_div::hookRequest($this->extKey, 'orderProcessor_hooks', 'epaymentProcessHook')) !== false) {
+            $params = array ('orderWrapperObj' => $this->orderWrapperObj,
+                             'epaymentDescription' => $epaymentDescription);
+            $hookObj->getEpaymentProcessHook($params, $this);
+        } else {
+	        // TODO: adapt this "old" code for pt_heidelpay, use new class tx_pttools_paymentRequestInformation (see example VR-ePay impementation below)
+	        // TODO: use address object filled with shopOperator Data, see tx_ptgsashop_epaymentRequest::__construct()
+	        // build epayment request object and store it into session
+	        $epaymentRequest = new tx_ptgsashop_epaymentRequest(
+	            $this->orderWrapperObj->get_orderObj()->getPaymentSumTotal(), 
+	            $this->gsaShopConfig['currencyCode'], 
+	            $this->orderWrapperObj->get_relatedDocNo(), 
+	            $epaymentDescription, 
+	            $this->gsaShopConfig['md5SecurityCheckSalt'], 
+	            $this->orderWrapperObj->get_feCustomerObj()->getDefaultBillingAddress()  
+	        );
+	        $epaymentRequest->storeToSession();
+        }
         
         /*
         // TODO: new implementation for VR-ePay: test this and implement pt_vrepay finally
