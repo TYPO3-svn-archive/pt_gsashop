@@ -437,20 +437,23 @@ class tx_ptgsashop_orderAccessor implements tx_pttools_iSingleton {
     /**
      * Inserts a new dispatch cost record related to a specified delivery record of an archived order into the TYPO3 order archive database
      *
-     * @param   tx_ptgsashop_dispatchCost      object of type tx_ptgsashop_dispatchCost containing the data to insert
+     * @param   tx_ptgsashop_delivery      object of type tx_ptgsashop_delivery containing dispatchObj to insert
      * @param   integer     ID of the TYPO3 page initiating this insert
      * @param   integer     ID of the TYPO3 FE user initiating this insert
      * @param   integer     ID of the related order record in the TYPO3 order archive database
      * @param   integer     ID of the related delivery record in the TYPO3 order archive database
      * @param   double      total sum of the articles to calculate the dispatch cost for
+     * @param   boolean     flag wether the dispatch cost should be inserted as net price: 0=gross sum, 1=net sum
      * @return  integer     ID of the inserted record
      * @throws  tx_pttools_exception   if the query fails/returns false
      * @author  Rainer Kuhn <kuhn@punkt.de>
      * @since   2006-08-29 
      */
-    public function insertOrdersDispatchCost(tx_ptgsashop_dispatchCost $dispatchObj, $pid, $feUserId, $orderRecordId, $deliveryRecordId, $articlesSumTotal) {
+    public function insertOrdersDispatchCost(tx_ptgsashop_delivery $delObj, $pid, $feUserId, $orderRecordId, $deliveryRecordId, $getNetSum) {
         
         $insertFieldsArr = array();
+        
+        $dispatchObj = $delObj->get_dispatchObj();
         
         // query preparation
         $table = 'tx_ptgsashop_orders_dispatchcost';
@@ -471,7 +474,7 @@ class tx_ptgsashop_orderAccessor implements tx_pttools_iSingleton {
         $insertFieldsArr['allowance_comp_4']= $dispatchObj->get_allowanceComp4();
         $insertFieldsArr['cost_tax_code']   = $dispatchObj->get_costTaxCode();
         $insertFieldsArr['tax_percentage']  = $dispatchObj->getTaxRate();
-        $insertFieldsArr['dispatch_cost']   = $dispatchObj->getDispatchCostForGivenSum($articlesSumTotal);
+        $insertFieldsArr['dispatch_cost']   = $delObj->getDeliveryDispatchCost($getNetSum);
         
         // exec query using TYPO3 DB API
         $res = $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $insertFieldsArr);
@@ -489,19 +492,19 @@ class tx_ptgsashop_orderAccessor implements tx_pttools_iSingleton {
     /**
      * Updates an order related dispatch cost record in the TYPO3 order archive database
      * 
-     * @param   tx_ptgsashop_dispatchCost      updated dispatch cost to use its data, object of type tx_ptgsashop_dispatchCost
+     * @param   tx_ptgsashop_delivery      updated delivery to use its data, object of type tx_ptgsashop_deleivery
      * @param   integer     ID of the related order record in the TYPO3 order archive database (used in combination with $gsaArticleId)
-     * @param   integer     ID of the related delivery record in the TYPO3 order archive database
-     * @param   double      total sum of the articles to calculate the dispatch cost for
+     * @param   boolean     flag wether the dispatch cost should be inserted as net price: 0=gross sum, 1=net sum
      * @return  boolean     TRUE on success or FALSE on error
      * @throws  tx_pttools_exception   if the query fails/returns false
      * @author  Fabrizio Branca <branca@punkt.de>
      * @since   2007-04
      */
-    public function updateOrdersDispatchCost(tx_ptgsashop_dispatchCost $dispatchObj, $orderRecordId, $deliveryRecordId, $articlesSumTotal) {
+    public function updateOrdersDispatchCost(tx_ptgsashop_delivery $delObj, $orderRecordId,$getNetSum) {
         
         $updateFieldsArr = array();
         
+        $dispatchObj = $delObj->get_dispatchObj();
         // query preparation
         $table = 'tx_ptgsashop_orders_dispatchcost';
         
@@ -517,10 +520,10 @@ class tx_ptgsashop_orderAccessor implements tx_pttools_iSingleton {
         $updateFieldsArr['allowance_comp_4']= $dispatchObj->get_allowanceComp4();
         $updateFieldsArr['cost_tax_code']   = $dispatchObj->get_costTaxCode();
         $updateFieldsArr['tax_percentage']  = $dispatchObj->getTaxRate();
-        $updateFieldsArr['dispatch_cost']   = $dispatchObj->getDispatchCostForGivenSum($articlesSumTotal);
+        $updateFieldsArr['dispatch_cost']   = $delObj->getDeliveryDispatchCost($getNetSum);
         
         $where =  'orders_id = '.intval($orderRecordId).' '.
-                  'AND deliveries_id = '.intval($deliveryRecordId);
+                  'AND deliveries_id = '.intval($delObj->get_orderArchiveId());
         
         // exec query using TYPO3 DB API
         $res = $GLOBALS['TYPO3_DB']->exec_UPDATEquery($table, $where, $updateFieldsArr);
