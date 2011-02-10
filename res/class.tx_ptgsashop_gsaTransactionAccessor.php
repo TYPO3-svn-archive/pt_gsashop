@@ -250,7 +250,7 @@ class tx_ptgsashop_gsaTransactionAccessor extends tx_ptgsasocket_gsaDbAccessor i
         
         // retrieve required additional GSA database data
         $tmpDataArr['gsaArticleDataArr'] = tx_ptgsashop_articleAccessor::getInstance()->selectCompleteArticleData($articleObj->get_id());
-            #### TODO: this is a temporary solution - wenn Bedeutung/Funktion der einz. GSA-Artikel-Eigenschaften geklärt ist und diese korrekt verwendet werden, diese hier nicht mehr aus DB lesen, sondern aus Artikel-Properties!
+            #### TODO: this is a temporary solution - wenn Bedeutung/Funktion der einz. GSA-Artikel-Eigenschaften geklï¿½rt ist und diese korrekt verwendet werden, diese hier nicht mehr aus DB lesen, sondern aus Artikel-Properties!
         
         
         // case differentiation for different parent document types
@@ -342,6 +342,7 @@ class tx_ptgsashop_gsaTransactionAccessor extends tx_ptgsasocket_gsaDbAccessor i
         if ($this->charsetConvEnabled == 1) {
             $insertFieldsArr = tx_pttools_div::iconvArray($insertFieldsArr, $this->siteCharset, $this->gsaCharset);
         }
+       
         
         // exec query using TYPO3 DB API
         $res = $this->gsaDbObj->exec_INSERTquery($table, $insertFieldsArr);
@@ -355,7 +356,7 @@ class tx_ptgsashop_gsaTransactionAccessor extends tx_ptgsasocket_gsaDbAccessor i
     }
      
     /**
-     * Inserts a data carrier exchange (ERP: "DTA/Datenträgeraustausch") record into the GSA DB table 'px_DTABUCH' and returns the inserted record's UID.
+     * Inserts a data carrier exchange (ERP: "DTA/Datentrï¿½geraustausch") record into the GSA DB table 'px_DTABUCH' and returns the inserted record's UID.
      * 
      * This method requires the database structure of paradox file 'DTABUCH.DB' to be imported into GSA MySQL-DB as 'px_DTABUCH'. This may be done e.g. by importing the MySQL dump pt_gsasocket/res/sql/px_DTABUCH.sql.
      * 
@@ -578,7 +579,7 @@ class tx_ptgsashop_gsaTransactionAccessor extends tx_ptgsasocket_gsaDbAccessor i
      * Inserts a transaction document record into the GSA DB-table 'FSCHRIFT' and returns the inserted record's UID - this requires all data to be inserted passed in an array with array keys exactly like the GSA FSCHRIFT database table field names (except 'NUMMER', 'OPNUMMER', 'AUFNR')
      * 
      * @param   array       all data to be inserted, prepared in an array with array keys exactly like the GSA FSCHRIFT database table field names (except 'NUMMER', 'OPNUMMER' and 'AUFNR' which will be created within this method)
-     * @param   string      GSA transaction document type abbreviation (e.g. 'RE' for "Rechnung" (=invoice), 'AU' for "Auftragsbestätigung" (=order confirmation), ...)
+     * @param   string      GSA transaction document type abbreviation (e.g. 'RE' for "Rechnung" (=invoice), 'AU' for "Auftragsbestï¿½tigung" (=order confirmation), ...)
      * @return  integer     UID of the inserted record ('FSCHRIFT.NUMMER') 
      * @throws  tx_pttools_exception   if the first param containing the data to insert is not a valid array
      * @throws  tx_pttools_exception   if the query fails/returns false

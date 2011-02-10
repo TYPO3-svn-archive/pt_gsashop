@@ -75,6 +75,13 @@ abstract class tx_ptgsashop_baseArticle {
     protected $priceCalcQty;    // (integer) "virtual" total purchase quantity of the article to be used for price calculation (e.g. in complete oder)
     protected $priceCategory;   // (integer) n=1-5: number of retail price category to use for the requested article (relates to GSA: VKPREIS.PR0n)
     protected $orderArchiveNetPrice = NULL; // (mixed: NULL or double) This is set as double for restored and non-updated articles from the order archive only, NULL otherwise
+    
+    /**
+     * Order Archive UID after saving or restoring from order archive datatable
+     * @var int
+     */
+    protected $orderArchiveUid = 0;
+    
     protected $date;            // (string) date of the article request (date string format: YYYY-MM-DD)
     protected $imageFlag;       // (boolean) flag whether the article's image is needed
     
@@ -234,10 +241,10 @@ abstract class tx_ptgsashop_baseArticle {
      * @since   2007-04
      */
     public function loadFromOrderArchive($uid) {
-
+    	
         $orderAccessor = tx_ptgsashop_orderAccessor::getInstance();
         $articleDataArr = $orderAccessor->selectOrdersArticle($uid);
-
+        $this->orderArchiveUid =(integer)$uid;
         $this->id =             (integer)$articleDataArr['gsa_id_artikel'];
         $this->quantity =       (integer)$articleDataArr['quantity'];
         $this->priceCalcQty =   (integer)$articleDataArr['price_calc_qty'];
@@ -1100,6 +1107,14 @@ abstract class tx_ptgsashop_baseArticle {
     }
     
     /**
+     * @return int uid of this article in the order archive article table
+     * @author Daniel Lienert <lienert@punkt.de>
+     */
+    public function get_orderArchiveUid() {
+    	return $this->orderArchiveUid;
+    }
+    
+    /**
      * Returns the property value
      *
      * @param   void
@@ -1839,6 +1854,14 @@ abstract class tx_ptgsashop_baseArticle {
      */
     public function set_altText($altText) {
         $this->altText = (string) $altText;
+    }
+    
+    /**
+     * @param $uid int  
+     * @return void
+     */
+    public function set_orderArchiveUid($orderArchiveUid) {
+    	$this->orderArchiveUid = (int) $orderArchiveUid;
     }
     
     /**

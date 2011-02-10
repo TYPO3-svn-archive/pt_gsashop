@@ -595,6 +595,16 @@ class tx_ptgsashop_pi3 extends tslib_pibase {
         $this->orderObj->set_withdrawalAccepted(true);
         $ccPayment = ($this->piVars['overview_payment'] == 'cc' ? 1 : 0);  // (boolean) flag wether Credit Card Online Payment is requested
         
+        
+        // TODO: set payment type into the paymentMethod object from this->orderObject
+        if($ccPayment) {
+	        $paymentMethod = $this->orderObj->get_paymentMethodObj();
+	        $paymentMethod->set_method('cc');
+        }
+        
+        
+        
+        
         // HOOK for alternative order processing after the "order now" button has been pressed
         if (($hookObj = tx_pttools_div::hookRequest($this->extKey, 'pi3_hooks', 'processOrderSubmission')) !== false) {
             // use hook method if hook has been found

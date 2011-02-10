@@ -363,6 +363,8 @@ class tx_ptgsashop_orderAccessor implements tx_pttools_iSingleton {
         }
         $lastInsertedId = $GLOBALS['TYPO3_DB']->sql_insert_id();
         
+        $articleObj->set_orderArchiveUid($lastInsertedId);
+        
         trace($lastInsertedId);
         return $lastInsertedId;
         
