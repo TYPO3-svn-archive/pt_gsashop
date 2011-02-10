@@ -216,7 +216,7 @@ class tx_ptgsashop_orderPresentator {
                         ).
                         "     ".sprintf("%'.-41s", substr("(".$articleObj->get_artNo().")", 0, 41))."  ".
                         sprintf("%4.1f", $articleObj->getTaxRate())."  ". // article taxrate
-                        sprintf("%8.2f", tx_ptgsashop_lib::getDisplayPriceString($articleObj->getDisplayPrice($this->orderObj->get_isNet())))."  ". // article price
+                        sprintf("%8.2f", $articleObj->getDisplayPrice($this->orderObj->get_isNet()))."  ". // article price
                         sprintf("%8.2f", $articleObj->getItemSubtotal($this->orderObj->get_isNet()))."\n"; // article subtotal
                 }
              
