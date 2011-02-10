@@ -298,13 +298,13 @@ class tx_ptgsashop_dispatchCost {
      * @author  Rainer Kuhn <kuhn@punkt.de>
      * @since   2005-08-02
      */
-    public function getDispatchCostTax($articlesSumTotal, $dispatchCostIsNet, $isTaxFreeOrder=0) {
+    public function getDispatchCostTax($dispatchCost, $dispatchCostIsNet, $isTaxFreeOrder=0) {
         
         $dispatchCostTax = 0.00; // (double)
         
         if ((boolean)$isTaxFreeOrder != 1) {
             
-            $dispatchCost = $this->getDispatchCostForGivenSum($articlesSumTotal);
+            #$dispatchCost = $this->getDispatchCostForGivenSum($articlesSumTotal);
             
             if ($dispatchCostIsNet == 1) {
                 $dispatchCostTax = tx_pttools_finance::getTaxCostFromNet($dispatchCost, $this->getTaxRate());
