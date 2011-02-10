@@ -255,7 +255,7 @@ class tx_ptgsashop_order {
                 
             // insert delivery's dispatch cost record
             $artSumTotalArr[$delKey] = $delObj->get_articleCollObj()->getItemsTotal($this->get_isNet());
-            $orderAccessor->insertOrdersDispatchCost($delObj->get_dispatchObj(), $pid, $this->feCrUserId, $this->orderArchiveId, $delRecordIdArr[$delKey], $artSumTotalArr[$delKey]);
+            $orderAccessor->insertOrdersDispatchCost($delObj, $pid, $this->feCrUserId, $this->orderArchiveId, $delRecordIdArr[$delKey], $this->get_isNet());
             
             // insert delivery's article records
             foreach ($delObj->get_articleCollObj() as $articleObj) {
@@ -323,8 +323,7 @@ class tx_ptgsashop_order {
             $orderAccessor->updateOrdersAddress($delObj->get_shippingAddrObj(), $this->orderArchiveId, $delObj->get_orderArchiveId());
                 
             // update delivery's dispatch cost record
-            $deliveryArticlesSumTotal = $delObj->get_articleCollObj()->getItemsTotal($this->get_isNet());
-            $orderAccessor->updateOrdersDispatchCost($delObj->get_dispatchObj(), $this->orderArchiveId, $delObj->get_orderArchiveId(), $deliveryArticlesSumTotal);
+            $orderAccessor->updateOrdersDispatchCost($delObj, $this->orderArchiveId, $this->get_isNet());
             
             // update delivery's article records
             foreach ($delObj->get_articleCollObj() as $articleObj) {
@@ -574,7 +573,6 @@ class tx_ptgsashop_order {
         
         // round return sum to 2 decimal digits 
         $dispatchSumTotalRounded = round((double)$dispatchSumTotal, 2);
-        
         return (double)$dispatchSumTotalRounded;
         
     }
