@@ -304,8 +304,6 @@ class tx_ptgsashop_dispatchCost {
         
         if ((boolean)$isTaxFreeOrder != 1) {
             
-            #$dispatchCost = $this->getDispatchCostForGivenSum($articlesSumTotal);
-            
             if ($dispatchCostIsNet == 1) {
                 $dispatchCostTax = tx_pttools_finance::getTaxCostFromNet($dispatchCost, $this->getTaxRate());
             } else {
