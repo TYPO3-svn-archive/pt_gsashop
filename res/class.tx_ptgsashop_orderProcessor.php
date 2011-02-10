@@ -349,7 +349,7 @@ class tx_ptgsashop_orderProcessor {
                 t3lib_div::callUserFunction($funcName, $params, $this, '');
                 if (TYPO3_DLOG) t3lib_div::devLog(sprintf('Processing hook "%s" for "fixFinalOrderHook"', $funcName), $this->extKey, 1, array('params' => $params));
             }
-        }   
+        }
     }
     
     /**
@@ -556,6 +556,18 @@ class tx_ptgsashop_orderProcessor {
         
         $this->orderWrapperObj = $orderWrapperObj;
         
+    }
+    
+    /**
+     * Returns the property value
+     *
+     * @param   void   
+     * @return  array    property value  
+     * @author  Dorit Rottner <rottner@punkt.de>
+     * @since   2010-07-16
+     */
+    public function get_llArray() {
+        return $this->llArray;
     }
     
     /**
