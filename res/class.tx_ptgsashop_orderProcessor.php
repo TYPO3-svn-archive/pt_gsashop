@@ -461,17 +461,17 @@ class tx_ptgsashop_orderProcessor {
         tx_pttools_assert::isInstanceOf($GLOBALS['TSFE']->cObj, 'tslib_cObj');
         
         $redirectTarget = $GLOBALS['TSFE']->cObj->getTypoLink_URL($this->gsaShopConfig['orderConfirmPage']);
-            
         // HOOK: allow alternative orderConfirmPage
         if (isset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$this->extKey]['orderProcessor_hooks']['redirectToConfirmationPageHook'])) {
             $funcName = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$this->extKey]['orderProcessor_hooks']['redirectToConfirmationPageHook'];  // TODO: changelog, former hook name was ['pi3_hooks]['processOrderSubmission_alternativeOrderConfirmPage']
             $params = array(
-                'redirectTarget' => $redirectTarget
+                'redirectTarget' => $redirectTarget,
+                'orderWrapperObj' => $this->orderWrapperObj
             );
             $redirectTarget = t3lib_div::callUserFunction($funcName, $params, $this, '');
+            
             if (TYPO3_DLOG) t3lib_div::devLog(sprintf('Processing hook "%s" for "alternativeOrderConfirmPage"', $funcName), $this->extKey, 1, array('params'=>$params, 'return'=>$redirectTarget));
         }
-        
         tx_pttools_div::localRedirect($redirectTarget);
         
         throw new tx_pttools_exception ('Page redirection error');  // fallback if redirect fails
@@ -498,13 +498,14 @@ class tx_ptgsashop_orderProcessor {
         if (($hookObj = tx_pttools_div::hookRequest($this->extKey, 'orderProcessor_hooks', 'getEpaymentDescrHook')) !== false) {   // TODO: changelog, former hook name was ['pi3_hooks]['getEpaymentDescrHook']
             $epaymentDescription = $hookObj->getEpaymentDescrHook($this);
         } 
-        
-        if (($hookObj = tx_pttools_div::hookRequest($this->extKey, 'orderProcessor_hooks', 'epaymentProcessHook')) !== false) {
+        if (isset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$this->extKey]['orderProcessor_hooks']['epaymentProcessHook'])) {
+            $funcName = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$this->extKey]['orderProcessor_hooks']['epaymentProcessHook'];  // TODO: changelog, former hook name was ['pi3_hooks]['processOrderSubmission_alternativeOrderConfirmPage']
             $params = array ('orderWrapperObj' => $this->orderWrapperObj,
                              'epaymentDescription' => $epaymentDescription);
-            $hookObj->getEpaymentProcessHook($params, $this);
+                        $redirectTarget = t3lib_div::callUserFunction($funcName, $params, $this, '');
+            if (TYPO3_DLOG) t3lib_div::devLog(sprintf('Processing hook "%s" for "alternativeOrderConfirmPage"', $funcName), $this->extKey, 1, array('params'=>$params, 'return'=>$redirectTarget));
         } else {
-	        // TODO: adapt this "old" code for pt_heidelpay, use new class tx_pttools_paymentRequestInformation (see example VR-ePay impementation below)
+        	// TODO: adapt this "old" code for pt_heidelpay, use new class tx_pttools_paymentRequestInformation (see example VR-ePay impementation below)
 	        // TODO: use address object filled with shopOperator Data, see tx_ptgsashop_epaymentRequest::__construct()
 	        // build epayment request object and store it into session
 	        $epaymentRequest = new tx_ptgsashop_epaymentRequest(
@@ -517,7 +518,6 @@ class tx_ptgsashop_orderProcessor {
 	        );
 	        $epaymentRequest->storeToSession();
         }
-        
         /*
         // TODO: new implementation for VR-ePay: test this and implement pt_vrepay finally
         $epaymentRequestDataArray = array(
