@@ -387,6 +387,8 @@ plugin.tx_ptgsashop {
     # cat=pt_gsashop::cartbox/others/050; type=boolean; label=CartBox clear cart display: Flag whether the cart box plugin (pi7) should display a clear cart button.
     cartboxDisplayClearCartButton = 1
   
+    # cat=pt_gsashop::cartbox/others/060; type=boolean; label=CartBox display only if not empty: Flag whether the cart box plugin (pi7) should displayed only if the cart is not empty.
+    cartboxDisplayOnlyIfNotEmpty = 0
   
     
   // ***** WORKFLOW SETTINGS *****

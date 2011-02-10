@@ -221,10 +221,14 @@ class tx_ptgsashop_pi7 extends tslib_pibase {
      */
     protected function exec_defaultAction() {
         
-        $content = '';
         trace('[CMD] '.__METHOD__);
         
-        $content .= $this->displayCartBox();
+        if ($this->conf['cartboxDisplayOnlyIfNotEmpty'] && $this->cartObj->count()==0) { 
+            $content = '';
+        } else {
+            $content .= $this->displayCartBox();
+        }
+        
         return $content;
         
     }

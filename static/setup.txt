@@ -229,6 +229,7 @@ plugin.tx_ptgsashop_pi7 {
     cartboxDisplayCartSum = {$plugin.tx_ptgsashop.cartboxDisplayCartSum}
     cartboxDisplayClearCartButton = {$plugin.tx_ptgsashop.cartboxDisplayClearCartButton}
     cartboxUseImageHeader = {$plugin.tx_ptgsashop.cartboxUseImageHeader}
+    cartboxDisplayOnlyIfNotEmpty = {$plugin.tx_ptgsashop.cartboxDisplayOnlyIfNotEmpty}
     
     templateFileCartBox = {$plugin.tx_ptgsashop.templateFileCartBox}
     
