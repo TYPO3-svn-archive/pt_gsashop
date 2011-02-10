@@ -262,11 +262,17 @@ class tx_ptgsashop_delivery {
         }
          
         trace($deliveryDispatchCost, 0, 'getDeliveryDispatchCost($getNetSum='.$getNetSum.')');
+
+        // HOOK for changing the deliveryDispatchCost to return
+        if (($hookObj = tx_pttools_div::hookRequest('pt_gsashop', 'delivery_hooks', 'getDeliveryDispatchCost')) !== false) {
+            $deliveryDispatchCostBeforeHooking = $deliveryDispatchCost;
+            $deliveryDispatchCost = $hookObj->getDeliveryDispatchCost($this, $getNetSum, $deliveryDispatchCostBeforeHooking); // use hook method if hook has been found
+        }
         return $deliveryDispatchCost;
         
     }
     
-    /**  ##### TODO: maybe shorten this method by using new method getDeliveryDispatchCost() #####
+    /**  
      * Returns total price sum of the delivery including all items found in the article collection AND dispatch cost
      *
      * @param   boolean     flag wether the sum should be returned as net sum: 0=return gross sum, 1=return net sum
@@ -277,7 +283,9 @@ class tx_ptgsashop_delivery {
     public function getDeliveryTotal($getNetSum) { 
         
         // get tax rate for dispatch cost
-        $dispatchCostTaxRate = $this->dispatchObj->getTaxRate();
+        #$dispatchCostTaxRate = $this->dispatchObj->getTaxRate();
+        
+        $dispatchCost = $this->getDeliveryDispatchCost($getNetSum);
         
         // override getNetSum request parameter (set to true) if order is tax free (=always net)
         if ($this->orderBaseIsTaxFree == 1) {
@@ -287,48 +295,36 @@ class tx_ptgsashop_delivery {
         // case: current is order is net price based
         if ($this->orderBaseIsNet == 1) {
             
-            $articlesTotalNet = $this->articleCollObj->getItemsTotal(1);
-            $dispatchCostForNetOrder = $this->dispatchObj->getDispatchCostForGivenSum($articlesTotalNet);
-            
             // if net total sum is requested
             if ($getNetSum  == 1) {
                 // float operations may lead to precision problems (see www.php.net/float), using bcmath instead: this requires PHP to be configured with  '--enable-bcmath'
-                $deliveryTotal = bcadd($articlesTotalNet, $dispatchCostForNetOrder, 4);
-                // original calculation: $deliveryTotal = $articlesTotalNet + $dispatchCostForNetOrder;
+                $articlesTotal = $this->articleCollObj->getItemsTotal(1);
             
             // if gross total sum is requested    
             } else {
-                $articlesTotalGross = $this->articleCollObj->getItemsTotal(0);
-                // float operations may lead to precision problems (see www.php.net/float), using bcmath instead: this requires PHP to be configured with  '--enable-bcmath'
-                $deliveryTotal = bcadd($articlesTotalGross, tx_pttools_finance::getGrossPriceFromNet($dispatchCostForNetOrder, $dispatchCostTaxRate), 4);
-                    // original calculation: $deliveryTotal = $articlesTotalGross + tx_pttools_finance::getGrossPriceFromNet($dispatchCostForNetOrder, $dispatchCostTaxRate);
+                $articlesTotal = $this->articleCollObj->getItemsTotal(0);
             }
         
         // case: current is order is gross price based
         } else {
             
-            $articlesTotalGross = $this->articleCollObj->getItemsTotal(0);
-            $dispatchCostForGrossOrder = $this->dispatchObj->getDispatchCostForGivenSum($articlesTotalGross);
+            $articlesTotal = $this->articleCollObj->getItemsTotal(0);
             
             // if gross total sum is requested    
             if ($getNetSum  == 0) {
-                // float operations may lead to precision problems (see www.php.net/float), using bcmath instead: this requires PHP to be configured with  '--enable-bcmath'
-                $deliveryTotal = bcadd($articlesTotalGross, $dispatchCostForGrossOrder, 4);
-                    // original calculation: $deliveryTotal = $articlesTotalGross + $dispatchCostForGrossOrder;
+                $articlesTotal = $this->articleCollObj->getItemsTotal(0);
                     
             // if net total sum is requested    
             } else {
-                $articlesTotalNet = $this->articleCollObj->getItemsTotal(1);
-                // float operations may lead to precision problems (see www.php.net/float), using bcmath instead: this requires PHP to be configured with  '--enable-bcmath'
-                $deliveryTotal = bcadd($articlesTotalNet, tx_pttools_finance::getNetPriceFromGross($dispatchCostForGrossOrder, $dispatchCostTaxRate), 4);
-                    // original calculation: $deliveryTotal = $articlesTotalNet + tx_pttools_finance::getNetPriceFromGross($dispatchCostForGrossOrder, $dispatchCostTaxRate);
+                $articlesTotal = $this->articleCollObj->getItemsTotal(1);
             }
             
         }
-        
+        $deliveryTotal = bcadd($articlesTotal,$dispatchCost,4);
         // round total sum _down_ to 2 decimal digits 
         $deliveryTotalRounded = tx_pttools_finance::roundDownTwoDecimalPlaces((double)$deliveryTotal, 2);
-        
+        trace($dispatchCost, 0, '$dispatchCost');
+        trace($deliveryTotal, 0, 'deliveryTotal');
         trace($deliveryTotalRounded, 0, 'getDeliveryTotal($getNetSum='.$getNetSum.')');
         return $deliveryTotalRounded;
         
@@ -345,8 +341,7 @@ class tx_ptgsashop_delivery {
     public function getDeliveryTaxTotal() { 
         
         $itemsTaxTotal = $this->articleCollObj->getItemsTaxTotal($this->orderBaseIsTaxFree);
-        $itemsSumTotal = $this->articleCollObj->getItemsTotal($this->orderBaseIsNet);
-        $dispatchCostTax = $this->dispatchObj->getDispatchCostTax($itemsSumTotal, $this->orderBaseIsNet, $this->orderBaseIsTaxFree);
+        $dispatchCostTax = $this->dispatchObj->getDispatchCostTax($this->getDeliveryDispatchCost($this->orderBaseIsNet), $this->orderBaseIsNet, $this->orderBaseIsTaxFree);
         
         // float operations may lead to precision problems (see www.php.net/float), using bcmath instead: this requires PHP to be configured with  '--enable-bcmath'
         $deliveryTaxTotal = bcadd($itemsTaxTotal, $dispatchCostTax, 4);
@@ -371,8 +366,9 @@ class tx_ptgsashop_delivery {
     public function getDeliveryTaxTotalArray() {
         
         $deliveryTaxTotalArr = $this->articleCollObj->getItemsTaxTotalArray($this->orderBaseIsTaxFree);
-        $itemsSumTotal = $this->articleCollObj->getItemsTotal($this->orderBaseIsNet);
-        $dispatchCostTax = $this->dispatchObj->getDispatchCostTax($itemsSumTotal, $this->orderBaseIsNet, $this->orderBaseIsTaxFree);
+        $dispatchCostTax = $this->dispatchObj->getDispatchCostTax($this->getDeliveryDispatchCost($this->orderBaseIsNet), $this->orderBaseIsNet, $this->orderBaseIsTaxFree);
+        trace($dispatchCostTax, 0, '$deliveryCostTax');
+        
         
         // float operations may lead to precision problems (see www.php.net/float), using bcmath instead: this requires PHP to be configured with  '--enable-bcmath'
         $deliveryTaxTotalArr[$this->dispatchObj->get_costTaxCode()] = (double)bcadd($deliveryTaxTotalArr[$this->dispatchObj->get_costTaxCode()], $dispatchCostTax, 4);
