@@ -868,7 +868,7 @@ class tx_ptgsashop_pi4 extends tslib_pibase {
             // delivery sums
             $delArr[$i]['delDispatchCostTypeName'] = $delObj->get_dispatchObj()->get_displayName();
             $delArr[$i]['delDispatchCost'] = 
-                    tx_ptgsashop_lib::getDisplayPriceString($delObj->get_dispatchObj()->getDispatchCostForGivenSum($delObj->get_articleCollObj()->getItemsTotal($orderObj->get_isNet())));
+                    tx_ptgsashop_lib::getDisplayPriceString($delObj->getDeliveryDispatchCost($orderObj->get_isNet()));
             $delArr[$i]['delTotalSum'] = 
                     tx_ptgsashop_lib::getDisplayPriceString($delObj->getDeliveryTotal($orderObj->get_isNet()));
                     
