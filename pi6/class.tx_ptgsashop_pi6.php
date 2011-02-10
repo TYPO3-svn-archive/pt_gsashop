@@ -157,7 +157,13 @@ class tx_ptgsashop_pi6 extends tslib_pibase {
             
             // ********** SET PLUGIN-OBJECT PROPERTIES **********
             
-            $this->epaymentReturnObj = new tx_ptgsashop_epaymentReturn($this->conf['md5SecurityCheckSalt']);
+            if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['pt_gsashop']['pi6_hooks']['exec_epaymentStartHook'])) {
+                foreach($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['pt_gsashop']['pi6_hooks']['exec_epaymentStartHook'] as $className) {
+                    $hookObj = &t3lib_div::getUserObj($className); // returns an object instance from the given class name
+                    $hookObj->exec_epaymentStartHook($this);
+                }
+            }
+        	$this->epaymentReturnObj = new tx_ptgsashop_epaymentReturn($this->conf['md5SecurityCheckSalt']);
             
             
             // ********** CONTROLLER: execute approriate method for any action command (retrieved form buttons/GET vars) **********
