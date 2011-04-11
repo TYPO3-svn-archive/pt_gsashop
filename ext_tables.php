@@ -32,18 +32,25 @@ t3lib_extMgm::addStaticFile($_EXTKEY,'static/pt_mail_config/','GSA Shop: pt_mail
 
 
 // add folder type and icon
-$ICON_TYPES['gsacache'] = array('icon' => t3lib_extMgm::extRelPath($_EXTKEY).'res/img/icon_tx_ptgsashop_sysfolder_articles.png');
+if (t3lib_div::compat_version('4.4')) {
+	t3lib_SpriteManager::addTcaTypeIcon('pages', 'contains-news', '../typo3conf/ext/tt_news/ext_icon_ttnews_folder.gif');
+	t3lib_SpriteManager::addTcaTypeIcon('pages', 'contains-gsacache', '../typo3conf/ext/pt_gsashop/res/img/icon_tx_ptgsashop_sysfolder_articles.png');
+	t3lib_SpriteManager::addTcaTypeIcon('pages', 'contains-gsaorders', '../typo3conf/ext/pt_gsashop/res/img/icon_tx_ptgsashop_sysfolder_orders.png');
+	t3lib_SpriteManager::addTcaTypeIcon('pages', 'contains-gsaimg', '../typo3conf/ext/pt_gsashop/res/img/icon_tx_ptgsashop_sysfolder_article_images.png');
+	t3lib_SpriteManager::addTcaTypeIcon('pages', 'contains-fe_users', '../typo3conf/ext/pt_gsashop/res/img/icon_tx_ptgsashop_sysfolder_feusers.png');
+	t3lib_SpriteManager::addTcaTypeIcon('pages', 'contains-shop', '../typo3conf/ext/pt_gsashop/res/img/icon_tx_ptgsashop_sysfolder_shop.png');
+} else {
+	$ICON_TYPES['gsacache'] = array('icon' => t3lib_extMgm::extRelPath($_EXTKEY).'res/img/icon_tx_ptgsashop_sysfolder_articles.png');
+	$ICON_TYPES['gsaorders'] = array('icon' => t3lib_extMgm::extRelPath($_EXTKEY).'res/img/icon_tx_ptgsashop_sysfolder_orders.png');
+	$ICON_TYPES['gsaimg'] = array('icon' => t3lib_extMgm::extRelPath($_EXTKEY).'res/img/icon_tx_ptgsashop_sysfolder_article_images.png') ;
+	$ICON_TYPES['fe_users'] = array('icon' => t3lib_extMgm::extRelPath($_EXTKEY).'res/img/icon_tx_ptgsashop_sysfolder_feusers.png');
+	$ICON_TYPES['shop'] = array('icon' => t3lib_extMgm::extRelPath($_EXTKEY).'res/img/icon_tx_ptgsashop_sysfolder_shop.png');
+}
 $TCA['pages']['columns']['module']['config']['items'][] = array('LLL:EXT:pt_gsashop/locallang_db:pages.tx_ptgsashop_gsacache', 'gsacache');
-
-$ICON_TYPES['gsaorders'] = array('icon' => t3lib_extMgm::extRelPath($_EXTKEY).'res/img/icon_tx_ptgsashop_sysfolder_orders.png');
 $TCA['pages']['columns']['module']['config']['items'][] = array('LLL:EXT:pt_gsashop/locallang_db:pages.tx_ptgsashop_gsaorders', 'gsaorders');
-
-$ICON_TYPES['gsaimg'] = array('icon' => t3lib_extMgm::extRelPath($_EXTKEY).'res/img/icon_tx_ptgsashop_sysfolder_article_images.png');
 $TCA['pages']['columns']['module']['config']['items'][] = array('LLL:EXT:pt_gsashop/locallang_db:pages.tx_ptgsashop_gsaimg', 'gsaimg');
 
 // predefined in the TYPO3 Core, but without any icons by default
-$ICON_TYPES['fe_users'] = array('icon' => t3lib_extMgm::extRelPath($_EXTKEY).'res/img/icon_tx_ptgsashop_sysfolder_feusers.png');
-$ICON_TYPES['shop'] = array('icon' => t3lib_extMgm::extRelPath($_EXTKEY).'res/img/icon_tx_ptgsashop_sysfolder_shop.png');
 
 
 
@@ -409,7 +416,7 @@ $TCA['tx_ptgsashop_cache_articles'] = array(
         ),
 		'typeicon_column' => 'gsadb_passiv',
 		'typeicons' => Array (
-			'1' => t3lib_extMgm::extRelPath($_EXTKEY).'res/img/icon_tx_ptgsashop_cache_articles_passive.png', 
+			'1' => t3lib_extMgm::extRelPath($_EXTKEY).'res/img/icon_tx_ptgsashop_cache_articles_passive.png',
 		),
         'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY).'tca.php',
         'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY).'res/img/icon_tx_ptgsashop_cache_articles.png',
