@@ -17,7 +17,7 @@
             <label index="overview_sum_total">Sum total</label>
             <label index="overview_service_charge">Service charge</label>
             <label index="overview_order_details">Details of your order</label>
-            <label index="overview_order_button">ORDER NOW!</label>
+            <label index="overview_order_button">BUY NOW!</label>
             <label index="overview_multdel_button_prefix">Do you want to</label>
             <label index="overview_multdel_button">Distribute the order to multiple delivery addresses</label>
             <label index="overview_multdel_button_suffix">?</label>
@@ -106,7 +106,7 @@
             <label index="overview_service_charge">Versandkosten-Pauschale</label>
             <label index="overview_payment_sum_total">Zahlungsbetrag</label>
             <label index="overview_order_details">Ihre Bestellung im Überblick</label>
-            <label index="overview_order_button">JETZT BESTELLEN!</label>
+            <label index="overview_order_button">JETZT KAUFEN!</label>
             <label index="overview_multdel_button_prefix">Möchten Sie die</label>
             <label index="overview_multdel_button">Bestellung an mehrere Lieferadressen versenden</label>
             <label index="overview_multdel_button_suffix">?</label>
